@@ -9,6 +9,7 @@ yarn-error.log*
 
 .DS_Store/
 .idea/
+.sass_cache
 
 # Runtime data
 pids
