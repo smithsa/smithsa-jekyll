@@ -22,6 +22,7 @@
     "gulp-util": "latest"
   },
   "dependencies": {
+    "del": "^3.0.0",
     "run-sequence": "^2.2.1"
   }
 }
