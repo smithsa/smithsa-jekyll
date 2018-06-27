@@ -20,7 +20,19 @@ title: Home - Sade Smith
             </div>
         </div>
         <div class="container blog-reel">
-            <div class="row" id="blog__container__home"></div>
+            <div class="row" id="blog__container__home">
+                {% for post in site.posts limit:2 %}
+                    <article class="col-sm-6 col-md-6 post wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <h3>{{ post.title }}</h3>
+                        <div class="meta">
+                            <a href="{{ site.url }}"><span class="meta-category">{% capture category_name %}{{ post.categories | first }}{% endcapture %}</span></a>
+                            <span>{{ post.date | date: "%b %d, %Y" }}</span>
+                        </div>
+                        <p>{{ post.long_description }}</p>
+                        <a class="btn-action" href="{{ site.url }}/{{ post.url }}/">Read More</a>
+                    </article>
+                {% endfor %}
+            </div>
         </div>
     </section>
     <section id="portfolio" class="portfolio">
