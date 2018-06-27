@@ -75,6 +75,36 @@
     </div>
     <div class="main">
 
+https://eduardoboucas.com/blog/2014/11/05/adding-ajax-pagination-to-jekyll.html
+<!-- Without pagination (we load all posts) -->
+
+<a href="/jekyll/update/2018/06/26/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+
+<a href="/jekyll/update/2018/06/25/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+
+<!-- With pagination (we load the posts for the current page) -->
+
+
+<!-- If we have a previous page, we show a link to it -->
+
+<!-- If we have a next page, we show a link to it -->
+
+
+
+
+One of the limitations of the paginator is that it's only available in index files, so I could access it from the standalone version of the blog, but I was getting an empty object when accessing it from the Backbone version. After banging my head against the wall for a couple of hours, I overcame this limitation by manually iterating over the site posts instead of using the paginator for that. It turned out to be very didactic so I'm sharing that with you.
+<!-- Normal approach: Iterating through posts using paginator -->
+
+<!-- Display post -->
+
+<!-- Display post -->
+
+<!-- My approach: Iterating through posts manually (without paginator) -->
+
+
+<!-- Display post -->
+
+<!-- Display post -->
 
 
 <footer class="footer">

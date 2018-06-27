@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="no-focus-outline">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#555555">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:description" content="Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.">
+    <meta property="og:image:width" content="1052">
+    <meta property="og:image:height" content="551">
+    <meta property="og:title" content="Sade Smith">
+    <meta property="og:url" content="https://sadesmith.com">
+    <meta property="og:image" content="https://sadesmith.com/assets/images/og-image.jpg">
+    <title>Sade Smith - Scraping Client Side Rendered Data with Python and Selenium</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/dist/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/dist/css/prism.min.css">
+  </head>
+  <body>
+  <div id="loading"></div>
+  <div class="wrapper">      <div id="side-menu">
+      <div class="menu-container">
+          <div id="nav-trigger" class="nav-trigger" aria-pressed="true" aria-label="Toggle menu" tabindex="0" aria-expanded="false" role="button" title="hamburger menu">
+              <div class="hamburger">
+                  <div class="icon"></div>
+              </div>
+          </div>
+      </div>
+      <a class="logo hidden-xs" id="desktop-home" aria-label="Home Link" tabindex="0" href="../index.html">Sade &nbspSmith</a>
+      <a class="logo text" id="mobile-home" tabindex="-1" aria-label="Home Link" href="../index.html">Sade</a>
+  </div>
+      <div class="menu has-nav" aria-hidden="true">
+          <div class="menu-inner">
+              <div class="container">
+                  <div class="col-md-12 navigation-container">
+                      <nav class="navigation" aria-label="Main Menu">
+                          <span>navigation</span>
+                          <ul role="menu">
+                              <li><a href="../index.html" tabindex="-1" role="menuitem">Home</a></li>
+                              <li><a href="../about.html" tabindex="-1" role="menuitem">About</a></li>
+                              <li><a href="../blog.html" tabindex="-1"  role="menuitem">Blog</a></li>
+                              <li><a href="../index.html#portfolio" tabindex="-1" role="menuitem" class="internal">Projects</a></li>
+                          </ul>
+                      </nav>
+                  </div>
+
+                  <div class="footer">
+                      <div class="container">
+                          <div class="col-md-7 col-xs-7 nopadding social">
+                              <ul>
+                                  <li><a tabindex="-1" href="https://github.com/smithsa" target="_blank">Github</a></li>
+                                  <li><a tabindex="-1" href="https://twitter.com/itsSadeSmith" target="_blank">Twitter</a></li>
+                                  <li><a tabindex="-1" href="https://www.linkedin.com/in/sad-e-smith-58709160/" target="_blank">Linkedin</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-md-5 col-xs-5 nopadding">
+                              <div class="address">
+                                  <p><span>Sade Smith,</span><br class="hidden-xs"> Chicago, Illinois, USA</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="main">
+        <div class="project">
+          <div class="container">
+            <div class="project-intro blog-body">
+              <header class="col-lg-10 col-md-9 col-sm-8 col-md-offset-1 col-lg-offset-1">
+                  <h1 class="wow fadeIn" data-wow-delay= ".1s" data-wow-duration= "2s">Scraping Client-Side Rendered Data with Python and Selenium</h1>
+                  <div class="meta wow fadeIn" data-wow-delay= ".2s" data-wow-duration= "2s">
+                      <span><i class="ion-person"></i> Sade Smith</span>
+                      <span tabindex="0" aria-label="Scripting Category" class="meta-category"><i class="ion-bookmark"></i> Scripting</span>
+                      <span><i class="ion-calendar"></i> <date>June 2, 2018</date></span>
+                  </div>
+                  <div id="social-share" class="wow fadeIn" data-wow-delay= ".3s" data-wow-duration= "2s">
+                      <a class="sshare" data-sshare="facebook" href="Javascript:void(0)">Share on Facebook</a>
+                      <a class="sshare" data-sshare="twitter" data-twitter-message="Take a look at this blog post!" href="Javascript:void(0)">Share on Twitter</a>
+                      <a class="sshare" data-sshare="email" data-email-subject="Blog Post by Sade Smith" href="Javascript:void(0)">Share By Email</a>
+                  </div>
+              </header>
+                <main class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-xs-12 blog-content wow fadeInUp" data-wow-duration= "2s" data-wow-delay= ".6s">
+                  <div class="details">
+                    <h2>Introduction</h2>
+                    <p>
+                     Scraping data from websites often offers a way to automate tedious tasks and improve productivity. However, many people run into issues when the content of a website is generated on the client side as opposed to the server-side. For instance, content can not be retreived with just a HTTP request for websites that utilize AJAX to generate it's content. A web scrapper using only server-side requests would be unable to scrape the data of such a site because the HTML of the page does not load until the javascript of the site can be executed. Since the Javascript can only be executed on the client side, a request from the page would not include it's dynamic content.
+                    </p>
+
+                    <p>
+                        To solve this problem, you can use a browser automation tool such as Selenium or PhantomJs in combination with your web scraper script. Using a browser automation tool, the HTML is able to be generated and thus read and parsed. In this tutorial, I will be showing you how to write a basic script to scrape client-side rendered content with Python and Selenium.
+                    </p>
+
+                    <p>
+                        Remember before you scrape content or data from websites, ensure that you have legal rights to do so,  read the site's terms of service agreement to see if scraping is allowed, and ensure that an alternative method for to retrieve the data does not exist, for example an API. In addition, check the robots.txt file and follow the rules for how frequently you are allowed to request pages and what pages are allowed to be scraped.
+                    </p>
+                    <p>The Python Selenium library includes a HTML tree parser but we will use Selenium to load the page's content and BeautifulSoup to parse the HTML, since BeautifulSoup is Python's most popular parser.</p>
+                    <h2>Prerequisites</h2>
+                    <ul>
+                      <li>Python 2.7 programming environment available here (<a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>)</li>
+                      <li>MacOS or Linux Environment</li>
+                      <li>Virtualenv available here (<a href="https://pypi.org/project/virtualenv/" target="_blank">https://pypi.org/project/virtualenv/</a>)</li>
+                      <li>pip, package manager for available here python (<a href="https://pip.pypa.io/en/stable/installing/" target="_blank">https://pip.pypa.io/en/stable/installing/</a>)</li>
+                    </ul>
+                    <h2>Virtual Environment Setup</h2>
+                    <p>Before we start writing the script, we will first set up a virtual environment. Let's first create a directory for the project called simple-scrapper and navigate to the directory.</p>
+<pre><code class="language-bash">mkdir simple-scrapper
+cd simple-scrapper</code></pre>
+
+<p>Now we can create the virtual environment and activate the environment with the following:</p>
+<pre><code class="language-bash">virtualenv venv
+source venv/bin/activate</code></pre>
+<h2>Installing Python Libraries</h2>
+<p>Next, we can install all the python modules and libraries we will need for the script with pip. We will need the selenium python bindings, BeatifulSoup4, and the requests library.</p>
+
+<pre><code class="language-bash">pip install selenium
+pip install BeautifulSoup4
+pip install requests</code></pre>
+<h2>Downloading Selenium Driver</h2>
+<p>Now that we have all our libraries installed, we should download a driver for Selenium. The driver is required for Selenium to interface the browser you choose to use. For our purposes, we will use Chrome as our browser. You can download the latest release of the Chrome driver here: http://chromedriver.chromium.org/downloads. Download the appropriate zip file for your operating system, unzip the file, and you should find an executable file named "chromedriver." Put this file at the root of the "simple-scrapper" folder we just created.</p>
+<h2>The Web Scraping Script</h2>
+<p>We are now ready to start writing the scraper. Let's create a python file in at the root of the folder "simple-scraper" called "scrapper.py."</p>
+<pre><code class="language-bash">touch scrapper.py</code></pre>
+<p>Open the file with your preferred text editor and let's start writing the code to scrape a web page. For our purposes, I have created a basic page to scrape that has client-side rendered HTML. You can find the example file here:
+    <a href="http://sadesmith.com/exmaples/simple-scrapper/index.html" target="_blank">http://sadesmith.com/exmaples/simple-scrapper/index.html</a>. Lets quickly examine the content of the page. The page simply lists the names of basketball players on the 2018 Golden State Warriors Roster — there is one header and an unordered list. Our goal will be simple, scrape all the names of the roster and print them out once collected.</p>
+<p>The first task will be to load the webpage using the driver we just downloaded. We will need to tell the WebDriver where the driver is located by setting the executable path on the Chrome class. Then we can request the webpage by using the get method of the driver.</p>
+<pre><code class="language-python">import os
+from selenium import webdriver
+
+driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
+url = "http://www.sadesmith.com/examples/simple-scrapper/index.html"
+driver.get(url)</code></pre>
+
+<p>Next, we will need to tell the WebDriver to wait a few seconds before parsing the page. We will import the time module and use the sleep method. We will give the method the value of 3, thus the wait time will be 3 seconds.</p>
+<pre><code class="language-python">import os
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
+url = "http://www.sadesmith.com/examples/simple-scrapper/index.html"
+driver.get(url)
+time.sleep(3)</code></pre>
+<p>We are ready to parse but before we do that let's import beautiful soup.</p>
+<pre><code class="language-python">from bs4 import BeautifulSoup</code></pre>
+<p>Now we can grab the content we need to parse. With the WebDriver loading the page, we can now view content loaded client-side. WebDriver's page_source will return the source code of the DOM as a string. We can use BeautifulSoup to parse the HTML string, with its HTML parser.</p>
+<pre><code class="language-python">page_html = driver.page_source
+bsoup = BeautifulSoup(page_html, 'html.parser')</code></pre>
+<p>With the BeautifulSoup object, we can then use the library to its full extent. If you are unfamiliar with BeautifulSoup you can find more documentation here about how to parse: https://www.crummy.com/software/BeautifulSoup/bs4/doc/. For our example, we know that all the names on the Warrior's rosters are in an unordered list, in list item tag with the class name of "name". So we can grab all list item elements with the class attribute name then loop through them print them out.</p>
+<pre><code class="language-python">player_names = bsoup.findAll('li', attrs={'class': 'name'});
+for player_name in player_names:
+  print player_name.text</code></pre>
+<h2>Wrapping it all up</h2>
+<p>We are done with the simple scrapper and your file should now look this:</p>
+<pre><code class="language-python">import os
+from selenium import webdriver
+import time
+from bs4 import BeautifulSoup
+
+driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
+driver.get(url)
+time.sleep(3)
+
+page_html = driver.page_source
+bsoup = BeautifulSoup(page_html, 'html.parser')
+
+player_names = bsoup.findAll('li', attrs={'class': 'name'});
+for player_name in player_names:
+    print player_name.text</code></pre>
+<p>Now let's run the project in the terminal! Make sure your current working directory is "simple-scrapper" and run the script.</p>
+<pre><code class="language-bash">python scrapper.py</code></pre>
+<p>If everything went well, you should see the names of the players on the 2018 Golden State Warriors printed in your terminal screen. We have accomplished our objective! Via our simple web scraper script, we were able to scrape HTML that was generated on the client-side using Selenium and Python.</p>
+                      <div id="tags">
+                          <a href="Javascript:void(0)" data-tag="python">Python</a>
+                          <a href="Javascript:void(0)"  data-tag="selenium">Selenium</a>
+                          <a href="Javascript:void(0)"  data-tag="automation">Automation</a>
+                          <a href="Javascript:void(0)"  data-tag="tutorial">Tutorial</a>
+                          <a href="Javascript:void(0)"  data-tag="web scraping">Web Scraping</a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+            </div>
+        </div>
+          <footer class="footer">
+              <div class="container">
+                  <div class="cta text-center">
+                      <h2 class="wow fadeInUp" data-wow-delay= ".1s">Drop me a line <span>!</span></h2>
+                      <a class="wow fadeInUp" data-wow-delay= ".2s" href="mailto:smithsade13@gmail.com">smithsade13@gmail.com</a>
+                  </div>
+                  <div class="col-md-6 col-xs-6 nopadding social">
+                      <ul>
+                          <li><a href="https://github.com/smithsa" target="_blank">Github</a></li>
+                          <li><a href="https://twitter.com/itsSadeSmith" target="_blank">Twitter</a></li>
+                          <li><a href="https://www.linkedin.com/in/sad-e-smith-58709160/" target="_blank">Linkedin</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-6 col-xs-6">
+                      <div class="address">
+                          <p><span class="hidden-xs">Sade Smith,<br></span>Chicago, Illinois, USA</p>
+                      </div>
+                  </div>
+                  <div class="col-xs-12">
+                      <div class="copy">
+                          <p class="copyright">Copyright © 2018 Sade Smith</p>
+                      </div>
+                  </div>
+              </div>
+          </footer><!-- Footer -->
+      </div><!-- Main -->
+    </div><!--Wrapper -->
+    <!-- JS Scripts -->
+    <script src="../assets/js/jquery-2.1.1.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/dist/js/menu.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/jquery.socialshare.min.js"></script>
+    <script src="../assets/dist/js/custom.min.js"></script>
+    <script src="../assets/js/prism.js"></script>
+    <!-- JS Scripts -->
+  </body>
+</html>

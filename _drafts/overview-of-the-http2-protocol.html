@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="no-focus-outline">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#555555">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:description" content="Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.">
+    <meta property="og:image:width" content="1052">
+    <meta property="og:image:height" content="551">
+    <meta property="og:title" content="Sade Smith">
+    <meta property="og:url" content="https://sadesmith.com">
+    <meta property="og:image" content="https://sadesmith.com/assets/images/og-image.jpg">
+    <title>Sade Smith - Overview of the HTTP/2 Protocol</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/dist/css/style.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/dist/css/prism.min.css">
+  </head>
+  <body>
+  <div id="loading"></div>
+  <div class="wrapper">
+      <div id="side-menu">
+          <div class="menu-container">
+              <div id="nav-trigger" class="nav-trigger" aria-pressed="true" aria-label="Toggle menu" tabindex="0" aria-expanded="false" role="button" title="hamburger menu">
+                  <div class="hamburger">
+                      <div class="icon"></div>
+                  </div>
+              </div>
+          </div>
+          <a class="logo hidden-xs" id="desktop-home" aria-label="Home Link" tabindex="0" href="../index.html">Sade &nbspSmith</a>
+          <a class="logo text" id="mobile-home" tabindex="-1" aria-label="Home Link" href="../index.html">Sade</a>
+      </div>
+      <div class="menu has-nav" aria-hidden="true">
+          <div class="menu-inner">
+              <div class="container">
+                  <div class="col-md-12 navigation-container">
+                      <nav class="navigation" aria-label="Main Menu">
+                          <span>navigation</span>
+                          <ul role="menu">
+                              <li><a href="../index.html" tabindex="-1" role="menuitem">Home</a></li>
+                              <li><a href="../about.html" tabindex="-1" role="menuitem">About</a></li>
+                              <li><a href="../blog.html" tabindex="-1"  role="menuitem">Blog</a></li>
+                              <li><a href="../index.html#portfolio" tabindex="-1" role="menuitem" class="internal">Projects</a></li>
+                          </ul>
+                      </nav>
+                  </div>
+
+                  <div class="footer">
+                      <div class="container">
+                          <div class="col-md-7 col-xs-7 nopadding social">
+                              <ul>
+                                  <li><a tabindex="-1" href="https://github.com/smithsa" target="_blank">Github</a></li>
+                                  <li><a tabindex="-1" href="https://twitter.com/itsSadeSmith" target="_blank">Twitter</a></li>
+                                  <li><a tabindex="-1" href="https://www.linkedin.com/in/sad-e-smith-58709160/" target="_blank">Linkedin</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-md-5 col-xs-5 nopadding">
+                              <div class="address">
+                                  <p><span>Sade Smith,</span><br class="hidden-xs"> Chicago, Illinois, USA</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="main">
+        <div class="project">
+          <div class="container">
+            <div class="project-intro blog-body">
+              <header class="col-lg-10 col-md-9 col-sm-8 col-md-offset-1 col-lg-offset-1">
+                  <h1 class="wow fadeIn" data-wow-delay= ".1s" data-wow-duration= "2s">Overview of the HTTP/2 Protocol</h1>
+                  <div class="meta wow fadeIn" data-wow-delay= ".2s" data-wow-duration= "2s">
+                      <span><i class="ion-person"></i> Sade Smith</span>
+                      <span tabindex="0" aria-label="Web Development Category" class="meta-category"><i class="ion-bookmark"></i> Web Development</span>
+                      <span><i class="ion-calendar"></i> <date>June 13, 2018</date></span>
+                  </div>
+                  <div id="social-share" class="wow fadeIn" data-wow-delay= ".3s" data-wow-duration= "2s">
+                      <a class="sshare" data-sshare="facebook" href="Javascript:void(0)">Share on Facebook</a>
+                      <a class="sshare" data-sshare="twitter" data-twitter-message="Take a look at this blog post!" href="Javascript:void(0)">Share on Twitter</a>
+                      <a class="sshare" data-sshare="email" data-email-subject="Blog Post by Sade Smith" href="Javascript:void(0)">Share By Email</a>
+                  </div>
+              </header>
+                <main class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-xs-12 blog-content wow fadeInUp" data-wow-duration= "2s" data-wow-delay= ".6s">
+                  <div class="details">
+                    <h2>Introduction</h2>
+                    <p>
+                        In 2015, the HyperText Transfer Protocol (HTTP) underwent a major revision when HTTP/2 became officially standardized. With the protocol's last major update being in 1999 (HTTP/1.1), it was a much needed upgrade. The previous version of the protocol, HTTP/1.1, proved to posses numerous limitations for most modern websites. The average HTTP requests per page have risen dramatically overtime as well as page size. Simply put, HTTP/1.1 was developed to handle websites of its time and not of today. These limitations later led developers to use HTTP/1.1 in ways it was not meant to be used, causing developers to create workarounds which developed into best practices. For example, with HTTP/1.1 a client only has a limited number of TCP connections (6 connections) to a server, and each request requires one of those connections. With limited connections a request must wait for another to finish before being processed (HOL Blocking), resulting in a bottleneck for websites retrieving resources, slowing down performance. To solve this problem, file concatenation, image sprites, domain sharding, using gzip, and resource inlining became workarounds and best practices for this particular issue of HOL Blocking. These solutions proved to be hacks, not really solving the issue at hand, which was really at the protocol level.
+                    </p>
+
+                    <p>
+                        In 2009, Google recognized these issues for their own operations of transporting web content and began working on an internal project called SPDY. SPDY was a network protocol that offered solutions to many of HTTP/1.1's shortcomings, ofadfering addresings issues o web security and improved page load latency. This protocol would later become the foundation of HTTP/2.
+                    </p>
+
+                    <p>
+                        Fast forward to 2018, SPDY is deprecated and HTTP/2 is the new current version of HTTP with adoption increasing. HTTP/2 resolves the problems with HTTP/1.1 at the protocol level and provides faster performance for a website. The new protocol is backwards compatible and has the same semantics as HTTP/2, but improves how data is sent and what data is sent. The core features of HTTP/2 are multiplexing, binary framing, header compression, prioritization, and server push. With the update, many of the best practices developers utilize are invalidated and  are detrimental to performance. These new core features of HTTP/2 will require new best practices for developers to utilize it benefits.
+                    </p>
+                    <h2>Multiplexing/Binary Framing/Stream Prioritization</h2>
+                    <p>
+                        First, let's talk about multiplexing and binary framing. HTTP/2 now technically utilizes a single TLS encrypted connection. While HTTP/1.1 uses a request/response pair, HTTP/2 uses a logical stream. These streams are put into binary frames, encoded in a binary format, and then put on the connection. Streams share the connection and the bandwidth of the connection (multiplexing). If one stream is in a blocking state, this does not prevent other streams from accessing the connection and it's resources. Additionally, a bonus, the client can specify dependencies and weight for each stream, this is called stream prioritization. But now with HTTP/2 multiple requests for data can be sent in parallel - multiple requests at the same time. HOL blocking is no longer a problem, where it was in HTTP/1.1. Now because requests are cheap, best practices for receiving more out of a request and reduce the number of requests, such as concatenation and spriting, no longer apply.
+                    </p>
+                    <h2>Header Compression</h2>
+                    <p>Another major issue with HTTP/1.1 pertained to the metadata sent in header. As a result of HTTP being stateless, redundant, long, and static information was sent across each request. One such examples is cookies and user agent data. In addition, the data sent in the headers was in human readable text. These two things combined created the issue of wasted of bandwidth. Developers tried to work around this issue by using gzip to compress the data that goes over the connection. But gzip only compresses the data and not the headers itself. Now with HTTP/2, headers can be compressed because they are seperated from the data. HTTP/2 compresses headers using a new technology specifically for HTTP header compression called HPACK. However with the use of HPACK, compression and decompression works on the connection, meaning more connections are counterproductive. Best practices such as domain sharding and use of multiple origins for cdns are no longer considered best practice for HTTP/2.</p>
+                    <h2>Server Push</h2>
+                    <p>
+                        Lastly, let's discuss the new push feature. With HTTP/2, the server can respond to a request that hasn't been sent yet. With this new feature, the server can send any asset or file to the client it thinks it will need. For example, the server can send the css and javascript file because it understands that the client will need it as well after an intial request from the browser is sent for the index.html. Once the client is ready to recieve those files pushed, it will be ready for the client waiting in the cache. Adding further additional optimization of speed.
+                    </p>
+                    <h2>Conclusion</h2>
+                      <p>To take advantage of the new protocol, there are some new best practices to follow: </p>
+                      <ul>
+                          <li>Reduce DNS Lookups</li>
+                          <li>Reuse TCP connections, connections are expensive</li>
+                          <li>Use a CDN but reduce the number of origins</li>
+                          <li>Minimize number of HTTP redirects</li>
+                          <li>Eliminate unnecessary metadata</li>
+                          <li>Compress assets during transfer (let gzip compress on the server)</li>
+                          <li>Cache resources on the client</li>
+                          <li>Eliminate unnecessary resources. Fetch what you need. Bytes are expensive.</li>
+                      </ul>
+                      <p>As stated previously, since 2015, the world wide web has seen increasing adoption of the new protocol. Companies such as Cloudflare, major hosting providers like Bluehost, and most majors browsers now offer support for the technology. If your site is using a TLS/SSL connection, and your servers from your hosting company support HTTP/2, it is likely that you are already using HTTP/2! Every connection starts out as HTP/1.1 then upgrades to HTTP/2 if all requirements are met. These three requirements must be met to use HTTP/2: (1) Server must support HTTP/2, (2) your application must use an HTTPS connection via TLS/SSL, and (3) the browser of a user must support HTTP/2. If at least one of the requirements are not met, then HTTP/1.1 is used. Developers should be looking to take advantage of the new upgrades provided by HTTP/2 as it's adoption continues to grow. It's essentially free optimization for your website!</p>
+                      <div id="tags">
+                          <a href="Javascript:void(0)" data-tag="http">HTTP</a>
+                          <a href="Javascript:void(0)" data-tag="http/2">HTTP/2</a>
+                    </div>
+                  </div>
+                </main>
+              </div>
+            </div>
+        </div>
+          <footer class="footer">
+              <div class="container">
+                  <div class="cta text-center">
+                      <h2 class="wow fadeInUp" data-wow-delay= ".1s">Drop me a line <span>!</span></h2>
+                      <a class="wow fadeInUp" data-wow-delay= ".2s" href="mailto:smithsade13@gmail.com">smithsade13@gmail.com</a>
+                  </div>
+                  <div class="col-md-6 col-xs-6 nopadding social">
+                      <ul>
+                          <li><a href="https://github.com/smithsa" target="_blank">Github</a></li>
+                          <li><a href="https://twitter.com/itsSadeSmith" target="_blank">Twitter</a></li>
+                          <li><a href="https://www.linkedin.com/in/sad-e-smith-58709160/" target="_blank">Linkedin</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-6 col-xs-6">
+                      <div class="address">
+                          <p><span class="hidden-xs">Sade Smith,<br></span>Chicago, Illinois, USA</p>
+                      </div>
+                  </div>
+                  <div class="col-xs-12">
+                      <div class="copy">
+                          <p class="copyright">Copyright © 2018 Sade Smith</p>
+                      </div>
+                  </div>
+              </div>
+          </footer><!-- Footer -->
+      </div><!-- Main -->
+    </div><!--Wrapper -->
+    <!-- JS Scripts -->
+    <script src="../assets/js/jquery-2.1.1.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/dist/js/menu.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/jquery.socialshare.min.js"></script>
+    <script src="../assets/dist/js/custom.min.js"></script>
+    <script src="../assets/js/prism.js"></script>
+    <!-- JS Scripts -->
+  </body>
+</html>
