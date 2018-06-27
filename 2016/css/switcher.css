@@ -1,0 +1,117 @@
+.switcher-box {
+	position: fixed;
+	left: 0px;
+	top: 40%;
+	z-index: 2000;
+}
+
+.switcher-box .hiddenbox {
+	position: absolute;
+	right: -35px;
+	top: 0px;
+	padding: 6px 7px 2px;
+	background: #333;
+	color: #fff;
+	border: 1px solid #333;
+	cursor: pointer;
+	text-align: center;
+	font-size: 24px;
+	border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+.switcher-box .hiddenbox i {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 8000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 8000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 8000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 8000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+.colorbox-container {
+	width: 60px;
+	position: relative;
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.switcher-box .head {
+	text-align: center;
+	margin-bottom: 1px;
+	font-size: 28px; 
+}
+
+.switcher-box .colorbox {
+	width: 30px;
+  height: 30px;
+  margin-left: 8px;
+  margin-right: 8px;
+	float: left;
+	margin-top: 5px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+.switcher-box .colorbox#blue {
+	background-color: #e5f9ff;
+}
+
+.switcher-box .colorbox#green {
+	background-color: #E2F3BB ;
+}
+
+.switcher-box .colorbox#red {
+	background-color: #FFC9C9 ;
+}
+
+.switcher-box .colorbox#yellow {
+	background-color: #fef7a4 ;
+}
+
+@media (max-width: 768px){
+	.switcher-box {
+		display: none;
+	}
+}

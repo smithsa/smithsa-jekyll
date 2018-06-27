@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Scrapper Tutorial</title>
+  </head>
+  <body>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  		var players = ['Jordan Bell', 'Chris Boucher', 'Quinn Cook', 'Stephen Curry', 'Kevin Durant', 'Draymond Green', 'Andre Iguodala', 'Shaun Livingston', 'Kevon Looney', 'Patrick McCaw', 'JaVele McGee', 'ZaZa Pachulia', 'Klay Thompson', 'David West', 'Nick Young']
+  		
+  		var header = $('<h1/>');
+  		header.text('Golden State Warriors 2018 Roster');
+  		var player_container = $('<ul/>', {id:'player-names'});
+  		
+  	
+  		for(var i=0; i < players.length; i++){
+  			console.log(players[i]);
+  			var player_elem = $('<li/>', {class:'name'}).text(players[i]);
+  			player_container.append(player_elem);
+  		}
+  		
+  		$('body').prepend(player_container);
+  		$('body').prepend(header);
+
+  </script>
+</html>
