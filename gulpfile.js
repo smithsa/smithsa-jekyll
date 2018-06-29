@@ -40,13 +40,24 @@ gulp.task('stylesheets', function () {
         .pipe(gulp.dest('assets/dist/css'))
 });
 
-gulp.task('clean', () => del(['assets/dist/js/*.js', 'assets/dist/css/*.css', 'assets/dist/images/*']));
+gulp.task('fonts', function() {
+    return gulp.src('assets/src/fonts/**/*')
+        .pipe(gulp.dest('assets/dist/fonts'))
+});
+
+gulp.task('clean', () => del(['assets/dist/*']));
+
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function () {
     runSequence(
         'js-scripts',
         'stylesheets',
-        'minify-images'
+        'minify-images',
+        'fonts'
     );
-})
+});
+
+gulp.task('watch', function (){
+    gulp.watch('assets/src/css/style.css', ['stylesheets']);
+});

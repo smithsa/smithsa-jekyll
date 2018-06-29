@@ -1422,6 +1422,14 @@ html, body {
 	line-height: 21px;
 }
 
+.post-reel p{
+	font-family: 'Poppins';
+	font-size: 14px;
+	font-weight: 400;
+	color: #767676;
+	line-height: 21px;
+}
+
 .blog-reel h3{
 	font-weight: bold;
 	font-size: 24px;
@@ -1431,6 +1439,12 @@ html, body {
 .blog-reel .post span{
 	font-size: 12px;
 	margin-bottom: 15px;
+	display: inline-block;
+	width: auto;
+}
+.post-reel .post span{
+	font-size: 12px;
+	margin-bottom: 10px;
 	display: inline-block;
 	width: auto;
 }
@@ -1444,11 +1458,13 @@ html, body {
 	margin-left: 0;
 	text-decoration: none;
 }
-.blog-reel .post .meta span::after{
+.blog-reel .post .meta span::after,
+.post-reel .post .meta span::after{
 	content: '/';
 	padding-left:5px;
 }
-.blog-reel .post .meta span:last-child::after{
+.blog-reel .post .meta span:last-child::after,
+.post-reel .post .meta span:last-child::after{
 	content: '';
 }
 .blog-reel .post a:hover,
@@ -1470,6 +1486,9 @@ html, body {
 	display: inline-block;
 	font-size: 14px;
 }
+.blog-body .meta a{
+	font-size: 14px;
+}
 .blog-body .meta span::after{
 	padding-left:5px;
 	padding-right: 5px;
@@ -1484,13 +1503,23 @@ h1 .tag-name{
 h1 .category-name{
 	text-transform: capitalize;
 }
-.meta-category{
-	cursor: pointer;
-	transition: opacity .3s ease-in-out;
-	/*outline: 0;*/
+p .category-name{
+	text-transform: lowercase;
 }
-.meta-category:hover, .meta-category:focus{
-	opacity: .7;
+a.meta-category{
+	display: inline !important;
+	color: #333333 !important;
+	text-transform: capitalize !important;
+	text-decoration: none !important;
+	transition: color .3s ease-in-out;
+}
+a.meta-category:hover{
+	color: #999999 !important;
+	border: none !important;
+}
+.meta-category{
+	text-transform: capitalize;
+	/*outline: 0;*/
 }
 #tags{
 	margin-top:50px;
@@ -2245,7 +2274,13 @@ footer.white .social ul li a,
 footer.white .address p{
 	color: #222222 !important;
 }
-
+.category-page.blog-page{
+	padding-bottom: 100px;
+}
+.pagination-indicator{
+	font-size: 13px;
+	display: none;
+}
 /*----------------------------------------------------
 ------------- All ------------------------------------
 --------------------- Media --------------------------
@@ -2495,12 +2530,82 @@ pre{
 	padding-right: 5px;
 	font-size: 12px;
 }
-:not(pre) > code[class*="language-"], pre[class*="language-"]{
+:not(pre)>code[class*=language-], pre[class*=language-]{
 	background:#222222 !important;
+	/*color: #ffffff;*/
+	/*padding: 30px 20px;*/
+	/*line-height: 18px;*/
 }
 #portfolio{
 	padding-bottom: 180px;
 	padding-top: 90px;
+}
+.center{
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+.post-reel h2{
+	font-size: 24px;
+	font-family: 'Poppins';
+	font-weight: 700;
+	margin-bottom:20px;
+	background: #000000;
+	color: #ffffff;
+	width: auto;
+	padding:10px 30px;
+	display: inline-block;
+}
+.article-list{
+	outline: 0;
+}
+.article-list-item{
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+.article-list-item:first-child{
+	padding-top:0px;
+}
+.article-list-item .post h3{
+	color: #000000;
+	font-size: 21px;
+	margin-bottom: 10px;
+}
+.post-reel article{
+	margin-top: 30px;
+}
+.blog-page nav{
+	text-align: center;
+}
+.tag-list{
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.tag-list a{
+
+	border: 1px solid #000000;
+	background: #000000;
+	color: #ffffff;
+	padding: 3px 8px;
+	font-size: 11px;
+	transition: background .3s ease-in-out;
+}
+.tag-list a:hover{
+	color: #000000;
+	background: none;
+	text-decoration: none;
+}
+article.tag{
+	margin-bottom: 60px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background-color: #000000;
+}
+.pagination>li>a, .pagination>li>span{
+	color: #333333;
+}
+.pagination{
+	margin-top: 40px;
 }
 @media(max-height:800px){
 	.blog-intro {
@@ -2540,6 +2645,26 @@ pre{
 
 }
 @media(max-width:530px){
+	.pagination-indicator{
+		display: block;
+	}
+	.page-item:not(.jump){
+		display: none;
+	}
+	.pagination a{
+		font-size: 14px;
+	}
+	.blog-reel p, .post-reel p{
+		font-size: 13px;
+		line-height: 20px;
+	}
+	.post-reel h2{
+		font-size: 18px;
+		padding: 7px 20px;
+	}
+	.project-image iframe{
+		min-height: 0px;
+	}
 	.pitch .inner p, .project-quote p{
 		font-size: 21px;
 		line-height: 28px;
@@ -2561,6 +2686,9 @@ pre{
 		padding-bottom: 5px;
 		font-size: 12px;
 	}
+	.blog-body .meta a{
+		font-size: 12px;
+	}
 	pre{
 		font-size: 11px !important;
 	}
@@ -2578,6 +2706,9 @@ pre{
 	.project-intro.blog-body ul li,
 	.project-intro.blog-body ul ol{
 		font-size: 13px !important;
+	}
+	.pagination{
+		margin-top: 30px;
 	}
 }
 @media(max-width:501px){
@@ -2598,10 +2729,29 @@ pre{
 	#social-share {
 		margin-bottom: 15px;
 	}
+	.post-reel article{
+		margin-top: 10px;
+	}
+	.blog-body {
+		margin-bottom: 80px;
+	}
 }
 @media(max-width:450px){
 	#tags a{
 		font-size: 11px;
+	}
+	.category-page.blog-page{
+		padding-bottom: 60px;
+	}
+	article.tag{
+		margin-bottom: 40px;
+	}
+	.post-reel h2{
+		font-size: 16px;
+	}
+	.article-list-item .post h3{
+		font-size: 18px;
+		line-height: 20px;
 	}
 	.blog-intro p, .portfolio-intro p{
 		font-size: 12px;
@@ -2639,7 +2789,7 @@ pre{
 		line-height: 25px !important;
 	}
 	.project .details h2{
-		font-size: 21px !important;
+		font-size: 18px !important;
 		margin: 30px 0 10px 0 !important;
 	}
 	.blog-body{
@@ -2809,7 +2959,3 @@ p.copyright{
 		font-size: 11px;
 	}
 }
-
-
-
-

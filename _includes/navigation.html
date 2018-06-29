@@ -7,8 +7,8 @@
                 </div>
             </div>
         </div>
-        <a class="logo hidden-xs" id="desktop-home" aria-label="Home Link" tabindex="0" href="index.html">Sade &nbspSmith</a>
-        <a class="logo text" id="mobile-home" tabindex="-1" aria-label="Home Link" href="index.html">Sade</a>
+        <a class="logo hidden-xs" id="desktop-home" aria-label="Home Link" tabindex="0" href="{{site.url}}">Sade &nbspSmith</a>
+        <a class="logo text" id="mobile-home" tabindex="-1" aria-label="Home Link" href="{{site.url}}">Sade</a>
     </div>
     <div class="menu has-nav" aria-hidden="true">
         <div class="menu-inner">
@@ -17,10 +17,10 @@
                     <nav class="navigation" aria-label="Main Menu">
                         <span>navigation</span>
                         <ul role="menu">
-                            <li><a href="index.html" tabindex="-1" aria-current="page" role="menuitem">Home</a></li>
-                            <li><a href="about.html" tabindex="-1" role="menuitem">About</a></li>
-                            <li><a href="blog.html" tabindex="-1" role="menuitem">Blog</a></li>
-                            <li><a href="#portfolio" tabindex="-1" role="menuitem" class="internal">Projects</a></li>
+                            <li><a href="{{site.url}}" tabindex="-1" aria-current="page" role="menuitem">Home</a></li>
+                            <li><a href="{{site.url}}/about" tabindex="-1" role="menuitem">About</a></li>
+                            <li><a href="{{site.url}}/blog" tabindex="-1" role="menuitem">Blog</a></li>
+                            <li><a href="{{site.url}}#portfolio" tabindex="-1" role="menuitem" class="internal">Projects</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-5 col-xs-5 nopadding">
                             <div class="address">
-                                <p><span>Sade Smith,</span><br class="hidden-xs"> Chicago, Illinois, USA</p>
+                                <p><span>{{ site.title }},</span><br class="hidden-xs"> Chicago, Illinois, USA</p>
                             </div>
                         </div>
                     </div>

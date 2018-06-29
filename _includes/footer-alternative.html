@@ -1,36 +1,11 @@
 <footer class="footer white">
-    <div class="container">
-        <div class="cta text-center">
-            <h2 class="wow fadeInUp" data-wow-delay= ".1s">Drop me a line <span>!</span></h2>
-            <a class="wow fadeInUp" data-wow-delay= ".2s" href="mailto:smithsade13@gmail.com">smithsade13@gmail.com</a>
-        </div>
-        <div class="col-md-6 col-xs-6 nopadding social">
-            <ul>
-                <li><a href="https://github.com/smithsa" target="_blank">Github</a></li>
-                <li><a href="https://twitter.com/itsSadeSmith" target="_blank">Twitter</a></li>
-                <li><a href="https://www.linkedin.com/in/sad-e-smith-58709160/" target="_blank">Linkedin</a></li>
-            </ul>
-        </div>
-        <div class="col-md-6 col-xs-6">
-            <div class="address">
-                <p><span class="hidden-xs">Sade Smith,<br></span>Chicago, Illinois, USA</p>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="copy">
-                <p class="copyright">Copyright © {{'now' | date:"%Y"}} Sade Smith</p>
-            </div>
-        </div>
-    </div>
+    {% include footer-content.html %}
 </footer><!-- Footer -->
 </div><!-- Main -->
 </div><!--Wrapper -->
 <!-- JS Scripts -->
-<script src="assets/dist/js/jquery-2.2.4.min.js"></script>
-<script src="assets/dist/js/bootstrap.min.js"></script>
-<script src="assets/dist/js/menu.min.js"></script>
-<script src="assets/dist/js/plugins.min.js"></script>
-<script src="assets/dist/js/custom.min.js"></script>
+<script src="{{site.url}}/assets/dist/js/jquery-2.2.4.min.js"></script>
+{% include scripts-global.html %}
 <!-- JS Scripts -->
 </body>
 </html>

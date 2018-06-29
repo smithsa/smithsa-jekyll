@@ -1,0 +1,14 @@
+{% assign category = post.categories | first %}
+<article class="tag post wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+    <a href="{{ site.url }}{{ post.url }}/"><h3>{{ post.title }}</h3></a>
+    <div class="meta">
+        <span><a href="{{ site.url }}/blog/category/{{ category | slugify }}" class="meta-category">{{ category }}</a></span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <p>{{ post.excerpt }}</p>
+    <div class="tag-list">
+        {% for tag in post.tags %}
+        <a href="{{ site.url }}/blog/tag/#{{ tag | slugify }}">#{{ tag }}</a>
+        {% endfor %}
+    </div>
+</article>

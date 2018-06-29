@@ -1,39 +1,57 @@
 ---
-layout: default
-title: Sade Smith | Blog
+layout: page
+title: Blog
 ---
-https://eduardoboucas.com/blog/2014/11/05/adding-ajax-pagination-to-jekyll.html
-<!-- Without pagination (we load all posts) -->
-{% for post in site.posts %}
-<a href="{{ post.url }}">{{ post.title }}</a>
-{% endfor %}
-<!-- With pagination (we load the posts for the current page) -->
-{% for post in paginator.posts %}
-<a href="{{ post.url }}">{{ post.title }}</a>
-{% endfor %}
+<main class="main">
+    <section class="blog blog-page">
+        <div class="container">
+            <div class="blog-intro">
+                <h1 class="wow fadeInUp" data-wow-delay= ".1s">Latest Blog Posts</h1>
+                <p class="wow fadeInUp" data-wow-delay= ".1s">Entire collection of posts from my personal blog. </p>
+            </div>
+            <div class="blog-reel">
+                <div class="row">
+                    <!-- This loops through the paginated posts -->
+                    {% for post in paginator.posts %}
+                        {% include article.html %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="blog-button text-center">
+            <p class="pagination-indicator">Showing {{paginator.page}} or {{paginator.total_pages}} pages</p>
+            {% if paginator.total_pages > 1 %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if paginator.previous_page %}
+                    <li class="page-item">
+                        <a class="page-link jump" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item jump disabled"><a class="page-link" href="#">&laquo; Previous</a></li>
+                    {% endif %}
 
-<!-- If we have a previous page, we show a link to it -->
-{% if paginator.previous_page %}
-<span class="previous"><a href="{{ paginator.previous_page_path }}"><- Previous</a></span>
-{% endif %}
-<!-- If we have a next page, we show a link to it -->
-{% if paginator.next_page %}
-<span class="next"><a href="{{ paginator.next_page_path }}">Next -></a></span>
-{% endif %}
+                    {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <li class="page-item active"><a class="page-link" href="Javascript:void(0)">{{ page }}</a></li>
+                    {% elsif page == 1 %}
+                    <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+                    {% endif %}
+                    {% endfor %}
 
+                    {% if paginator.next_page %}
+                    <li class="page-item jump">
+                        <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item jump disabled"><a class="page-link" href="#">Next &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </section><!-- Blog End -->
+</main><!-- Main -->
 
-
-One of the limitations of the paginator is that it's only available in index files, so I could access it from the standalone version of the blog, but I was getting an empty object when accessing it from the Backbone version. After banging my head against the wall for a couple of hours, I overcame this limitation by manually iterating over the site posts instead of using the paginator for that. It turned out to be very didactic so I'm sharing that with you.
-<!-- Normal approach: Iterating through posts using paginator -->
-{% for post in site.posts limit:site.paginate offset:offset %}
-<!-- Display post -->
-{% endfor %}
-<!-- My approach: Iterating through posts manually (without paginator) -->
-{% if paginator.page %}
-{% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
-{% else %}
-{% assign offset = 0 %}
-{% endif %}
-{% for post in site.posts limit:site.paginate offset:offset %}
-<!-- Display post -->
-{% endfor %}

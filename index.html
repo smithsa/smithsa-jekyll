@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home - Sade Smith
+title: Home
 ---
 <header class="intro text-center" id="hero">
     <div class="content">
@@ -22,15 +22,7 @@ title: Home - Sade Smith
         <div class="container blog-reel">
             <div class="row" id="blog__container__home">
                 {% for post in site.posts limit:2 %}
-                    <article class="col-sm-6 col-md-6 post wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                        <h3>{{ post.title }}</h3>
-                        <div class="meta">
-                            <span class="meta-category">{{ post.categories | first }}</span>
-                            <span>{{ post.date | date: "%B %d, %Y" }}</span>
-                        </div>
-                        <p>{{ post.excerpt }}</p>
-                        <a class="btn-action" href="{{ site.url }}/{{ post.url }}/">Read More</a>
-                    </article>
+                    {% include article.html %}
                 {% endfor %}
             </div>
         </div>
