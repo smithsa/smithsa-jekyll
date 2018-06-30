@@ -1511,7 +1511,7 @@ a.meta-category{
 	color: #333333 !important;
 	text-transform: capitalize !important;
 	text-decoration: none !important;
-	transition: color .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 a.meta-category:hover{
 	color: #999999 !important;
@@ -2281,6 +2281,9 @@ footer.white .address p{
 	font-size: 13px;
 	display: none;
 }
+.pagination a{
+	font-size: 12px;
+}
 /*----------------------------------------------------
 ------------- All ------------------------------------
 --------------------- Media --------------------------
@@ -2652,7 +2655,7 @@ article.tag{
 		display: none;
 	}
 	.pagination a{
-		font-size: 14px;
+		font-size: 11px;
 	}
 	.blog-reel p, .post-reel p{
 		font-size: 13px;
@@ -2674,6 +2677,10 @@ article.tag{
 	}
 	.portfolio-intro h2, .blog-intro h2, .blog-intro h1{
 		font-size: 24px;
+	}
+	.blog-intro.error h1{
+		line-height: 28px;
+		font-size: 21px;
 	}
 	.blog-reel h3{
 		font-size: 20px;
