@@ -1,5 +1,6 @@
 ---
 layout: post
+permalink: /:title
 title: "Scraping Client Side Rendered Data with Python and Selenium"
 date: 2018-06-15
 categories: scripting
