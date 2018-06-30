@@ -1,6 +1,5 @@
 ---
 layout: post
-permalink: /:title
 published: true
 title:  "Overview of the HTTP/2 Protocol"
 date: 2018-06-02

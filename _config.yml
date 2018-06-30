@@ -20,7 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   in the Chicagoland area, specializing in web technologies and
   skilled in both back-end and front-end development.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://sadesmith.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "sadesmith.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: itsSadeSmith
 github_username:  smithsa
 
@@ -52,3 +52,5 @@ exclude:
 paginate: 4
 paginate_path: /blog/page:num/
 timezone: 'America/Chicago'
+
+permalink: :title/
