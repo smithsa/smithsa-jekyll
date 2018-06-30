@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Scraping Client Side Rendered Data with Python and Selenium"
-date:   2018-06-15 11:00:00 -0500
+title: "Scraping Client Side Rendered Data with Python and Selenium"
+date: 2018-06-15
 categories: scripting
 tags: [python, selenium, automation, tutorial, web scraping]
 excerpt: Scraping data from websites often offers a way to automate tedious tasks and improve productivity. However, many people run into issues when the content of a website is generated on the client side as opposed to the server-side.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Overview of the HTTP/2 Protocol"
-date:   2018-06-02 11:00:00 -0500
+date: 2018-06-02
 categories: [web development]
 tags: [http, http/2, http/1.1, spdy]
 excerpt: In 2015, the HyperText Transfer Protocol (HTTP) underwent a major revision when HTTP/2 became officially standardized. With the protocol's last major update being in 1999 (HTTP/1.1), it was a much needed upgrade. The previous version of the protocol, HTTP/1.1, proved to posses numerous limitations for most modern websites.
