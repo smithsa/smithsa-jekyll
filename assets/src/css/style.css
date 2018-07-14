@@ -2585,7 +2585,8 @@ pre{
 	margin-bottom: 20px;
 }
 .tag-list a{
-
+	display: inline-block;
+	margin-bottom: 8px;
 	border: 1px solid #000000;
 	background: #000000;
 	color: #ffffff;
@@ -2593,7 +2594,7 @@ pre{
 	font-size: 11px;
 	transition: background .3s ease-in-out;
 }
-.tag-list a:hover{
+.tag-list a:hover, .tag-list a:focus{
 	color: #000000;
 	background: none;
 	text-decoration: none;

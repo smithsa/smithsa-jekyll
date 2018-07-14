@@ -22,10 +22,10 @@ The Python Selenium library includes a HTML tree parser but we will use Selenium
 Prerequisites
 -------------
 
-*   Python 2.7 programming environment available here ([https://www.python.org/downloads/](https://www.python.org/downloads/)){:target="_blank"}
+*   Python 2.7 programming environment available here ([https://www.python.org/downloads/](https://www.python.org/downloads/))
 *   MacOS or Linux Environment
-*   Virtualenv available here ([https://pypi.org/project/virtualenv/](https://pypi.org/project/virtualenv/)){:target="_blank"}
-*   pip, package manager for available here python ([https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/)){:target="_blank"}
+*   Virtualenv available here ([https://pypi.org/project/virtualenv/](https://pypi.org/project/virtualenv/))
+*   pip, package manager for available here python ([https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/))
 
 Virtual Environment Setup
 -------------------------
