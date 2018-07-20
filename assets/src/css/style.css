@@ -1910,6 +1910,36 @@ a.meta-category:hover{
 	color: #222222 !important;
 	background: none;
 	text-decoration: underline;
+	font-size: 14px;
+	letter-spacing:0px;
+}
+iframe{
+	width:100%;
+	height: 500px;
+}
+@media(max-width:1200px){
+	iframe{
+		height: 350px;
+	}
+}
+@media(max-width:500px){
+	iframe{
+		height: 300px;
+	}
+}
+@media(max-width:400px){
+	iframe{
+		height: 250px;
+	}
+}
+@media(max-width:300px){
+	iframe{
+		height: 190px;
+	}
+}
+small{
+	font-style: italic;
+	color: #000000;
 }
 .project .blog-body .details a:hover,
 .project .blog-body .details a:focus{
