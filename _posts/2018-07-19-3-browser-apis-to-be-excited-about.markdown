@@ -5,7 +5,7 @@ title: "3 Browser APIs to be Excited About"
 date: 2018-07-18
 categories: [web development]
 tags: [javascript, browser, web share, web bluetooth, service workers, payment requests, pwas, apis]
-excerpt: In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of five exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies ...
+excerpt: The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of web/browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.
 ---
 
 
