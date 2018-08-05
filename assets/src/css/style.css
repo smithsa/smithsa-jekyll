@@ -1941,6 +1941,12 @@ small{
 	font-style: italic;
 	color: #000000;
 }
+code{
+	background-color: #eeeeee;
+	color: #444444;
+	padding-left: 5px;
+	padding-right: 5px;
+}
 .project .blog-body .details a:hover,
 .project .blog-body .details a:focus{
 	background: none;
