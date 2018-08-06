@@ -5,7 +5,7 @@ title:  "10 Tips for Web Accessibility (Part 1)"
 date: 2018-08-05
 categories: [web development]
 tags: [accessibility, a11y, wcag]
-excerpt: Following the best practices for accessibility means you will be following the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.
+excerpt: Following the best practices for accessibility means you will be adhering to the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.
 ---
 ## Introduction
 
