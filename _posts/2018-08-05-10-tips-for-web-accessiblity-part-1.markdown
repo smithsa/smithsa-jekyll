@@ -31,6 +31,7 @@ Along similar lines of the tip #1, you should use the appropriate HTML heading t
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
+	white-space: nowrap;
 	clip: rect(0,0,0);
 }
 ```
@@ -38,7 +39,7 @@ Along similar lines of the tip #1, you should use the appropriate HTML heading t
 Some designs have images that don’t convey any information to the user and are there for style or decorative purposes. These images should be displayed using the CSS <code>background-image</code> property if possible. If you determine that an image tag is needed, then make sure that the <code>alt</code>  attribute is empty so that screen readers can skip over reading the image.
 
 ## 4. Don’t Remove CSS Outline
-There are times when you create a link or a button and see a blue glowing outline on your element. Sometimes it clashes with the overall design, so to remove it developers change the outline CSS property to none. It’s a big accessibility no-no. It makes it difficult for those who do not use a mouse to see where they are currently at on a page if they are for instance tabbing through. In the cases, that you do decide that you can’t have that blue glow, go ahead and use <code>outline: none</code> in your CSS but also style the focused (:focus) state of the element in a way that clearly shows that it is selected.
+There are times when you create a link or a button and see a blue glowing outline on your element. Sometimes it clashes with the overall design, so to remove it developers change the outline CSS property to none. It’s a big accessibility no-no. It makes it difficult for those who do not use a mouse to see where they are currently at on a page if they are for instance tabbing through. In the cases, that you do decide that you can’t have that blue glow, go ahead and use <code>outline: none</code> in your CSS but also style the focused (:focus) state of the element in a way that clearly shows that it is selected. It is a good practice to style your focus states the same as your hover state.
 
 ## 5. Always Use a Meta Viewport Tag
 Using a meta viewport tag is probably the easiest tip in this post to implement. If your website is missing this tag, mobile devices will render the pages at desktop widths, then scale the page for the mobile device. So the meta viewport tag will ensure that the page fits the width of the device. Google recommends using the following meta tag in the head of your pages:
@@ -52,4 +53,4 @@ Using a meta viewport tag is probably the easiest tip in this post to implement.
 ```
 
 ## Wrapping It Up
-As you can see, these are very simple tips to implement in your website to make them more accessible and provide an overall improvement. The best part, there’s More! Stay tuned for part 2, where we will continue going over practical tips for developing accessible websites. Getting into more accessibility principles, I will be touching upon ARIA, skip links, and form labels.
+As you can see, these are very simple tips to implement in your website to make them more accessible and provide an overall improvement. The best part, there’s More! Stay tuned for part 2, where we will continue going over practical tips for developing accessible websites. Getting into more accessibility principles, I will be touching upon ARIA, skip links, form labels, and font sizes.
