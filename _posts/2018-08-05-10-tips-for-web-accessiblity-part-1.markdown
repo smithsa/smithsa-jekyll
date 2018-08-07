@@ -32,7 +32,7 @@ Along similar lines of the tip #1, you should use the appropriate HTML heading t
 	margin: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	clip: rect(0,0,0);
+	clip: rect(0,0,0,0);
 }
 ```
 ## 3. Use Background Images for Decorative Images
