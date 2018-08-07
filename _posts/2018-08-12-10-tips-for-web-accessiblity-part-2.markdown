@@ -1,11 +1,11 @@
 ---
 layout: post
-published: true
+published: false
 title:  "10 Tips for Web Accessibility (Part 2)"
 date: 2018-08-12
 categories: [web development]
 tags: [accessibility, a11y, wcag]
-excerpt: In the previous article, “10 Tips for Web Accessibility (Part 1)” we covered the first five tips I have for creating accessible websites. In this post, I will continue to list off the remaining five tips. In the last five tips, I will cover skip links, ARIA, form labels, and font sizes
+excerpt: In the previous article, “10 Tips for Web Accessibility (Part 1)” we covered the first five tips I have for creating accessible websites. In this post, I will continue to list off the remaining five tips. In the last five tips, I will cover skip links, ARIA, form labels, and font sizes.
 ---
 ## Introduction
 
