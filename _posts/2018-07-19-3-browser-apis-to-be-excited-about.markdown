@@ -5,13 +5,13 @@ title: "3 Browser APIs to be Excited About"
 date: 2018-07-18
 categories: [web development]
 tags: [javascript, browser, web share, web bluetooth, service workers, payment requests, pwas, apis]
-excerpt: The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of web/browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.
+excerpt: The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.
 ---
 
 
 Introduction
 ------------
-Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of web/browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!
+Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!
 
 In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of five exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.
 
