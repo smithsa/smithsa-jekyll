@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title:  "10 Tips for Web Accessibility (Part 2)"
 date: 2018-08-12
 categories: [web development]
