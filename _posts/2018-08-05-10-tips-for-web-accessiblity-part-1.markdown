@@ -9,7 +9,7 @@ excerpt: Following the best practices for accessibility means you will be adheri
 ---
 ## Introduction
 
-The benefits of developing accessible websites undoubtedly weight the costs. First and foremost, all potential users are able to use your web application. Users with disabilities will be able to access information and perform tasks just as those without disabilities. Secondly, accessibility (a11y) best practices share similar practices with other web related best practices such as search engine optimization (SEO) and usability standards. Following the best practices for accessibility means you will be following the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.
+The benefits of developing accessible websites undoubtedly outweigh the costs. First and foremost, all potential users are able to use your web application. Users with disabilities will be able to access information and perform tasks just as those without disabilities. Secondly, accessibility (a11y) best practices share similar practices with other web related best practices such as search engine optimization (SEO) and usability standards. Following the best practices for accessibility means you will be following the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.
 
 ## 1. Use Native HTML Elements Properly
 
