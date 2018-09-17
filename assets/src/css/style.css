@@ -2688,9 +2688,9 @@ article.tag{
 	.pagination-indicator{
 		display: block;
 	}
-	.page-item:not(.jump){
-		display: none;
-	}
+	/*.page-item:not(.jump){*/
+		/*display: none;*/
+	/*}*/
 	.pagination a{
 		font-size: 11px;
 	}
