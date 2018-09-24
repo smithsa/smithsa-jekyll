@@ -21,4 +21,4 @@ I am a Software Developer with 5 years of experience, currently working in the C
 
 ## Copyright
 
-Text © Sade Smith
+Text © [Sade Smith](https://sadesmith.com)
