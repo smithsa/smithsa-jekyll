@@ -8,16 +8,6 @@ tags: [jekyll, static site generator, web]
 excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby.
 ---
 
----
-layout: post
-published: true
-title:  "Building a Blog With Jekyll"
-date: 2018-10-15
-categories: [web development]
-tags: [jekyll, static site generator, web]
-excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby.
----
-
 ## Introduction
 A few months ago, I decided to convert my personal website, which was a static HTML site, to [Jekyll](https://jekyllrb.com/). If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby.  I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.
 
