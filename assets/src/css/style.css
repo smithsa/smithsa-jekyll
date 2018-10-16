@@ -1155,7 +1155,7 @@ html, body {
 @media(max-width:768px){
 	section{
 		max-width: 500px;
-		width:90%;
+		width:95%;
 		margin-left:auto;
 		margin-right: auto;
 	}
@@ -3017,5 +3017,10 @@ p.copyright{
 @media (max-width: 450px){
 	.blog-content h3{
 		font-size: 15px;
+	}
+}
+@media (min-width: 992px){
+	.container {
+		width: 980px;
 	}
 }
