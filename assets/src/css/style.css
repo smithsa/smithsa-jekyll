@@ -2606,6 +2606,7 @@ pre{
 .article-list-item{
 	padding-bottom: 40px;
 	padding-top: 40px;
+	outline: 0;
 }
 .article-list-item:first-child{
 	padding-top:0px;
