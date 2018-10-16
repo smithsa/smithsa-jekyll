@@ -1,6 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-07T10:34:39-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">10 Tips for Web Accessibility (Part 1)</title><link href="http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/" rel="alternate" type="text/html" title="10 Tips for Web Accessibility (Part 1)" /><published>2018-08-05T00:00:00-05:00</published><updated>2018-08-05T00:00:00-05:00</updated><id>http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1</id><content type="html" xml:base="http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-15T19:08:53-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Blog With Jekyll</title><link href="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/" rel="alternate" type="text/html" title="Building a Blog With Jekyll" /><published>2018-10-15T00:00:00-05:00</published><updated>2018-10-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;A few months ago, I decided to convert my personal website, which was a static HTML site, to &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.&lt;/p&gt;
 
-&lt;p&gt;The benefits of developing accessible websites undoubtedly weight the costs. First and foremost, all potential users are able to use your web application. Users with disabilities will be able to access information and perform tasks just as those without disabilities. Secondly, accessibility (a11y) best practices share similar practices with other web related best practices such as search engine optimization (SEO) and usability standards. Following the best practices for accessibility means you will be following the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.&lt;/p&gt;
+&lt;h2 id=&quot;experience-with-jekyll&quot;&gt;Experience with Jekyll&lt;/h2&gt;
+
+&lt;p&gt;The first requirement I had for my site was that it should be static. If the site was static, then I could easily host it on Github and not have to worry about hosting fees in the future. The next requirement I was for the site to have a blog. However, I didn’t want to have to manually format and a page for each post. I essentially needed a content management system (CMS) for a static site. The first idea I had was to use a CMS like WordPress and access its API writing some reusable code to get posts and it’s metadata. But I didn’t want to have to worry about managing calls to an API which was all too complex for a simple blog. I also realized that for CMSs like WordPress I would have to pay to host an installation of that CMS. So an option like WordPress or Drupal was out of the picture for me. Luckily, I did more research and Jekyll came to my attention — it was a perfect match. A simple, blog-aware, and static site generator was just what I needed. Plus it was an added bonus that &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; are powered by Jekyll so I could easily deploy the site with Github for free.&lt;/p&gt;
+
+&lt;p&gt;It’s important to note, at this point, I already had a developed static site. I just needed something to manage blog posts for the site. The task at hand was to transfer it into Jekyll. It took less than a day to familiarize myself with its structure and my blog was up and running within a few days. Experience developing countless themes and familiarity with the Liquid templating language, helped me pick up Jekyll quickly. There were some things I had to learn like YAML, formatting in Markdown, and how the plugin system worked. However, they were easy to learn, and I picked those up in no time as well. You certainly don’t need prior experience to get going but it helps!&lt;/p&gt;
+
+&lt;h2 id=&quot;advantages-of-jekyll&quot;&gt;Advantages of Jekyll&lt;/h2&gt;
+&lt;p&gt;Before I show you how you can get started, I will list some of the advantages of using Jekyll.&lt;/p&gt;
+
+&lt;h3 id=&quot;free-hosting&quot;&gt;Free Hosting&lt;/h3&gt;
+&lt;p&gt;The greatest advantage for me by far. Simply put your Jekyll site in a Github repository and you will have free hosting for your blog. If you are using Github for your version control already, then it makes sense to use it for your free hosting as well – two birds, one stone.&lt;/p&gt;
+
+&lt;h3 id=&quot;speed&quot;&gt;Speed&lt;/h3&gt;
+&lt;p&gt;Static files load a lot faster than dynamic files which sometimes have to wait for database queries and API calls. With Jekyll, only the files that are needed are being served.&lt;/p&gt;
+
+&lt;h3 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h3&gt;
+&lt;p&gt;You don’t have to worry about databases or bulky user interfaces provided by a CMS. Jekyll only includes what you need.&lt;/p&gt;
+
+&lt;h3 id=&quot;security&quot;&gt;Security&lt;/h3&gt;
+&lt;p&gt;The absence of a database eliminates the risk of common security threats such as SQL injections. Your attack surface is drastically reduced.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;Requirements
+Ruby version 2.2.5 or above https://www.ruby-lang.org/en/downloads/
+Ruby Gems https://rubygems.org/pages/download&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Install Jekyll and the bundler gem (manages the application’s dependencies)
+    &lt;pre&gt;&lt;code&gt; gem install jekyll bundler
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Create your new Jekyll site
+    &lt;pre&gt;&lt;code&gt; jekyll new your-blog-name
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Navigate to your newly created Jekyll project
+    &lt;pre&gt;&lt;code&gt;cd your-blog-name
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Serve your new Jekyll project on a local server
+    &lt;pre&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Open  &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt; in your browser to view your new site.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;/h2&gt;
+&lt;p&gt;Jekyll uses YAML, a human-readable data serialization language, for its configuration file. The file can be found at the root level of your project and it is titled &lt;code&gt;_config.yml&lt;/code&gt;. If you need to reference more options the &lt;a href=&quot;https://jekyllrb.com/docs/configuration/default/&quot;&gt;default configuration&lt;/a&gt; can be found in Jekyll’s documentation. But you can edit the title, email, and description in the file to begin with. Additionally, if you wanted to use a theme or plugin, or just wanted to change the type of Markdown being used you would edit those settings in this file.&lt;/p&gt;
+
+&lt;h2 id=&quot;pages&quot;&gt;Pages&lt;/h2&gt;
+&lt;p&gt;Pages in Jekyll are either Markdown or HTML documents and are used for stand-alone content. You can add a page by adding either document types to the root level of your project. If you use a Markdown file, the file will be converted to HTML during its build which can be found in the &lt;code&gt;_site&lt;/code&gt; folder. You can also create subpages by placing your files for your subpages in a folder, titled the parent page. Then create the parent page in a file title &lt;em&gt;index&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;templating-and-layouts&quot;&gt;Templating and Layouts&lt;/h2&gt;
+&lt;p&gt;As mentioned previously, &lt;a href=&quot;https://shopify.github.io/liquid/&quot;&gt;Liquid&lt;/a&gt; is used for the templating system. In the pages of the project file, you might see statements wrapped in curly braces. Output statements are surrounded by the double curly braces while logic statements are encapsulated in the curly braces and percent sign. You can add Liquid statement in your pages and layouts.&lt;/p&gt;
+
+&lt;p&gt;Layouts are templates that surround your content, for example, a layout could include your top navigation and footer. The Layouts live the &lt;code&gt;_layouts&lt;/code&gt; directory. Layouts are helpful because you don’t have to copy and paste the code for recurring components of your website (e.g. footer) for every page.&lt;/p&gt;
+
+&lt;p&gt;Additionally, in your layouts and pages, you are given more tools to template pages with Includes. Includes in Jekyll are template parts which live in the &lt;code&gt;_includes&lt;/code&gt; folder. The includes can either be HTML or Markdown files. To use the include you would simply reference its name with the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;en&quot; class=&quot;no-focus-outline&quot;&amp;gt;
+&amp;lt;head lang=&quot;en&quot;&amp;gt;
+    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
+&amp;lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&amp;gt;
+&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=5&quot;&amp;gt;
+&amp;lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;http://localhost:4000/apple-touch-icon.png&quot;&amp;gt;
+&amp;lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;http://localhost:4000/favicon-32x32.png&quot;&amp;gt;
+&amp;lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;http://localhost:4000/favicon-16x16.png&quot;&amp;gt;
+&amp;lt;link rel=&quot;manifest&quot; href=&quot;http://localhost:4000/site.webmanifest&quot;&amp;gt;
+&amp;lt;link rel=&quot;mask-icon&quot; href=&quot;http://localhost:4000/safari-pinned-tab.svg&quot; color=&quot;#555555&quot;&amp;gt;
+&amp;lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#000000&quot;&amp;gt;
+&amp;lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:description&quot; content=&quot;Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:image:width&quot; content=&quot;1052&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:image:height&quot; content=&quot;551&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:title&quot; content=&quot;Sade Smith&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:url&quot; content=&quot;https://sadesmith.com&quot;&amp;gt;
+&amp;lt;meta property=&quot;og:image&quot; content=&quot;http://localhost:4000/assets/src/images/og-image.jpg&quot;&amp;gt;
+&amp;lt;title&amp;gt;Building a Blog With Jekyll | Sade Smith&amp;lt;/title&amp;gt;
+&amp;lt;link href=&quot;https://fonts.googleapis.com/css?family=Poppins:400,600,700&quot; rel=&quot;stylesheet&quot;&amp;gt;
+&amp;lt;link href=&quot;https://fonts.googleapis.com/css?family=Montserrat:700&quot; rel=&quot;stylesheet&quot;&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/animate.min.css&quot;&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/bootstrap.min.css&quot;&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/ionicons.min.css&quot;&amp;gt;
+&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/style.min.css&quot;&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;div id=&quot;loading&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;posts&quot;&gt;Posts&lt;/h2&gt;
+&lt;p&gt;The posts of your Jekyll site live in the &lt;code&gt;_posts&lt;/code&gt; folder. Jekyll states that typically posts are written in Markdown but HTML is also supported. I exclusively use Markdown, I find that it is easiest to maintain. If you need help in formatting Markdown, I’ve found this &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;Markdown cheatsheet&lt;/a&gt; on github created by &lt;a href=&quot;https://crypti.cc/&quot;&gt;Adam Pritchard&lt;/a&gt; to be a great resource. Each file name should follow this specific format where ‘YEAR’ is the four-digit year number, &lt;code&gt;MONTH&lt;/code&gt; and &lt;code&gt;DAY&lt;/code&gt; are two digit numbers reflecting each respectively, and Markup is the file extension :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;YEAR-MONTH-DAY-title.MARKUP
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At the top of every post will be YAML front matter, which Jekyll uses for maintaining metadata throughout the site (You might have noticed it on the pages). All posts must use this format for its metadata. The most basic front matter will include the layout and title.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;layout: post
+title:  &quot;Welcome to Jekyll!&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Following the post’s metadata is the content of the post.&lt;/p&gt;
+
+&lt;h2 id=&quot;assets-and-static-files&quot;&gt;Assets and Static Files&lt;/h2&gt;
+&lt;p&gt;Lastly, Jekyll provides built-in support for Sass and CoffeScript. Sass files should live in a &lt;code&gt;_sass&lt;/code&gt; folder. The stylesheets will be output to a &lt;code&gt;css&lt;/code&gt; folder when the build runs. To use CoffeeScript a gem is required. For more information you can read &lt;a href=&quot;https://jekyllrb.com/docs/assets/&quot;&gt;Jekyll’s documentation on how to use Sass and CoffeScript&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you can serve your JavaScript and CSS as static files. Static files can be PDFs, Javascript and CSS files, images, etc. Any content that does not need to be rendered. Static files are accessible via Liquid: &lt;code&gt;site.static_files&lt;/code&gt;. To serve your static files, you can use &lt;code&gt;http://localhost:4000&lt;/code&gt; and follow it by the path to the file as well.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;Jekyll is easy to get started with and provides you with a lightweight alternative to using a CMS if you are building a blog. You get speed, simplicity, better security than a CMS, and an added bonus of free hosting with Jekyll! Converting over to Jekyll for my website was a great decision and one I do not regret a bit because of its ease of use and benefits. I would recommend it to anyone who wants to create a blog.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="static site generator" /><category term="web" /><summary type="html">A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top.</summary></entry><entry><title type="html">10 Tips for Web Accessibility (Part 2)</title><link href="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/" rel="alternate" type="text/html" title="10 Tips for Web Accessibility (Part 2)" /><published>2018-08-12T00:00:00-05:00</published><updated>2018-08-12T00:00:00-05:00</updated><id>http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2</id><content type="html" xml:base="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In the previous article, &lt;a href=&quot;http://www.sadesmith.com/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/&quot;&gt;“10 Tips for Web Accessibility (Part 1)”&lt;/a&gt;, we covered the first five tips I have for creating accessible websites. In this post, I will continue to list off the remaining five tips. In the last five tips, I will cover skip links, ARIA, form labels, and font sizes.&lt;/p&gt;
+
+&lt;h2 id=&quot;6-create-skip-links&quot;&gt;6. Create Skip Links&lt;/h2&gt;
+
+&lt;p&gt;Skip links allow users who are not using a mouse and are tabbing through the page to bypass links in sections like the navigation and go directly to the main content of the page. In addition, these links can save time for those who are using a screen reader because the reader will want to read aloud links in the navigations it traverses. So it is recommended that skip links are created. They should be at the top of your tab index and not appear to users who are not tabbing or using a screen reading device. &lt;a href=&quot;https://jonkantner.com/&quot;&gt;John Kantner&lt;/a&gt; offers a great skip link example below:&lt;/p&gt;
+
+&lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;Skip Link Navigation&quot; src=&quot;//codepen.io/jkantner/embed/zqJJdW/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=html,result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/jkantner/pen/zqJJdW/&quot;&gt;Skip Link Navigation&lt;/a&gt; by Jon Kantner (&lt;a href=&quot;https://codepen.io/jkantner&quot;&gt;@jkantner&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+
+&lt;h2 id=&quot;7-use-aria-attributes-when-appropriate&quot;&gt;7. Use ARIA Attributes When Appropriate&lt;/h2&gt;
+&lt;p&gt;ARIA attributes communicate with assistive technology devices the role (i.e. user interface pattern), property (i.e. label name) , and state (i.e. pressed) of your HTML elements. When native HTML elements will not meet your needs and further modification is required, then you should use ARIA. They provide semantics to elements when they are missing. Using ARIA is most useful in scenarios where you need to (1) signify a landmark such as a search area or navigation, (2) when you update content dynamically, (3) add keyboard accessibility, and (4) use custom complex UI controls. It’s important to note that ARIA modifies the accessibility tree but not the DOM itself thus does not change its behavior. Lastly use ARIA with discretion, you should avoid redundancy of defining an element’s role, for example you do not need to use an ARIA attribute of radio (&lt;code&gt;role=”radio”&lt;/code&gt;) on an input with the type radio (&lt;code&gt;&amp;lt;input type=”radio”&amp;gt;&lt;/code&gt;). In addition, elements should not have aria attributes that interfere with their semantics (list of attributes allowed on each HTML element.)[https://www.w3.org/TR/html-aria/#docconformance] (For more information on ARIA, Mozilla offers a great comprehensive (ARIA guide)[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA] with examples.&lt;/p&gt;
+
+&lt;h2 id=&quot;8-use-aria-pressed-attribute-for-active-states&quot;&gt;8. Use ARIA Pressed Attribute for Active States&lt;/h2&gt;
+&lt;p&gt;There are instances where you need to communicate the active state of a button or link. For example, navigation menus often have an active state to signify a current page or tabbed content usually has an active tab to indicate the current content being displayed. Often, an active class is used in these instances. However, classes are not in the accessibility tree and screen readers are unable to read classes thus unable to detect the active state. To solve this issue, you can use the ARIA attributes &lt;code&gt;aria-pressed&lt;/code&gt; and &lt;code&gt;&amp;lt;aria-label&lt;/code&gt;. When the active button is pressed you can set the &lt;code&gt;aria-pressed&lt;/code&gt; attribute to true, false otherwise. You can also give the active button or link a label of the current page with the ARIA attribute &lt;code&gt;&amp;lt;aria-label&lt;/code&gt;. Additionally, you can style the CSS &lt;code&gt;[aria-pressed=”true”]&lt;/code&gt; selector for those elements instead of the active class. See the following example below: &lt;/p&gt;
+
+&lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;Accessible Current Section Example&quot; src=&quot;//codepen.io/smithsa/embed/XBPqae/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=html,result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/smithsa/pen/XBPqae/&quot;&gt;Accessible Current Section Example&lt;/a&gt; by Sade Smith (&lt;a href=&quot;https://codepen.io/smithsa&quot;&gt;@smithsa&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+
+&lt;h2 id=&quot;9-always-use-labels-for-form-inputs&quot;&gt;9. Always Use Labels for Form Inputs&lt;/h2&gt;
+&lt;p&gt;Forms built improperly can be difficult to navigate if a user is using a screen reader or keyboard, making it difficult for those with disabilities to carry out the task of filling out a form. One pain point is the lack of description provided for form inputs. All form fields should include a label tag to accurately describe what is required for the form field. Often, a design does not include a label but a placeholder instead. However, developers should not use placeholders in lieu of labels. An alternative to just using placeholders is to use float labels, see the example below. You can even use the &lt;code&gt;.a11y-hidden&lt;/code&gt; visibility code we covered in &lt;a href=&quot;http://www.sadesmith.com/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/&quot;&gt;part 1&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;Float Label Example&quot; src=&quot;//codepen.io/smithsa/embed/GBdXQN/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=css,result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/smithsa/pen/GBdXQN/&quot;&gt;Float Label Example&lt;/a&gt; by Sade Smith (&lt;a href=&quot;https://codepen.io/smithsa&quot;&gt;@smithsa&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+
+&lt;h2 id=&quot;10-use-relative-font-sizes&quot;&gt;10. Use Relative Font Sizes&lt;/h2&gt;
+&lt;p&gt;The World Wide Consortium recommends that your fonts use relative font units such as em, percentages, or rem. This allows user agents to scale the font sizes more effectively if needed. As a rule of thumb, the font size needs to be able to scale to at least 200% and still be visible and legible to the user. Modern browsers are usually able to meet this requirement even with fixed font units like pixels and pt but it is generally a good practice to use relative units.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The web has become an invaluable resource to many and an integral part of our everyday lives. It’s important that the web is a resource available to all, including those who are differently abled. It should provide equal access and opportunity. With this in mind, developers should strive to develop applications adhering to fundamental accessibility best practices, putting the user experience of all users at the forefront of their mind. Using these tips as a baseline will help ensure that everyone has the same access. For more information on the topic of web accessibility, I recommend reading the &lt;a href=&quot;https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0&quot;&gt;WCAG quick reference&lt;/a&gt; provided by the World Wide Consortium and looking into the &lt;a href=&quot;https://www.google.com/accessibility/for-developers.html&quot;&gt;accessibility resources&lt;/a&gt; that Google provides for developers on accessibility.&lt;/p&gt;</content><author><name></name></author><category term="accessibility" /><category term="a11y" /><category term="wcag" /><summary type="html">In the previous article, “10 Tips for Web Accessibility (Part 1)” we covered the first five tips I have for creating accessible websites. In this post, I will continue to list off the remaining five tips. In the last five tips, I will cover skip links, ARIA, form labels, and font sizes.</summary></entry><entry><title type="html">10 Tips for Web Accessibility (Part 1)</title><link href="http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/" rel="alternate" type="text/html" title="10 Tips for Web Accessibility (Part 1)" /><published>2018-08-05T00:00:00-05:00</published><updated>2018-08-05T00:00:00-05:00</updated><id>http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1</id><content type="html" xml:base="http://localhost:4000/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;The benefits of developing accessible websites undoubtedly outweigh the costs. First and foremost, all potential users are able to use your web application. Users with disabilities will be able to access information and perform tasks just as those without disabilities. Secondly, accessibility (a11y) best practices share similar practices with other web related best practices such as search engine optimization (SEO) and usability standards. Following the best practices for accessibility means you will be following the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.&lt;/p&gt;
 
 &lt;h2 id=&quot;1-use-native-html-elements-properly&quot;&gt;1. Use Native HTML Elements Properly&lt;/h2&gt;
 
@@ -22,7 +163,7 @@
 	margin: 0;
 	overflow: hidden;
 	white-space: nowrap;
-	clip: rect(0,0,0);
+	clip: rect(0,0,0,0);
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;3-use-background-images-for-decorative-images&quot;&gt;3. Use Background Images for Decorative Images&lt;/h2&gt;
@@ -36,14 +177,14 @@
 
 &lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;head&amp;gt;
   ...
-  &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&amp;gt;
+  &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=5&quot;&amp;gt;
   ...
 &amp;lt;/head&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;wrapping-it-up&quot;&gt;Wrapping It Up&lt;/h2&gt;
 &lt;p&gt;As you can see, these are very simple tips to implement in your website to make them more accessible and provide an overall improvement. The best part, there’s More! Stay tuned for part 2, where we will continue going over practical tips for developing accessible websites. Getting into more accessibility principles, I will be touching upon ARIA, skip links, form labels, and font sizes.&lt;/p&gt;</content><author><name></name></author><category term="accessibility" /><category term="a11y" /><category term="wcag" /><summary type="html">Following the best practices for accessibility means you will be adhering to the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.</summary></entry><entry><title type="html">3 Browser APIs to be Excited About</title><link href="http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about/" rel="alternate" type="text/html" title="3 Browser APIs to be Excited About" /><published>2018-07-18T00:00:00-05:00</published><updated>2018-07-18T00:00:00-05:00</updated><id>http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about</id><content type="html" xml:base="http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of web/browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!&lt;/p&gt;
+&lt;p&gt;Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!&lt;/p&gt;
 
 &lt;p&gt;In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of five exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.&lt;/p&gt;
 
@@ -99,7 +240,7 @@
 &lt;p&gt;There is good news in terms of browser support for service workers! Most of the major browsers support service workers, that includes Edge, Chrome, Safari, and Firefox. You can find more detailed information at &lt;a href=&quot;[https://jakearchibald.com/](https://jakearchibald.com/)&quot;&gt;Jake Archibald’s&lt;/a&gt; site named &lt;a href=&quot;[https://jakearchibald.github.io/isserviceworkerready/](https://jakearchibald.github.io/isserviceworkerready/)&quot;&gt;“Is Service Worker Ready”&lt;/a&gt; but it is definitely a good idea to start using the API now&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;With these new browser APIs, there has never been a better time to be developing for the web in my opinion. The list could continue: Web Bluetooth, WebVR, Shape Detection, WebAssembly, and Credential Management are APIs to keep your eye on as well. Without a doubt, the web as a platform remains a good bet and is progressively growing stronger. These APIs are worth everyone’s attention.&lt;/p&gt;</content><author><name></name></author><category term="javascript" /><category term="browser" /><category term="web share" /><category term="web bluetooth" /><category term="service workers" /><category term="payment requests" /><category term="pwas" /><category term="apis" /><summary type="html">The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of web/browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.</summary></entry><entry><title type="html">Scraping Client Side Rendered Data with Python and Selenium</title><link href="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium/" rel="alternate" type="text/html" title="Scraping Client Side Rendered Data with Python and Selenium" /><published>2018-06-15T00:00:00-05:00</published><updated>2018-06-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium</id><content type="html" xml:base="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;With these new browser APIs, there has never been a better time to be developing for the web in my opinion. The list could continue: Web Bluetooth, WebVR, Shape Detection, WebAssembly, and Credential Management are APIs to keep your eye on as well. Without a doubt, the web as a platform remains a good bet and is progressively growing stronger. These APIs are worth everyone’s attention.&lt;/p&gt;</content><author><name></name></author><category term="javascript" /><category term="browser" /><category term="web share" /><category term="web bluetooth" /><category term="service workers" /><category term="payment requests" /><category term="pwas" /><category term="apis" /><summary type="html">The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.</summary></entry><entry><title type="html">Scraping Client Side Rendered Data with Python and Selenium</title><link href="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium/" rel="alternate" type="text/html" title="Scraping Client Side Rendered Data with Python and Selenium" /><published>2018-06-15T00:00:00-05:00</published><updated>2018-06-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium</id><content type="html" xml:base="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Scraping data from websites often offers a way to automate tedious tasks and improve productivity. However, many people run into issues when the content of a website is generated on the client side as opposed to the server-side. For instance, content can not be retreived with just a HTTP request for websites that utilize AJAX to generate it’s content. A web scrapper using only server-side requests would be unable to scrape the data of such a site because the HTML of the page does not load until the javascript of the site can be executed. Since the Javascript can only be executed on the client side, a request from the page would not include it’s dynamic content.&lt;/p&gt;
 

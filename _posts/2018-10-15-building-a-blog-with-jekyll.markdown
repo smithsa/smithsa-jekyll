@@ -5,11 +5,11 @@ title:  "Building a Blog With Jekyll"
 date: 2018-10-15
 categories: [web development]
 tags: [jekyll, static site generator, web]
-excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby.
+excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top.
 ---
 
 ## Introduction
-A few months ago, I decided to convert my personal website, which was a static HTML site, to [Jekyll](https://jekyllrb.com/). If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby.  I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.
+A few months ago, I decided to convert my personal website, which was a static HTML site, to [Jekyll](https://jekyllrb.com/). If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.
 
 ## Experience with Jekyll
 
@@ -58,7 +58,7 @@ Ruby Gems https://rubygems.org/pages/download
 	```
 	bundle exec jekyll serve
 	```
-	Open  http://localhost:4000 in your browser to view your new site.
+	Open  [http://localhost:4000](http://localhost:4000) in your browser to view your new site.
 
 
 ## Configuration
@@ -68,7 +68,7 @@ Jekyll uses YAML, a human-readable data serialization language, for its configur
 Pages in Jekyll are either Markdown or HTML documents and are used for stand-alone content. You can add a page by adding either document types to the root level of your project. If you use a Markdown file, the file will be converted to HTML during its build which can be found in the `_site` folder. You can also create subpages by placing your files for your subpages in a folder, titled the parent page. Then create the parent page in a file title *index*.
 
 ## Templating and Layouts
-As mentioned previously, [Liquid](https://shopify.github.io/liquid/) is used for the templating system. In the pages of the project file, you might see statements wrapped in curly braces similar to the following `{{ }}` or `{% %}`. Output statements are surrounded by the double curly braces while logic statements are encapsulated in the curly braces and percent sign. You can add Liquid statement in your pages and layouts.
+As mentioned previously, [Liquid](https://shopify.github.io/liquid/) is used for the templating system. In the pages of the project file, you might see statements wrapped in curly braces. Output statements are surrounded by the double curly braces while logic statements are encapsulated in the curly braces and percent sign. You can add Liquid statement in your pages and layouts.
 
 Layouts are templates that surround your content, for example, a layout could include your top navigation and footer. The Layouts live the `_layouts` directory. Layouts are helpful because you don’t have to copy and paste the code for recurring components of your website (e.g. footer) for every page.
 
