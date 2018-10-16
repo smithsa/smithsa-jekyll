@@ -5,7 +5,7 @@ title:  "Building a Blog With Jekyll"
 date: 2018-10-15
 categories: [web development]
 tags: [jekyll, static site generator, web]
-excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top.
+excerpt: A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I considered a few content management systems but ultimately Jekyll came out on top.
 ---
 
 ## Introduction
@@ -40,22 +40,22 @@ Ruby Gems https://rubygems.org/pages/download
 ## Installation
 
 1. Install Jekyll and the bundler gem (manages the application’s dependencies)
-	```
-	gem install jekyll bundler
-	```
+```bash
+gem install jekyll bundler
+```
 
 2. Create your new Jekyll site
-	```
-	jekyll new your-blog-name
-	```
+```bash
+jekyll new your-blog-name
+```
 
 3.  Navigate to your newly created Jekyll project
-	```
+	```bash
 	cd your-blog-name
 	```
 
 4.  Serve your new Jekyll project on a local server
-	```
+	```bash
 	bundle exec jekyll serve
 	```
 	Open  [http://localhost:4000](http://localhost:4000) in your browser to view your new site.
@@ -73,18 +73,18 @@ As mentioned previously, [Liquid](https://shopify.github.io/liquid/) is used for
 Layouts are templates that surround your content, for example, a layout could include your top navigation and footer. The Layouts live the `_layouts` directory. Layouts are helpful because you don’t have to copy and paste the code for recurring components of your website (e.g. footer) for every page.
 
 Additionally, in your layouts and pages, you are given more tools to template pages with Includes. Includes in Jekyll are template parts which live in the `_includes` folder. The includes can either be HTML or Markdown files. To use the include you would simply reference its name with the following:
-```
-{% include header.html %}
+```liquid
+{% raw %}{% include your-file-name.html %}"{% endraw %}
 ```
 
 ## Posts
 The posts of your Jekyll site live in the `_posts` folder. Jekyll states that typically posts are written in Markdown but HTML is also supported. I exclusively use Markdown, I find that it is easiest to maintain. If you need help in formatting Markdown, I’ve found this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) on github created by [Adam Pritchard](https://crypti.cc/) to be a great resource. Each file name should follow this specific format where ‘YEAR’ is the four-digit year number, `MONTH` and `DAY` are two digit numbers reflecting each respectively, and Markup is the file extension :
-```
+```markdown
 YEAR-MONTH-DAY-title.MARKUP
 ```
 
 At the top of every post will be YAML front matter, which Jekyll uses for maintaining metadata throughout the site (You might have noticed it on the pages). All posts must use this format for its metadata. The most basic front matter will include the layout and title.
-```
+```yaml
 layout: post
 title:  "Welcome to Jekyll!"
 ```

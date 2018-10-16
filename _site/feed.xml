@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-15T19:08:53-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Blog With Jekyll</title><link href="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/" rel="alternate" type="text/html" title="Building a Blog With Jekyll" /><published>2018-10-15T00:00:00-05:00</published><updated>2018-10-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-15T21:04:19-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Blog With Jekyll</title><link href="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/" rel="alternate" type="text/html" title="Building a Blog With Jekyll" /><published>2018-10-15T00:00:00-05:00</published><updated>2018-10-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;A few months ago, I decided to convert my personal website, which was a static HTML site, to &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.&lt;/p&gt;
 
 &lt;h2 id=&quot;experience-with-jekyll&quot;&gt;Experience with Jekyll&lt;/h2&gt;
@@ -31,19 +31,19 @@ Ruby Gems https://rubygems.org/pages/download&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Install Jekyll and the bundler gem (manages the application’s dependencies)
-    &lt;pre&gt;&lt;code&gt; gem install jekyll bundler
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;gem install jekyll bundler
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;Create your new Jekyll site
-    &lt;pre&gt;&lt;code&gt; jekyll new your-blog-name
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;jekyll new your-blog-name
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;Navigate to your newly created Jekyll project
-    &lt;pre&gt;&lt;code&gt;cd your-blog-name
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;cd your-blog-name
 &lt;/code&gt;&lt;/pre&gt;
   &lt;/li&gt;
   &lt;li&gt;Serve your new Jekyll project on a local server
-    &lt;pre&gt;&lt;code&gt;bundle exec jekyll serve
+    &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;bundle exec jekyll serve
 &lt;/code&gt;&lt;/pre&gt;
     &lt;p&gt;Open  &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt; in your browser to view your new site.&lt;/p&gt;
   &lt;/li&gt;
@@ -61,44 +61,16 @@ Ruby Gems https://rubygems.org/pages/download&lt;/p&gt;
 &lt;p&gt;Layouts are templates that surround your content, for example, a layout could include your top navigation and footer. The Layouts live the &lt;code&gt;_layouts&lt;/code&gt; directory. Layouts are helpful because you don’t have to copy and paste the code for recurring components of your website (e.g. footer) for every page.&lt;/p&gt;
 
 &lt;p&gt;Additionally, in your layouts and pages, you are given more tools to template pages with Includes. Includes in Jekyll are template parts which live in the &lt;code&gt;_includes&lt;/code&gt; folder. The includes can either be HTML or Markdown files. To use the include you would simply reference its name with the following:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&quot;en&quot; class=&quot;no-focus-outline&quot;&amp;gt;
-&amp;lt;head lang=&quot;en&quot;&amp;gt;
-    &amp;lt;meta charset=&quot;UTF-8&quot;&amp;gt;
-&amp;lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot; /&amp;gt;
-&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=5&quot;&amp;gt;
-&amp;lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;http://localhost:4000/apple-touch-icon.png&quot;&amp;gt;
-&amp;lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;http://localhost:4000/favicon-32x32.png&quot;&amp;gt;
-&amp;lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;http://localhost:4000/favicon-16x16.png&quot;&amp;gt;
-&amp;lt;link rel=&quot;manifest&quot; href=&quot;http://localhost:4000/site.webmanifest&quot;&amp;gt;
-&amp;lt;link rel=&quot;mask-icon&quot; href=&quot;http://localhost:4000/safari-pinned-tab.svg&quot; color=&quot;#555555&quot;&amp;gt;
-&amp;lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#000000&quot;&amp;gt;
-&amp;lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:description&quot; content=&quot;Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:image:width&quot; content=&quot;1052&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:image:height&quot; content=&quot;551&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:title&quot; content=&quot;Sade Smith&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:url&quot; content=&quot;https://sadesmith.com&quot;&amp;gt;
-&amp;lt;meta property=&quot;og:image&quot; content=&quot;http://localhost:4000/assets/src/images/og-image.jpg&quot;&amp;gt;
-&amp;lt;title&amp;gt;Building a Blog With Jekyll | Sade Smith&amp;lt;/title&amp;gt;
-&amp;lt;link href=&quot;https://fonts.googleapis.com/css?family=Poppins:400,600,700&quot; rel=&quot;stylesheet&quot;&amp;gt;
-&amp;lt;link href=&quot;https://fonts.googleapis.com/css?family=Montserrat:700&quot; rel=&quot;stylesheet&quot;&amp;gt;
-&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/animate.min.css&quot;&amp;gt;
-&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/bootstrap.min.css&quot;&amp;gt;
-&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/ionicons.min.css&quot;&amp;gt;
-&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:4000/assets/dist/css/style.min.css&quot;&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;div id=&quot;loading&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-liquid&quot;&gt;{% include your-file-name.html %}&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;posts&quot;&gt;Posts&lt;/h2&gt;
 &lt;p&gt;The posts of your Jekyll site live in the &lt;code&gt;_posts&lt;/code&gt; folder. Jekyll states that typically posts are written in Markdown but HTML is also supported. I exclusively use Markdown, I find that it is easiest to maintain. If you need help in formatting Markdown, I’ve found this &lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot;&gt;Markdown cheatsheet&lt;/a&gt; on github created by &lt;a href=&quot;https://crypti.cc/&quot;&gt;Adam Pritchard&lt;/a&gt; to be a great resource. Each file name should follow this specific format where ‘YEAR’ is the four-digit year number, &lt;code&gt;MONTH&lt;/code&gt; and &lt;code&gt;DAY&lt;/code&gt; are two digit numbers reflecting each respectively, and Markup is the file extension :&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;YEAR-MONTH-DAY-title.MARKUP
+&lt;pre&gt;&lt;code class=&quot;language-markdown&quot;&gt;YEAR-MONTH-DAY-title.MARKUP
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;At the top of every post will be YAML front matter, which Jekyll uses for maintaining metadata throughout the site (You might have noticed it on the pages). All posts must use this format for its metadata. The most basic front matter will include the layout and title.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;layout: post
+&lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;layout: post
 title:  &quot;Welcome to Jekyll!&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Following the post’s metadata is the content of the post.&lt;/p&gt;
@@ -109,7 +81,7 @@ title:  &quot;Welcome to Jekyll!&quot;
 &lt;p&gt;Alternatively, you can serve your JavaScript and CSS as static files. Static files can be PDFs, Javascript and CSS files, images, etc. Any content that does not need to be rendered. Static files are accessible via Liquid: &lt;code&gt;site.static_files&lt;/code&gt;. To serve your static files, you can use &lt;code&gt;http://localhost:4000&lt;/code&gt; and follow it by the path to the file as well.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Jekyll is easy to get started with and provides you with a lightweight alternative to using a CMS if you are building a blog. You get speed, simplicity, better security than a CMS, and an added bonus of free hosting with Jekyll! Converting over to Jekyll for my website was a great decision and one I do not regret a bit because of its ease of use and benefits. I would recommend it to anyone who wants to create a blog.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="static site generator" /><category term="web" /><summary type="html">A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top.</summary></entry><entry><title type="html">10 Tips for Web Accessibility (Part 2)</title><link href="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/" rel="alternate" type="text/html" title="10 Tips for Web Accessibility (Part 2)" /><published>2018-08-12T00:00:00-05:00</published><updated>2018-08-12T00:00:00-05:00</updated><id>http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2</id><content type="html" xml:base="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Jekyll is easy to get started with and provides you with a lightweight alternative to using a CMS if you are building a blog. You get speed, simplicity, better security than a CMS, and an added bonus of free hosting with Jekyll! Converting over to Jekyll for my website was a great decision and one I do not regret a bit because of its ease of use and benefits. I would recommend it to anyone who wants to create a blog.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="static site generator" /><category term="web" /><summary type="html">A few months ago, I decided to convert my personal website, which was a static HTML site, to Jekyll. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I considered a few content management systems but ultimately Jekyll came out on top.</summary></entry><entry><title type="html">10 Tips for Web Accessibility (Part 2)</title><link href="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/" rel="alternate" type="text/html" title="10 Tips for Web Accessibility (Part 2)" /><published>2018-08-12T00:00:00-05:00</published><updated>2018-08-12T00:00:00-05:00</updated><id>http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2</id><content type="html" xml:base="http://localhost:4000/2018/08/12/blog/10-tips-for-web-accessiblity-part-2/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;In the previous article, &lt;a href=&quot;http://www.sadesmith.com/2018/08/05/blog/10-tips-for-web-accessiblity-part-1/&quot;&gt;“10 Tips for Web Accessibility (Part 1)”&lt;/a&gt;, we covered the first five tips I have for creating accessible websites. In this post, I will continue to list off the remaining five tips. In the last five tips, I will cover skip links, ARIA, form labels, and font sizes.&lt;/p&gt;
 

@@ -2001,6 +2001,12 @@ code{
 	color: #767676;
 	margin: 0 0 20px 0;
 }
+.project-intro.blog-body ol{
+list-style-type: decimal !important;
+}
+.project-intro.blog-body ul{
+	list-style: disc;
+}
 .project-intro.blog-body ul,
 .project-intro.blog-body ol{
 	font-family: 'Poppins';
@@ -2009,7 +2015,6 @@ code{
 	font-weight: 400;
 	color: #767676 !important;
 	margin: 0 0 20px 20px;
-	list-style: disc;
 }
 .project .blog-body .details ul li,
 .project .blog-body .details ol li{
@@ -2508,7 +2513,7 @@ footer.white .address p{
 	}
 
 	.main {
-		padding-right: 40px;
+		padding-right: 0px;
 	}
 
 }
@@ -3001,5 +3006,16 @@ p.copyright{
 @media(max-width: 789px){
 	p.copyright{
 		font-size: 11px;
+	}
+}
+.blog-content h3{
+	font-family: 'Poppins';
+	font-weight: 600;
+	font-size: 21px;
+	margin-bottom: 8px;
+}
+@media (max-width: 450px){
+	.blog-content h3{
+		font-size: 15px;
 	}
 }
