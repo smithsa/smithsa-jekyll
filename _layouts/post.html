@@ -23,7 +23,7 @@
                     {{ content }}
                     <div id="tags">
                         {% for tag in page.tags %}
-                            <a href="{{ site.url }}/blog/tag/#{{ tag | slugify }}">#{{tag}}</a>
+                            <a href="{{ site.url }}/blog/tag#{{ tag | slugify }}">#{{tag}}</a>
                         {% endfor %}
                     </div>
                 </div>

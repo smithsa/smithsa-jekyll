@@ -9,7 +9,7 @@ title: Web Development
                 <h1 class="wow fadeInUp" data-wow-delay= ".1s">Category: <span class="category-name">{{page.title}}</span></h1>
                 <p class="wow fadeInUp" data-wow-delay= ".1s">All fantastic blog posts with the category <span class="category-name">"{{page.title}}."</span> </p>
             </div>
-            <div class="blog-reel">
+            <div class="blog-reel container-fluid">
                 <div class="row">
                     {% assign posts = site.posts | where_exp: "post", "post.categories contains 'web development'" %}
                     {% for post in posts %}
