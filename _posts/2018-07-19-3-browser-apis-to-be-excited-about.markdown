@@ -13,7 +13,7 @@ Introduction
 ------------
 Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!
 
-In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of five exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.
+In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of three exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.
 
 Webshare API
 ------------
@@ -37,7 +37,7 @@ It makes sharing easier for users and gives them more control over how they woul
 Below you can see the functionality of the API in action courtesy of [Paul Kinlan]([https://paul.kinlan.me/](https://paul.kinlan.me/)) from Google.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lhUzYxCvWew" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<small>Payment Request API, courtesy of Google Chrome Developers</small>
+<small>Web Share API, courtesy of Google Chrome Developers</small>
 
 I know what you are thinking about: browser support, right? The only browsers that offer full support are Chrome 61 android and Opera 48 and Webkit is considering adding support as well. It will be interesting to see if other browsers move to adopt this API. If there is a wider adoption, then that would mean the web would be a step closer to closing the gap between the web and native. For now, if you decide to use this API, you should feature-detect to ensure that the API is available on the user’s platform.strong text
 

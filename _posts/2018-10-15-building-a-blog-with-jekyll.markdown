@@ -21,7 +21,7 @@ It’s important to note, at this point, I already had a developed static site. 
 Before I show you how you can get started, I will list some of the advantages of using Jekyll.
 
 ### Free Hosting
-The greatest advantage for me by far. Simply put your Jekyll site in a Github repository and you will have free hosting for your blog. If you are using Github for your version control already, then it makes sense to use it for your free hosting as well -- two birds, one stone.
+The greatest advantage for me by far is the fact that I can host it for free with ease. Simply put your Jekyll site in a Github repository and you will have free hosting for your blog. If you are using Github for your version control already, then it makes sense to use it for your free hosting as well -- two birds, one stone.
 
 ### Speed
 Static files load a lot faster than dynamic files which sometimes have to wait for database queries and API calls. With Jekyll, only the files that are needed are being served.
