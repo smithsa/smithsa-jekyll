@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4444/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4444/" rel="alternate" type="text/html" /><updated>2018-10-29T11:44:13-05:00</updated><id>http://localhost:4444/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Train Tracking Alexa Skill with ASK Node.js SDK</title><link href="http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk" rel="alternate" type="text/html" title="Building a Train Tracking Alexa Skill with ASK Node.js SDK" /><published>2018-10-29T00:00:00-05:00</published><updated>2018-10-29T00:00:00-05:00</updated><id>http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk</id><content type="html" xml:base="http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4444/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4444/" rel="alternate" type="text/html" /><updated>2018-10-29T11:53:57-05:00</updated><id>http://localhost:4444/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Train Tracking Alexa Skill with ASK Node.js SDK</title><link href="http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk" rel="alternate" type="text/html" title="Building a Train Tracking Alexa Skill with ASK Node.js SDK" /><published>2018-10-29T00:00:00-05:00</published><updated>2018-10-29T00:00:00-05:00</updated><id>http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk</id><content type="html" xml:base="http://localhost:4444/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;I rarely have any issues with not having a car while living in the city. Except when winter rolls around. Waiting for the train to come in the cold and freezing winds is the worst part about the winter for me. The last few weeks, as the temperatures start to drop, I have found myself in the predicament where I leave the house and get to the train station and find that the train is delayed or the next train is 15 minutes away. With the temperature around the 30s and 40s, there have been some uncomfortable waits. The clear solution to this problem is to check when the train is coming through an app like “Transit Track” or the “CTA Train Tracker website. But I am usually rushing out in the morning and I seldom look at my phone or use my computer in the morning before work.&lt;/p&gt;
 
@@ -34,15 +34,9 @@
 
 &lt;p&gt;Before you build anything, it’s always a good idea to design it first on paper and flush everything out. The first step to creating an Alexa Skill is to always start with the voice interaction design. I am going to give the skill the name CTA (an acronym for the Chicago Transit Authority), it’s simple enough to say and remember. So based on my requirement above, if I were to specify I was going east, the script of the skill interaction should go something like this:&lt;/p&gt;
 
-&lt;h3 id=&quot;scenario-1&quot;&gt;Scenario 1&lt;/h3&gt;
-&lt;p&gt;Me: Echo, tell the CTA I’m going to the city&lt;br /&gt;
-Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.&lt;/p&gt;
-
-&lt;h3 id=&quot;scenario-2&quot;&gt;Scenario 2&lt;/h3&gt;
-&lt;p&gt;Me: Echo, open the CTA&lt;br /&gt;
-Echo: Tell me which way you are going?&lt;br /&gt;
-Me: To the city&lt;br /&gt;
-Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;Me: Echo, tell the CTA I’m going to the city
+Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&quot;development&quot;&gt;Development&lt;/h2&gt;
 
