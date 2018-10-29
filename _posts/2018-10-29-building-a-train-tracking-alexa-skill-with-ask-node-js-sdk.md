@@ -38,18 +38,17 @@ Basically, the goal will be to build a skill that tells me the estimated time of
 
 Before you build anything, it’s always a good idea to design it first on paper and flush everything out. The first step to creating an Alexa Skill is to always start with the voice interaction design. I am going to give the skill the name CTA (an acronym for the Chicago Transit Authority), it’s simple enough to say and remember. So based on my requirement above, if I were to specify I was going east, the script of the skill interaction should go something like this:
 
-Scenario 1
-Me: Echo, tell the CTA I’m going to the city
+### Scenario 1
+Me: Echo, tell the CTA I’m going to the city<br>
 Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.
 
-Scenario 2
-Me: Echo, open the CTA
-Echo: Tell me which way you are going?
-
-Me: To the city
+### Scenario 2
+Me: Echo, open the CTA<br>
+Echo: Tell me which way you are going?<br>
+Me: To the city<br>
 Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.
 
-Development
+## Development
 
 I’ll walk you through how I developed the skill in this section. You can view the source code of the train tracker in the repository called [train-arrival-times](https://github.com/smithsa/train-arrival-times).
 
