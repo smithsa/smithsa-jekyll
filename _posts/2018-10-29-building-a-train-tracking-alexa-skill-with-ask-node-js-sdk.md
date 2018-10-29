@@ -4,7 +4,7 @@ published: true
 title: "Building a Train Tracking Alexa Skill with ASK Node.js SDK"
 date: 2018-10-29
 categories: alexa
-tags: [Alexa, Node, Javascript, ASK SDK, Maker Share]
+tags: [Alexa, Node, JavaScript, ASK SDK, Maker Share]
 excerpt: I rarely have any issues with not having a car while living in the city. Except when winter rolls around. Waiting for the train to come in the cold and freezing winds is the worst part about the winter for me.
 ---
 
