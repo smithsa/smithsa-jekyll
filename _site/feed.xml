@@ -1,9 +1,510 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-16T09:52:04-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Blog With Jekyll</title><link href="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll" rel="alternate" type="text/html" title="Building a Blog With Jekyll" /><published>2018-10-15T00:00:00-05:00</published><updated>2018-10-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-29T11:28:37-05:00</updated><id>http://localhost:4000/</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building a Train Tracking Alexa Skill with ASK Node.js SDK</title><link href="http://localhost:4000/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk" rel="alternate" type="text/html" title="Building a Train Tracking Alexa Skill with ASK Node.js SDK" /><published>2018-10-29T00:00:00-05:00</published><updated>2018-10-29T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk</id><content type="html" xml:base="http://localhost:4000/2018/10/29/blog/building-a-train-tracking-alexa-skill-with-ask-node-js-sdk">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;I rarely have any issues with not having a car while living in the city. Except when winter rolls around. Waiting for the train to come in the cold and freezing winds is the worst part about the winter for me. The last few weeks, as the temperatures start to drop, I have found myself in the predicament where I leave the house and get to the train station and find that the train is delayed or the next train is 15 minutes away. With the temperature around the 30s and 40s, there have been some uncomfortable waits. The clear solution to this problem is to check when the train is coming through an app like “Transit Track” or the “CTA Train Tracker website. But I am usually rushing out in the morning and I seldom look at my phone or use my computer in the morning before work.&lt;/p&gt;
+
+&lt;p&gt;However, the one electronic device that I routinely use in the morning is my Echo Dot! Whether it’s checking the weather, seeing what’s on my schedule, adding items to my shopping list, or getting the time, it is always faster for me using the Echo than doing all these tasks on my phone. It also gives me the ability to multitask on my way out the door because my hands are free and I only need to use my voice. So clearly the solution to my problem is an Alexa Skill. There are definitely skills that exist that track trains in Chicago but I haven’t found one that I liked or was easy to use. So I decided to build a skill that would basically give me the estimated time of arrivals for next two approaching trains near my house, and have the skill live locally on my Echo devices. In this blog post, I will share how I accomplished building a train tracking Alexa Skill. My objective of this post is to show you how I made the skill, so essentially it is a walkthrough of its development.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-goal&quot;&gt;The Goal&lt;/h2&gt;
+
+&lt;p&gt;Basically, the goal will be to build a skill that tells me the estimated time of arrival for the next two approaching. If you are curious about the final product a demo you can view it below.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SKBHk-v7yr8&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;the-requirements&quot;&gt;The Requirements&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The skill should return the estimated time of arrival of the next two trains from my station. But also how far the next trains are in terms of minutes. For example, if I request information at 12:00 pm and the next train is scheduled to arrive at 12:15 pm, the skill should tell me that the next train will arrive at 12:15 pm and is 15 minutes away.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The skill should notify me if the train is currently approaching the station. This lets me know if I should focus on catching the next train.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The skill should notify me if the train is delayed. This information will let me determine if I have more time to catch the next train, and should expect a longer wait time. This is important because I don’t want to be waiting for more than I have to.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The skill should give me train information based on the direction I specify I am going in. I should be able to tell the skill that I am going east, and it should only give me information about the next two trains going east to the city.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The input phrases (utterances) of the skill be as short as possible. I detest giving my Echo Dot, also known as Alexa, long instructions with many syllables (which is why I changed my wake word to Echo from Alexa, 2 syllables versus 3).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;the-voice-interaction-design&quot;&gt;The Voice Interaction Design&lt;/h2&gt;
+
+&lt;p&gt;Before you build anything, it’s always a good idea to design it first on paper and flush everything out. The first step to creating an Alexa Skill is to always start with the voice interaction design. I am going to give the skill the name CTA (an acronym for the Chicago Transit Authority), it’s simple enough to say and remember. So based on my requirement above, if I were to specify I was going east, the script of the skill interaction should go something like this:&lt;/p&gt;
+
+&lt;p&gt;Scenario 1
+Me: Echo, tell the CTA I’m going to the city
+Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.&lt;/p&gt;
+
+&lt;p&gt;Scenario 2
+Me: Echo, open the CTA
+Echo: Tell me which way you are going?&lt;/p&gt;
+
+&lt;p&gt;Me: To the city
+Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.&lt;/p&gt;
+
+&lt;p&gt;Development&lt;/p&gt;
+
+&lt;p&gt;I’ll walk you through how I developed the skill in this section. You can view the source code of the train tracker in the repository called &lt;a href=&quot;https://github.com/smithsa/train-arrival-times&quot;&gt;train-arrival-times&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;retrieving-the-the-train-arrival-data&quot;&gt;Retrieving the the Train Arrival Data&lt;/h2&gt;
+
+&lt;p&gt;Now the fun part, the development of the skill! I need an API service to get me the information of the approaching trains. Luckily, the Chicago Transit Authority (CTA) has me covered with the &lt;a href=&quot;https://www.transitchicago.com/developers/traintracker/&quot;&gt;Train Tracker API&lt;/a&gt;. Information in the API comes from data fed to CTA from its rail infrastructure, so I am sure to get accurate estimates. According to the Train Tracker API documentation, I only need to make one HTTP GET request to obtain the data I need to the following endpoint:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=[your_api_key]&amp;amp;&amp;amp;mapid=[your_station_id]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This call should return to me a response in XML that looks something this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-xml&quot;&gt;&amp;lt;ctatt&amp;gt;
+&amp;lt;tmst&amp;gt;20110321 18:32:02&amp;lt;/tmst&amp;gt;
+&amp;lt;errCd&amp;gt;0&amp;lt;/errCd&amp;gt;
+&amp;lt;errNm /&amp;gt;
+&amp;lt;eta&amp;gt;
+&amp;lt;staId&amp;gt;40360&amp;lt;/staId&amp;gt;
+&amp;lt;stpId&amp;gt;30071&amp;lt;/stpId&amp;gt;
+&amp;lt;staNm&amp;gt;Southport&amp;lt;/staNm&amp;gt;
+&amp;lt;stpDe&amp;gt;Service toward Loop&amp;lt;/stpDe&amp;gt;
+&amp;lt;rn&amp;gt;426&amp;lt;/rn&amp;gt;
+&amp;lt;rt&amp;gt;Brn&amp;lt;/rt&amp;gt;
+&amp;lt;destSt&amp;gt;31740&amp;lt;/destSt&amp;gt;
+&amp;lt;destNm&amp;gt;Loop&amp;lt;/destNm&amp;gt;
+&amp;lt;trDr&amp;gt;5&amp;lt;/trDr&amp;gt;
+&amp;lt;prdt&amp;gt;20110321 18:31:29&amp;lt;/prdt&amp;gt;
+&amp;lt;arrT&amp;gt;20110321 18:34:29&amp;lt;/arrT&amp;gt;
+&amp;lt;isApp&amp;gt;0&amp;lt;/isApp&amp;gt;
+&amp;lt;isSch&amp;gt;0&amp;lt;/isSch&amp;gt;
+&amp;lt;isFlt&amp;gt;0&amp;lt;/isFlt&amp;gt;
+&amp;lt;isDly&amp;gt;0&amp;lt;/isDly&amp;gt;
+&amp;lt;flags/&amp;gt;
+ &amp;lt;lat&amp;gt;41.97776&amp;lt;/lat&amp;gt;
+ &amp;lt;lon&amp;gt;-87.77567&amp;lt;/lon&amp;gt;
+ &amp;lt;heading&amp;gt;299&amp;lt;/heading&amp;gt;
+&amp;lt;/eta&amp;gt;
+&amp;lt;/ctatt&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I will need to create some helper functions to assist me in parsing the data that I need. I will create a file called &lt;code&gt;helper.js&lt;/code&gt; that I will import into my main &lt;code&gt;index.js&lt;/code&gt; file later.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'use strict';
+const xml2js = require('xml2js');
+const https = require('https');
+
+const HelperFunctions = {
+};
+
+module.exports = HelperFunctions;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first function I want to create is a function that parses XML data into a javascript object. I will use the &lt;code&gt;http&lt;/code&gt; and &lt;code&gt;xml2js&lt;/code&gt; node libraries to help me accomplish this. The function will take a string URL of an XML feed as a parameter and return a Promise that resolves the javascript object of the converted XML data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'use strict';
+const xml2js = require('xml2js');
+const https = require('https');
+
+const HelperFunctions = {
+'getJsonObjectFromXMLFeed': async (xmlUrl) =&amp;gt; {
+   // A promise which makes a call to the api and waits for data
+   let ctaArrivalTimes = new Promise(function(resolve, reject) {
+       https.get(xmlUrl, (resp) =&amp;gt; {
+           let data = '';
+
+           // A chunk of data has been received.
+           resp.on('data', (chunk) =&amp;gt; {
+               data += chunk;
+           });
+           // The whole response has been received. Print out the result.
+           resp.on('end', () =&amp;gt; {
+               resolve(data);
+           });
+
+       }).on(&quot;error&quot;, (err) =&amp;gt; {
+           reject(&quot;Error: &quot; + err.message);
+       });
+
+   }).then(function(xmlArrivalTimes){
+       let xmlStringResult = &quot;&quot;;
+       xml2js.parseString(xmlArrivalTimes, function (err, result) {
+           xmlStringResult = result;
+       });
+       return xmlStringResult;
+   }).then(function(jsonArrivalTimes){
+       return jsonArrivalTimes;
+   }).catch(function(errorMsg){
+       console.log(errorMsg);
+   });
+
+   return ctaArrivalTimes;
+}
+};
+
+module.exports = HelperFunctions;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;handling-the-train-arrival-data&quot;&gt;Handling the Train Arrival Data&lt;/h2&gt;
+
+&lt;p&gt;The data given to me by the CTA that I can use for my purposes includes (1) the platform of the train (stpDe), so the direction the train is going to, (2) a date-time format stamp for when the prediction (prdt), (3) a date-time format stamp for when a train is expected to arrive/depart (arrT) (4) whether the train is currently approaching the station which is a 0 or 1(isApp), and (5) if the train is delayed which is a 0 or 1 (isDly).&lt;/p&gt;
+
+&lt;p&gt;I’ll want helper functions to handle the time data I have received from the API in particular. I want to know how much of a wait time I have until the next train so I definitely want to get the time difference between two times. I will get the time difference in milliseconds and add the following function to &lt;code&gt;HelperFunctions&lt;/code&gt; in my &lt;code&gt;helper.js&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'getTimeDifference':  (time1, time2) =&amp;gt; {
+   let split_time1 = time1.split(':');
+   let start1 = split_time1[0];
+   let end1 = split_time1[1];
+
+   let split_time2 = time2.split(':');
+   let start2 = split_time2[0];
+   let end2 = split_time2[1];
+
+   var date1 = new Date(0);
+   date1.setHours(parseInt(start1, 10));
+   date1.setMinutes(parseInt(end1, 10));
+
+   var date2 = new Date(0);
+   date2.setHours(parseInt(start2, 10));
+   date2.setMinutes(parseInt(end2, 10));
+
+   return date2.getTime() - date1.getTime();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Since the function above returns milliseconds, I want a function to convert milliseconds to minutes. This will be useful for my purposes when I calculate how far the train is away later.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'convertMillisecondsToMinutes': (millseconds) =&amp;gt; {
+   return (millseconds * 0.001)/60;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But what if the time span if greater than 60 minutes and is something like 90 minutes. I don’t want to hear that my train is 90 minutes away. I would want to hear something like your train is an hour and a half. That is easier to comprehend. So for scenarios like this, I will add a function to the &lt;code&gt;HelperFunctions&lt;/code&gt; called &lt;code&gt;minutesToHumanHearable&lt;/code&gt; (I wonder if human hearable is a thing).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'minutesToHumanHearable': (input_minutes) =&amp;gt; {
+   if(input_minutes &amp;lt; 60){
+       return input_minutes + (input_minutes == 1 ? ' minute' : ' minutes');
+   }
+   let hours = (input_minutes / 60);
+   let rhours = Math.floor(hours);
+   let minutes = (hours - rhours) * 60;
+   let rminutes = Math.round(minutes);
+   return rhours + (rhours == 1 ? ' hour': ' hours') +' and ' + rminutes + (rminutes == 1 ? ' minute' : ' minutes');
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lastly, I want the ability to convert a time string which is in a 24-hour time format into the standard 12-hour format. So I will create a function called &lt;code&gt;convertMiltaryTimeToStandardTime&lt;/code&gt;, this function takes in a string time format on the 24-hour clock and will return a string on the 12-hour clock.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;'convertMiltaryTimeToStandardTime': (timeString) =&amp;gt; {
+   let splitTimeString = timeString.split(':');
+   let hour = parseInt(splitTimeString[0], 10);
+   let minutes = splitTimeString[1];
+
+   let dayPeriod = (hour &amp;gt;= 12 &amp;amp;&amp;amp; hour !== 24) ? ' PM' : ' AM';
+   let standardHour = (hour &amp;gt; 12) ? (hour-12) : ((hour == 0) ? 12: hour);
+
+   return standardHour+':'+minutes+dayPeriod;
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These functions above should help me parse the data that I get from the CTA. If you want to see the final file you can look in &lt;code&gt;lambda/custom/help.js&lt;/code&gt; for the final file.&lt;/p&gt;
+
+&lt;h2 id=&quot;building-the-interaction-model&quot;&gt;Building the Interaction Model&lt;/h2&gt;
+&lt;p&gt;I’ve gotten the helper functions out the way. Now I define my interaction model. This is the part where the voice interface that users use to interact with the skill is defined. It lives in a JSON file called &lt;code&gt;en-US.json&lt;/code&gt; which is located in the &lt;code&gt;models&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;h3 id=&quot;intents&quot;&gt;Intents&lt;/h3&gt;
+&lt;p&gt;An intent represents an action that fulfills a user’s spoken request. The default intents are named: AMAZON.CancelIntent, AMAZON.StopIntent, and AMAZON.HelpIntent in the file. I want a specific intent to get the train estimates so I will create an entry into &lt;code&gt;interactionModel.languageModel.intents&lt;/code&gt; named &lt;code&gt;TrainArrivalEstimatesRequest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
+ &quot;interactionModel&quot;: {
+   &quot;languageModel&quot;: {
+     &quot;invocationName&quot;: &quot;cta&quot;,
+     &quot;types&quot;:[],
+     &quot;intents&quot;: [
+       {
+         &quot;name&quot;: &quot;AMAZON.CancelIntent&quot;,
+         &quot;samples&quot;: [
+
+         ]
+       },
+       {
+         &quot;name&quot;: &quot;AMAZON.HelpIntent&quot;,
+         &quot;samples&quot;: [
+
+         ]
+       },
+       {
+         &quot;name&quot;: &quot;AMAZON.StopIntent&quot;,
+         &quot;samples&quot;: [
+
+         ]
+       },
+       {
+         &quot;name&quot;: &quot;TrainArrivalEstimatesRequest&quot;,
+         &quot;slots&quot;: [
+         ],
+         &quot;samples&quot;: [
+         ]
+       }
+     ]
+   }
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;slots-and-types&quot;&gt;Slots and Types&lt;/h3&gt;
+
+&lt;p&gt;Let’s talk slots now. Slots are the arguments that an intent receives when the user issues a request. So for my purposes in building this skill the slots I would want two slots, on for east (63rd Street) and one for the west (Harlem) because that is the information I want to give the intent to get my trains’ estimate times of arrival.&lt;/p&gt;
+
+&lt;p&gt;Slot are defined by types. For example, Amazon uses built-in types like &lt;code&gt;AMAZON.DATE&lt;/code&gt;, &lt;code&gt;AMAZON.NUMBER&lt;/code&gt;, &lt;code&gt;AMAZON.US_CITY&lt;/code&gt;. I need to define custom slots for the direction of the trains. I will add two entries into &lt;code&gt;interactionModel.languageModel.types&lt;/code&gt;. I will name them &lt;code&gt;WEST_DIRECTION&lt;/code&gt; and &lt;code&gt;EAST_DIRECTION&lt;/code&gt;. Additionally, I will add synonyms for each direction. See the code below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;     &quot;types&quot;: [
+       {
+         &quot;values&quot;: [
+           {
+             &quot;name&quot;: {
+               &quot;value&quot;: &quot;harlem&quot;,
+               &quot;synonyms&quot;: [&quot;harlem&quot;, &quot;work&quot;, &quot;harlem ave&quot;, &quot;harlem and lake&quot;, &quot;west&quot;]
+             }
+           }
+         ],
+         &quot;name&quot;: &quot;WEST_DIRECTION&quot;
+       },
+       {
+         &quot;values&quot;: [
+           {
+             &quot;name&quot;: {
+               &quot;value&quot;: &quot;63rd Street&quot;,
+               &quot;synonyms&quot;: [&quot;63rd&quot;, &quot;63rd street&quot;, &quot;the city&quot;, &quot;east&quot;, &quot;ashland&quot;, &quot;63rd and ashland&quot;, &quot;63rd street and ashland&quot;, &quot;63rd street and ashland avenue&quot;]
+             }
+           }
+         ],
+         &quot;name&quot;: &quot;EAST_DIRECTION&quot;
+       }
+     ]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that the slot types are defined, I will add my slots to the intent.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
+ &quot;name&quot;: &quot;TrainArrivalEstimatesRequest&quot;,
+ &quot;slots&quot;: [
+   {
+     &quot;name&quot;: &quot;westDirection&quot;,
+     &quot;type&quot;: &quot;WEST_DIRECTION&quot;
+   },
+   {
+     &quot;name&quot;: &quot;eastDirection&quot;,
+     &quot;type&quot;: &quot;EAST_DIRECTION&quot;
+   }
+ ],
+ &quot;samples&quot;: [
+ ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;utterances&quot;&gt;Utterances&lt;/h3&gt;
+
+&lt;p&gt;The last part to handle in the interaction model is the sample utterance. The sample utterances specify the words and phrases users can say to invoke the intent to get the train estimates. The intent will be mapped to these utterances. Slots are indicated within the utterances with curly brackets. I will add my utterances to the intent. The final intent in the interaction model should look like the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;{
+ &quot;name&quot;: &quot;TrainArrivalEstimatesRequest&quot;,
+ &quot;slots&quot;: [
+   {
+     &quot;name&quot;: &quot;westDirection&quot;,
+     &quot;type&quot;: &quot;WEST_DIRECTION&quot;
+   },
+   {
+     &quot;name&quot;: &quot;eastDirection&quot;,
+     &quot;type&quot;: &quot;EAST_DIRECTION&quot;
+   }
+ ],
+ &quot;samples&quot;: [
+   &quot;what is the next train going towards {westDirection}&quot;,
+   &quot;what is the next train going towards {eastDirection}&quot;,
+   &quot;what is the next train going {westDirection}&quot;,
+   &quot;what is the next train going {eastDirection}&quot;,
+   &quot;what is the next train going to {westDirection}&quot;,
+   &quot;what is the next train going to {eastDirection}&quot;,
+   &quot;when is the next train going to {westDirection}&quot;,
+   &quot;when is the next train going to {eastDirection}&quot;,
+   &quot;when is the next train towards {westDirection} is&quot;,
+   &quot;when is the next train towards {eastDirection} is&quot;,
+   &quot;when the next train towards {westDirection} is&quot;,
+   &quot;when the next train towards {eastDirection} is&quot;,
+   &quot;when the next train toward {westDirection} is&quot;,
+   &quot;when the next train toward {eastDirection} is&quot;,
+   &quot;when the next train to {westDirection} is&quot;,
+   &quot;when the next train to {eastDirection} is&quot;,
+   &quot;get the next train towards {westDirection}&quot;,
+   &quot;get the next train towards {eastDirection}&quot;,
+   &quot;get the next train to {westDirection}&quot;,
+   &quot;get the next train to {eastDirection}&quot;,
+   &quot;get the next train going towards {westDirection}&quot;,
+   &quot;get the next train going towards {eastDirection}&quot;,
+   &quot;{eastDirection}&quot;,
+   &quot;{westDirection}&quot;,
+   &quot;I'm going {westDirection}&quot;,
+   &quot;I'm going {eastDirection}&quot;,
+   &quot;I am going {westDirection}&quot;,
+   &quot;I am going {westDirection}&quot;,
+   &quot;We are going {eastDirection}&quot;,
+   &quot;We are going {westDirection}&quot;,
+   &quot;We're are going {eastDirection}&quot;,
+   &quot;We're are going {westDirection}&quot;,
+   &quot;I'm going to {westDirection}&quot;,
+   &quot;I'm going to {eastDirection}&quot;,
+   &quot;I am going to {westDirection}&quot;,
+   &quot;I am going to {westDirection}&quot;,
+   &quot;We are going to {eastDirection}&quot;,
+   &quot;We are going to {westDirection}&quot;,
+   &quot;We're are going to {eastDirection}&quot;,
+   &quot;To {westDirection}&quot;,
+   &quot;To {eastDirection}&quot;
+ ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;developing-the-intent-logic&quot;&gt;Developing the Intent Logic&lt;/h2&gt;
+
+&lt;p&gt;The final step of all this is to develop the logic for the intent. The intent lives in &lt;code&gt;index.js&lt;/code&gt; with the other intents. Here I will want to get what slot was spoken by the user then use that information to get the correct train. I will access the slot id by referencing the slots of the intents. I will need to determine if the user is requesting train information for trains heading east or west. I’ll set this information in the &lt;code&gt;trainDestination&lt;/code&gt; variable. Additionally, I will return a response to the user to repeat the request again if I can not find the appropriate direction.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const TrainArrivalEstimatesRequestHandler = {
+ canHandle(handlerInput) {
+   return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+     &amp;amp;&amp;amp; handlerInput.requestEnvelope.request.intent.name === 'TrainArrivalEstimatesRequest';
+ },
+ handle(handlerInput) {
+     const {attributesManager} = handlerInput;
+     const { request } = handlerInput.requestEnvelope;
+
+     let outputText = '';
+     let direction = '';
+     let trainDestination = '';
+     let slots = request.intent.slots;
+     if(slots.eastDirection.hasOwnProperty('value')){
+         direction = slots.eastDirection.value;
+         trainDestination = 'Service toward 63rd St';
+     }else if(slots.westDirection.hasOwnProperty('value')){
+         direction = slots.westDirection.value;
+         trainDestination = 'Service toward Harlem/Lake';
+     }else{
+         const speechText = 'Sorry, I don\'t know that destination. Try saying it again, or another phrase like: get me the next train toward the city.';
+         return handlerInput.responseBuilder
+             .speak(speechText)
+             .withShouldEndSession(false)
+             .getResponse();
+     }
+ }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I can then grab the train estimated times of arrival from a request to the CTA Train Tracker API. I use the helper functions I created earlier. Then I parse out the data using the helper functions to get me the wait time, estimated time of arrival on a 12-hour clock, and information about whether the train is approaching or delayed. Once I have that information, I can create an output string that instructs Alexa what to say, it will have the estimated arrival times of the next trains going in the specified direction. After the output string is finished being created, I can pass it through the Promise chain and return a response. Ultimately, I will return the Promise which will provide the response for the Alexa SDK.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const TrainArrivalEstimatesRequestHandler = {
+ canHandle(handlerInput) {
+   return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+     &amp;amp;&amp;amp; handlerInput.requestEnvelope.request.intent.name === 'TrainArrivalEstimatesRequest';
+ },
+ handle(handlerInput) {
+     const {attributesManager} = handlerInput;
+     const { request } = handlerInput.requestEnvelope;
+
+     let outputText = '';
+     let direction = '';
+     let trainDestination = '';
+     let slots = request.intent.slots;
+     if(slots.eastDirection.hasOwnProperty('value')){
+         direction = slots.eastDirection.value;
+         trainDestination = 'Service toward 63rd St';
+     }else if(slots.westDirection.hasOwnProperty('value')){
+         direction = slots.westDirection.value;
+         trainDestination = 'Service toward Harlem/Lake';
+     }else{
+         const speechText = 'Sorry, I don\'t know that destination. Try saying it again, or another phrase like: get me the next train toward the city.';
+         return handlerInput.responseBuilder
+             .speak(speechText)
+             .withShouldEndSession(false)
+             .getResponse();
+     }
+
+   //get the next train times here
+   let trainXMLData = helperFunctions.getJsonObjectFromXMLFeed(API_CALL);
+   let estimateData = trainXMLData.then(function(jsonArrivalTimes){
+       let etas = jsonArrivalTimes.ctatt.eta;
+       let etaEstimates = {};
+       for(let eta of etas){
+         console.log(eta);
+         eta.prdt = eta.prdt[0];
+         eta.arrT = eta.arrT[0];
+         let currentTime = helperFunctions.convertDateTimeToTime(eta.prdt);
+         let arrivalTime = helperFunctions.convertDateTimeToTime(eta.arrT);
+         let waitingTime = helperFunctions.convertMillisecondsToMinutes(helperFunctions.getTimeDifference(currentTime, arrivalTime));
+         waitingTime = helperFunctions.minutesToHumanHearable(parseInt(waitingTime));
+
+         let standardArrivalTime = helperFunctions.convertMiltaryTimeToStandardTime(arrivalTime);
+         console.log('standardArrivalTime:', standardArrivalTime);
+
+         eta.stpDe = eta.stpDe[0];
+         eta.isApp = eta.isApp[0];
+         eta.isDly = eta.isDly[0];
+         if(etaEstimates.hasOwnProperty(eta.stpDe)){
+             etaEstimates[eta.stpDe].push({
+                     'wait': waitingTime,
+                     'arrival_time': standardArrivalTime,
+                     'is_approaching': eta.isApp,
+                     'is_delayed':  eta.isDly
+                 });
+         }else{
+             etaEstimates[eta.stpDe] = [{
+               'wait': waitingTime,
+               'arrival_time': standardArrivalTime,
+               'is_approaching': eta.isApp,
+               'is_delayed':  eta.isDly
+             }];
+         }
+
+       };
+
+       //get the data of the direction the train is going
+       etaEstimates = etaEstimates[trainDestination];
+       return [direction, etaEstimates];
+
+   });
+
+   let outputString = estimateData.then(function (destinationData) {
+       let direction = destinationData[0];
+       let estimates = destinationData[1];
+       let speechOutput = 'The next train towards '+direction+ ' is ';
+       speechOutput += estimates[0].wait + ' away';
+       speechOutput += ', and due to arrive at '+ estimates[0].arrival_time+'.' ;
+       speechOutput += (estimates[0].is_approaching === '1' ? ' It is approaching.': '');
+       speechOutput +=  (estimates[0].is_delayed === '1' ? ' It is currently delayed.': '');
+       if(estimates.length == 2){
+           speechOutput += ' There is a following train ';
+           speechOutput += estimates[1].wait + ' away';
+           speechOutput += ', and due to arrive at '+ estimates[1].arrival_time+'.' ;
+           speechOutput += (estimates[1].is_approaching === '1' ? ' It is approaching.': '');
+           speechOutput +=  (estimates[1].is_delayed === '1' ? ' It is currently delayed.': '');
+       }
+
+       return speechOutput;
+
+   }).then(function(speechText){
+       return handlerInput.responseBuilder
+           .speak(speechText)
+           .getResponse();
+   });
+   return outputString;
+ },
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Voila! This concludes the walkthrough of the skill. It’s a pretty simple and just requires one intent which makes an HTTP request. As mentioned previously, you can view the source code of the train tracker in the repository called &lt;a href=&quot;https://github.com/smithsa/train-arrival-times&quot;&gt;train-arrival-times&lt;/a&gt;. The skill was a quick build just to help me get out on time in the morning, but it can be extended. Maybe in the future, I will have time to expand it so that others can use it but for now it’s on GitHub if anyone wants to use or modify it. So hopefully with this skill, there are long waits in the cold for trains in my mornings!&lt;/p&gt;</content><author><name></name></author><category term="Alexa" /><category term="Node" /><category term="Javascript" /><category term="ASK SDK" /><category term="Maker Share" /><summary type="html">I rarely have any issues with not having a car while living in the city. Except when winter rolls around. Waiting for the train to come in the cold and freezing winds is the worst part about the winter for me.</summary></entry><entry><title type="html">Building a Blog With Jekyll</title><link href="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll" rel="alternate" type="text/html" title="Building a Blog With Jekyll" /><published>2018-10-15T00:00:00-05:00</published><updated>2018-10-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll</id><content type="html" xml:base="http://localhost:4000/2018/10/15/blog/building-a-blog-with-jekyll">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;A few months ago, I decided to convert my personal website, which was a static HTML site, to &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. If you aren’t familiar with Jekyll, it’s a blog-aware static site generator built on Ruby. I wanted to create a blog for my website and also have the ability to template the pages of my site but wanted a lightweight solution. I considered a few content management systems but ultimately Jekyll came out on top. The decision to convert over to Jekyll was an easy one, and after a few months of using it, certainly a decision I am happy with. In this blog post, I will discuss my experience with the static site generator, it benefits, and how you can get started using it.&lt;/p&gt;
 
 &lt;h2 id=&quot;experience-with-jekyll&quot;&gt;Experience with Jekyll&lt;/h2&gt;
 
-&lt;p&gt;The first requirement I had for my site was that it should be static. If the site was static, then I could easily host it on Github and not have to worry about hosting fees in the future. The next requirement I was for the site to have a blog. However, I didn’t want to have to manually format and a page for each post. I essentially needed a content management system (CMS) for a static site. The first idea I had was to use a CMS like WordPress and access its API writing some reusable code to get posts and it’s metadata. But I didn’t want to have to worry about managing calls to an API which was all too complex for a simple blog. I also realized that for CMSs like WordPress I would have to pay to host an installation of that CMS. So an option like WordPress or Drupal was out of the picture for me. Luckily, I did more research and Jekyll came to my attention — it was a perfect match. A simple, blog-aware, and static site generator was just what I needed. Plus it was an added bonus that &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; are powered by Jekyll so I could easily deploy the site with Github for free.&lt;/p&gt;
+&lt;p&gt;The first requirement I had for my site was that it should be static. If the site was static, then I could easily host it on Github and not have to worry about hosting fees in the future. The next requirement I was for the site to have a blog. However, I didn’t want to have to manually format each post, I wanted something with templating as well. I essentially needed a content management system (CMS) for a static site. The first idea I had was to use a CMS like WordPress and access its API writing some reusable code to get posts and it’s metadata. But I didn’t want to have to worry about managing calls to an API which was all too complex for a simple blog. I also realized that for CMSs like WordPress I would have to pay to host an installation of that CMS. So an option like WordPress or Drupal was out of the picture for me. Luckily, I did more research and Jekyll came to my attention — it was a perfect match. A simple, blog-aware, and static site generator was just what I needed. Plus it was an added bonus that &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; are powered by Jekyll so I could easily deploy the site with Github for free.&lt;/p&gt;
 
 &lt;p&gt;It’s important to note, at this point, I already had a developed static site. I just needed something to manage blog posts for the site. The task at hand was to transfer it into Jekyll. It took less than a day to familiarize myself with its structure and my blog was up and running within a few days. Experience developing countless themes and familiarity with the Liquid templating language, helped me pick up Jekyll quickly. There were some things I had to learn like YAML, formatting in Markdown, and how the plugin system worked. However, they were easy to learn, and I picked those up in no time as well. You certainly don’t need prior experience to get going but it helps!&lt;/p&gt;
 
@@ -11,7 +512,7 @@
 &lt;p&gt;Before I show you how you can get started, I will list some of the advantages of using Jekyll.&lt;/p&gt;
 
 &lt;h3 id=&quot;free-hosting&quot;&gt;Free Hosting&lt;/h3&gt;
-&lt;p&gt;The greatest advantage for me by far. Simply put your Jekyll site in a Github repository and you will have free hosting for your blog. If you are using Github for your version control already, then it makes sense to use it for your free hosting as well – two birds, one stone.&lt;/p&gt;
+&lt;p&gt;The greatest advantage for me by far is the fact that I can host it for free with ease. Simply put your Jekyll site in a Github repository and you will have free hosting for your blog. If you are using Github for your version control already, then it makes sense to use it for your free hosting as well – two birds, one stone.&lt;/p&gt;
 
 &lt;h3 id=&quot;speed&quot;&gt;Speed&lt;/h3&gt;
 &lt;p&gt;Static files load a lot faster than dynamic files which sometimes have to wait for database queries and API calls. With Jekyll, only the files that are needed are being served.&lt;/p&gt;
@@ -87,13 +588,13 @@ title:  &quot;Welcome to Jekyll!&quot;
 
 &lt;h2 id=&quot;6-create-skip-links&quot;&gt;6. Create Skip Links&lt;/h2&gt;
 
-&lt;p&gt;Skip links allow users who are not using a mouse and are tabbing through the page to bypass links in sections like the navigation and go directly to the main content of the page. In addition, these links can save time for those who are using a screen reader because the reader will want to read aloud links in the navigations it traverses. So it is recommended that skip links are created. They should be at the top of your tab index and not appear to users who are not tabbing or using a screen reading device. &lt;a href=&quot;https://jonkantner.com/&quot;&gt;John Kantner&lt;/a&gt; offers a great skip link example below:&lt;/p&gt;
+&lt;p&gt;Skip links allow users who are not using a mouse and are tabbing through the page to bypass links in sections like the navigation, and go directly to the main content of the page. In addition, these links can save time for those who are using a screen reader because the reader will want to read aloud links in the navigations it traverses. So it is recommended that skip links are created. They should be at the top of your tab index and not appear to users who are not tabbing or using a screen reading device. &lt;a href=&quot;https://jonkantner.com/&quot;&gt;John Kantner&lt;/a&gt; offers a great skip link example below:&lt;/p&gt;
 
 &lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;Skip Link Navigation&quot; src=&quot;//codepen.io/jkantner/embed/zqJJdW/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=html,result&amp;amp;embed-version=2&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/jkantner/pen/zqJJdW/&quot;&gt;Skip Link Navigation&lt;/a&gt; by Jon Kantner (&lt;a href=&quot;https://codepen.io/jkantner&quot;&gt;@jkantner&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.
 &lt;/iframe&gt;
 
 &lt;h2 id=&quot;7-use-aria-attributes-when-appropriate&quot;&gt;7. Use ARIA Attributes When Appropriate&lt;/h2&gt;
-&lt;p&gt;ARIA attributes communicate with assistive technology devices the role (i.e. user interface pattern), property (i.e. label name) , and state (i.e. pressed) of your HTML elements. When native HTML elements will not meet your needs and further modification is required, then you should use ARIA. They provide semantics to elements when they are missing. Using ARIA is most useful in scenarios where you need to (1) signify a landmark such as a search area or navigation, (2) when you update content dynamically, (3) add keyboard accessibility, and (4) use custom complex UI controls. It’s important to note that ARIA modifies the accessibility tree but not the DOM itself thus does not change its behavior. Lastly use ARIA with discretion, you should avoid redundancy of defining an element’s role, for example you do not need to use an ARIA attribute of radio (&lt;code&gt;role=”radio”&lt;/code&gt;) on an input with the type radio (&lt;code&gt;&amp;lt;input type=”radio”&amp;gt;&lt;/code&gt;). In addition, elements should not have aria attributes that interfere with their semantics (list of attributes allowed on each HTML element.)[https://www.w3.org/TR/html-aria/#docconformance] (For more information on ARIA, Mozilla offers a great comprehensive (ARIA guide)[https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA] with examples.&lt;/p&gt;
+&lt;p&gt;ARIA attributes communicate with assistive technology devices the role (i.e. user interface pattern), property (i.e. label name) , and state (i.e. pressed) of your HTML elements. When native HTML elements will not meet your needs and further modification is required, then you should use ARIA. They provide semantics to elements when they are missing. Using ARIA is most useful in scenarios where you need to (1) signify a landmark such as a search area or navigation, (2) when you update content dynamically, (3) add keyboard accessibility, and (4) use custom complex UI controls. It’s important to note that ARIA modifies the accessibility tree but not the DOM itself thus does not change its behavior. Lastly use ARIA with discretion, you should avoid redundancy of defining an element’s role, for example you do not need to use an ARIA attribute of radio (&lt;code&gt;role=”radio”&lt;/code&gt;) on an input with the type radio (&lt;code&gt;&amp;lt;input type=”radio”&amp;gt;&lt;/code&gt;). In addition, elements should not have aria attributes that interfere with their semantics &lt;a href=&quot;https://www.w3.org/TR/html-aria/#docconformance&quot;&gt;list of attributes allowed on each HTML element.&lt;/a&gt; For more information on ARIA, Mozilla offers a great comprehensive &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA&quot;&gt;ARIA guide&lt;/a&gt; with examples.&lt;/p&gt;
 
 &lt;h2 id=&quot;8-use-aria-pressed-attribute-for-active-states&quot;&gt;8. Use ARIA Pressed Attribute for Active States&lt;/h2&gt;
 &lt;p&gt;There are instances where you need to communicate the active state of a button or link. For example, navigation menus often have an active state to signify a current page or tabbed content usually has an active tab to indicate the current content being displayed. Often, an active class is used in these instances. However, classes are not in the accessibility tree and screen readers are unable to read classes thus unable to detect the active state. To solve this issue, you can use the ARIA attributes &lt;code&gt;aria-pressed&lt;/code&gt; and &lt;code&gt;&amp;lt;aria-label&lt;/code&gt;. When the active button is pressed you can set the &lt;code&gt;aria-pressed&lt;/code&gt; attribute to true, false otherwise. You can also give the active button or link a label of the current page with the ARIA attribute &lt;code&gt;&amp;lt;aria-label&lt;/code&gt;. Additionally, you can style the CSS &lt;code&gt;[aria-pressed=”true”]&lt;/code&gt; selector for those elements instead of the active class. See the following example below: &lt;/p&gt;
@@ -158,7 +659,7 @@ title:  &quot;Welcome to Jekyll!&quot;
 &lt;p&gt;As you can see, these are very simple tips to implement in your website to make them more accessible and provide an overall improvement. The best part, there’s More! Stay tuned for part 2, where we will continue going over practical tips for developing accessible websites. Getting into more accessibility principles, I will be touching upon ARIA, skip links, form labels, and font sizes.&lt;/p&gt;</content><author><name></name></author><category term="accessibility" /><category term="a11y" /><category term="wcag" /><summary type="html">Following the best practices for accessibility means you will be adhering to the best practices of the web. In this two-part series, I will be giving some practical development tips based on recommendations from the Web Content Accessibility Guidelines (WCAG) that you can use to develop more accessible websites.</summary></entry><entry><title type="html">3 Browser APIs to be Excited About</title><link href="http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about" rel="alternate" type="text/html" title="3 Browser APIs to be Excited About" /><published>2018-07-18T00:00:00-05:00</published><updated>2018-07-18T00:00:00-05:00</updated><id>http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about</id><content type="html" xml:base="http://localhost:4000/2018/07/18/blog/3-browser-apis-to-be-excited-about">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Each year web technologies push the boundaries of what was thought possible. The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware. Additionally, we can see APIs like Web Storage and IndexedDB adding a performance boost by storing data on the client-side. The best part is that the list of browser APIs keeps growing, and in turn, enhancing the capability of the web. It’s certainly an exciting time to be developing for the web!&lt;/p&gt;
 
-&lt;p&gt;In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of five exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.&lt;/p&gt;
+&lt;p&gt;In this post, we will be exploring some of these APIs improving the everyday web experience. I will be giving an overview of three exciting browser APIs you should know about. For each API, we will go over what the API does, potential use cases, and current browser support. Developers should consider implementing these new technologies in their web applications once browsers adopt and ship them. Until then, be sure to feature detect if you decide to use these APIs sooner than later.&lt;/p&gt;
 
 &lt;h2 id=&quot;webshare-api&quot;&gt;Webshare API&lt;/h2&gt;
 &lt;p&gt;Currently, there isn’t a standard way to access the share dialog of native devices using the web. The &lt;a href=&quot;https://developers.google.com/web/updates/2016/09/navigator-share&quot;&gt;WebShare API&lt;/a&gt; fixes this problem and allows your web applications to invoke native device’s share dialog. Developers can access the API through the navigator object, calling the share() method.&lt;/p&gt;
@@ -179,14 +680,14 @@ title:  &quot;Welcome to Jekyll!&quot;
 &lt;p&gt;Below you can see the functionality of the API in action courtesy of &lt;a href=&quot;[https://paul.kinlan.me/](https://paul.kinlan.me/)&quot;&gt;Paul Kinlan&lt;/a&gt; from Google.&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/lhUzYxCvWew&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;small&gt;Payment Request API, courtesy of Google Chrome Developers&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Web Share API, courtesy of Google Chrome Developers&lt;/small&gt;&lt;/p&gt;
 
 &lt;p&gt;I know what you are thinking about: browser support, right? The only browsers that offer full support are Chrome 61 android and Opera 48 and Webkit is considering adding support as well. It will be interesting to see if other browsers move to adopt this API. If there is a wider adoption, then that would mean the web would be a step closer to closing the gap between the web and native. For now, if you decide to use this API, you should feature-detect to ensure that the API is available on the user’s platform.strong text&lt;/p&gt;
 
 &lt;h2 id=&quot;payment-request-api&quot;&gt;Payment Request API&lt;/h2&gt;
 &lt;p&gt;The &lt;a href=&quot;https://developers.google.com/web/fundamentals/payments/&quot;&gt;Payment Request API&lt;/a&gt; aims to make the traditional tedious checkout process on website obsolete by storing users billing information in the browser and presenting a consistent, secure and user-friendly interface regardless of payment method. Checkout forms are notoriously long and repetitive across sites and filling out these forms on mobile devices are even more of a headache. This API streamline the checkout process and makes the checkout flow a lot shorter. Now with the Payment Request API, you can checkout with a few click and keyboard is not needed at all. Amazing, right? So let’s talk about how it works.&lt;/p&gt;
 
-&lt;p&gt;The browser will securely store and save your information for purchases and then send it to the merchant. (the address in this) The merchant then can send back options for shipping. The only required input from the user would is the CVC. Once the user confirms the payment, the data is securely bundled and sent to the merchant. Once the browser determines that the accepted payment methods for the site and the methods on the device are compatible, the browser will display the payments UI. The user then selects the payment method and authorized the transaction. The data the user entered and has stored (i.e. card number, CVC, card expiration date) is bundled and sent to the merchant site.&lt;/p&gt;
+&lt;p&gt;The browser will securely store and save your information for purchases and then send it to the merchant. The merchant then can send back options for shipping. The only required input from the user would is the CVC. Once the user confirms the payment, the data is securely bundled and sent to the merchant. Once the browser determines that the accepted payment methods for the site and the methods on the device are compatible, the browser will display the payments UI. The user then selects the payment method and authorized the transaction. The data the user entered and has stored (i.e. card number, CVC, card expiration date) is bundled and sent to the merchant site.&lt;/p&gt;
 
 &lt;p&gt;It’s important to note that this is not a new payment method itself. It does not replace payment processors like Stripe and Braintree. Nor does it interact directly with payment processors. The API is simply a way to send user’s payment and shipping information to merchants to allow for a seamless and painless checkout experience on any browser, device, or platform. So it’s vendor agnostic, it does not matter what payment processing service you use.&lt;/p&gt;
 
