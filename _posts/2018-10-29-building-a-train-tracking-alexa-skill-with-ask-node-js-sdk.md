@@ -18,31 +18,37 @@ However, the one electronic device that I routinely use in the morning is my Ech
 
 ## The Goal
 
-Basically, the goal will be to build a skill that tells me the estimated time of arrival for the next two approaching. If you are curious about the final product a demo you can view it below.
+Basically, the goal will be to build a skill that tells me the estimated time of arrival for the next two approaching trains. If you are curious about the final product a demo you can view it below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SKBHk-v7yr8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## The Requirements
 
-1. The skill should return the estimated time of arrival of the next two trains from my station. But also how far the next trains are in terms of minutes. For example, if I request information at 12:00 pm and the next train is scheduled to arrive at 12:15 pm, the skill should tell me that the next train will arrive at 12:15 pm and is 15 minutes away.
+1. The skill should return the estimated time of arrival of the next two trains closest to my home. But also how far the next trains are in terms of minutes. For example, if I request information at 12:00 pm and the next train is scheduled to arrive at 12:15 pm, the skill should tell me that the next train will arrive at 12:15 pm and is 15 minutes away.
 
 2. The skill should notify me if the train is currently approaching the station. This lets me know if I should focus on catching the next train.
 
 3. The skill should notify me if the train is delayed. This information will let me determine if I have more time to catch the next train, and should expect a longer wait time. This is important because I don’t want to be waiting for more than I have to.
 
-4.  The skill should give me train information based on the direction I specify I am going in. I should be able to tell the skill that I am going east, and it should only give me information about the next two trains going east to the city.
+4. The skill should give me train information based on the direction I specify I am going in. I should be able to tell the skill that I am going east, and it should only give me information about the next two trains going east to the city.
 
 5. The input phrases (utterances) of the skill be as short as possible. I detest giving my Echo Dot, also known as Alexa, long instructions with many syllables (which is why I changed my wake word to Echo from Alexa, 2 syllables versus 3).
 
 ## The Voice Interaction Design
 
-Before you build anything, it’s always a good idea to design it first on paper and flush everything out. The first step to creating an Alexa Skill is to always start with the voice interaction design. I am going to give the skill the name CTA (an acronym for the Chicago Transit Authority), it’s simple enough to say and remember. So based on my requirement above, if I were to specify I was going east, the script of the skill interaction should go something like this:
+Before you build anything, it’s always a good idea to design it first on paper and flush everything out. The first step to creating an Alexa Skill is to always start with the voice interaction design. I am going to give the skill the name CTA (an acronym for the Chicago Transit Authority), it’s simple enough to say and remember. So based on one of my requirement above, if I were to specify that I was going to the east, the script of the skill interaction should go something like this:
+
+```html
+Me: Echo, tell the CTA I’m going east
+Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.
+```
+
+Additionally, the interaction can go like this:
 
 ```html
 Me: Echo, tell the CTA I’m going to the city
 Echo: The next train towards the city is 12 minutes away, and due to arrive at 7:05 PM. There is a following train 27 minutes away, and due to arrive at 7:20 PM.
 ```
-
 
 
 
@@ -215,10 +221,10 @@ Lastly, I want the ability to convert a time string which is in a 24-hour time f
 
 ```
 
-These functions above should help me parse the data that I get from the CTA. If you want to see the final file you can look in `lambda/custom/help.js` for the final file.
+These functions above should help me parse the data that I get from the CTA. If you want to see the final file you can look in `lambda/custom/helper.js` for the final file.
 
 ## Building the Interaction Model
-I’ve gotten the helper functions out the way. Now I define my interaction model. This is the part where the voice interface that users use to interact with the skill is defined. It lives in a JSON file called `en-US.json` which is located in the `models` folder. 
+I’ve gotten the helper functions out the way. Now I should define my interaction model. This is the part where the voice interface that users use to interact with the skill is defined. It lives in a JSON file called `en-US.json` which is located in the `models` folder. 
 
 ### Intents
 An intent represents an action that fulfills a user's spoken request. The default intents are named: AMAZON.CancelIntent, AMAZON.StopIntent, and AMAZON.HelpIntent in the file. I want a specific intent to get the train estimates so I will create an entry into `interactionModel.languageModel.intents` named `TrainArrivalEstimatesRequest`. 
@@ -515,4 +521,4 @@ const TrainArrivalEstimatesRequestHandler = {
 
 ## Conclusion
 
-Voila! This concludes the walkthrough of the skill. It’s pretty simple and just requires one intent which makes an HTTP request. As mentioned previously, you can view the source code of the train tracker in the repository called [train-arrival-times](https://github.com/smithsa/train-arrival-times). The skill was a quick build just to help me get out on time in the morning, but it can be extended. Maybe in the future, I will have time to expand it so that others can use it but for now it’s on GitHub if anyone wants to use or modify it. So hopefully with this skill, there are fewer long waits in the cold for trains in my mornings! 
+Voila! This concludes the walkthrough of the skill. It’s pretty simple and just requires one intent which makes an HTTP request. As mentioned previously, you can view the source code of the train tracker in the repository called [train-arrival-times](https://github.com/smithsa/train-arrival-times). The skill was a quick build just to help me get out on time in the morning, but it can be extended. Maybe in the future, I will have time to expand it so that others can use it but for now it’s on GitHub if anyone wants to use or modify it. So hopefully with this skill, there are fewer long waits in the cold for the train! 
