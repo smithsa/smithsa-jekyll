@@ -13,7 +13,7 @@ title: Web Development
                 <div class="row">
                     {% assign posts = site.posts | where_exp: "post", "post.categories contains 'web development'" %}
                     {% for post in posts %}
-                    {% include article.html %}
+                    {% include article-full.html %}
                     {% endfor %}
                 </div>
             </div>

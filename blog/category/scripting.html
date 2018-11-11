@@ -14,7 +14,7 @@ title: Scripting
                 <div class="row">
                     {% assign posts = site.posts | where_exp: "post", "post.categories contains 'scripting'" %}
                     {% for post in posts %}
-                        {% include article.html %}
+                        {% include article-full.html %}
                     {% endfor %}
                 </div>
             </div>

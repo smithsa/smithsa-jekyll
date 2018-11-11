@@ -10,7 +10,7 @@
   "license": "Creative Commons",
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "latest",
+    "gulp": "^3.9.1",
     "gulp-coffee": "latest",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "latest",

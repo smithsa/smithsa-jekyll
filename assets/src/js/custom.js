@@ -29,32 +29,46 @@ new WOW().init();
 
 $( window ).load(function() {
 
+
+
 var $container = $('.portfolio-container');
-$container.isotope({
-	filter: '*',
-    masonry: { //wont work on the portfolio page, need to add class to those items on the page
-        // set to the element
-        itemSelector: '.portfolio-item',
-        columnWidth: '.portfolio-item',
-        gutter: 5,
-        percentPosition: true
+    $container.isotope({
+        filter: '*',
+        masonry: { //wont work on the portfolio page, need to add class to those items on the page
+            // set to the element
+            itemSelector: '.portfolio-item',
+            columnWidth: '.portfolio-item',
+            gutter: 5,
+            percentPosition: true
+        }
+    });
+
+    $('.portfolio-filter a').on('click', function () {
+        $('.portfolio-filter .active').removeClass('active');
+        $(this).addClass('active');
+
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+                filter: selector,
+                animationOptions: {
+                        duration: 500,
+                        animationEngine: "jquery"
+                },
+        });
+        return false;
+    });
+
+    $("#accept-cookies").on('click', function(){
+        window.localStorage.setItem('cookie-consent', true);
+    });
+    if(window.localStorage.getItem('cookie-consent') === null){
+        $("#cookie-content").fadeIn();
+    }else{
+        if(window.localStorage.getItem('cookie-consent') === false){
+            $("#cookie-content").fadeIn();
+        }
     }
-});
 
-$('.portfolio-filter a').on('click', function () {
-	$('.portfolio-filter .active').removeClass('active');
-	$(this).addClass('active');
-
-	var selector = $(this).attr('data-filter');
-	$container.isotope({
-			filter: selector,
-			animationOptions: {
-					duration: 500,
-					animationEngine: "jquery"
-			},
-	});
-	return false;
-});
 
 });
 
@@ -168,21 +182,4 @@ document.body.addEventListener('keyup', function(e) {
     }
 });
 
-// $("#tags a").on('click', function(){
-//     var tag_name = $(this).attr('data-tag');
-//     if(ss_dir === 'blog'){
-//         window.location = ss_cur_dir+"/../blog-tagged.html?tag="+slugify(tag_name);
-//     }else{
-//         window.location = ss_cur_dir+"/blog-tagged.html?tag="+slugify(tag_name);
-//     }
-// });
-//
-//
-// $(document.body).on('click','.meta-category', function(){
-//     addCategoryHandler($(this));
-// });
-// $(document.body).on('keypress','.meta-category', function(e){
-//     if(e.which == 13){
-//         addCategoryHandler($(this));
-//     }
-// });
+

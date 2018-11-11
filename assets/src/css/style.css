@@ -3025,3 +3025,73 @@ p.copyright{
 		width: 980px;
 	}
 }
+.col-centered{
+	float: none !important;
+	display: block !important;
+	margin: 0 auto !important;
+	/* margin-left: auto; margin-right: auto; */
+}
+.alert.gdpr{
+	width: 100%;
+	position: fixed;
+	z-index: 122;
+	display: block;
+	bottom: 0px;
+	right: 0px;
+	background: rgba(0,0,0,.9);
+	border: none;
+	border-radius: 0px;
+	color: #dddddd;
+	margin:0;
+}
+.alert .container{
+	width: 100%;
+}
+.alert.gdpr a{
+	color: #FFFFFF;
+	transition: all .3s ease-in-out;
+	border-bottom:1px dotted #FFFFFF;
+}
+.alert.gdpr a{
+	text-decoration: none;
+}
+.alert.gdpr a:hover{
+	opacity: .8;
+}
+.alert.gdpr p{
+	font-size: 13px;
+	line-height: 1.2;
+	opacity: .8;
+}
+.alert.gdpr button.btn{
+	color: rgba(255, 255, 255, .9);
+	width:100%;
+	transition: .4s;
+	text-transform: uppercase;
+	font-family: 'Poppins';
+	border-radius: 0;
+	background: none;
+	font-size: 12px;
+	border: none;
+	letter-spacing: 1px;
+	border:1px solid rgba(255, 255, 255, .9);
+}
+.alert.gdpr button.btn:hover{
+	background: rgba(255, 255, 255, .9);
+	border:1px solid rgba(255, 255, 255, .9);
+	color: rgba(0, 0, 0, .9);
+}
+@media(max-width: 768px){
+	.alert.gdpr button.btn{
+		margin-top:15px;
+	}
+}
+@media(max-width: 400px){
+	.alert.gdpr button.btn{
+		font-size: 11px;
+	}
+	.alert.gdpr p{
+		font-size: 12px;
+		line-height: 1.3;
+	}
+}

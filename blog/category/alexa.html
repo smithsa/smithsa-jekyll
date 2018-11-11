@@ -14,7 +14,7 @@ title: Alexa
                 <div class="row">
                     {% assign posts = site.posts | where_exp: "post", "post.categories contains 'alexa'" %}
                     {% for post in posts %}
-                        {% include article.html %}
+                        {% include article-full.html %}
                     {% endfor %}
                 </div>
             </div>
