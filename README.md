@@ -10,7 +10,7 @@ The personal website of Sade Smith built in Jekyll.
 
 I am a Software Developer with 5 years of experience, currently working in the Chicagoland area who specializes in web technologies. I am driven by my love of creating and the reality that I can contribute to the world through the community around me.
 
-- **[smithsade13@gmail.com](mailto:smithsade13@gmail.com)**
+- **[sade.smith.dev@gmail.com](mailto:sade.smith.dev@gmail.com)**
 - [GitHub](https://github.com/smithsa)
 
 
