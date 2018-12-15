@@ -33,9 +33,9 @@ You don’t have to worry about databases or bulky user interfaces provided by a
 The absence of a database eliminates the risk of common security threats such as SQL injections. Your attack surface is drastically reduced.
 
 ## Getting Started
-Requirements
-Ruby version 2.2.5 or above https://www.ruby-lang.org/en/downloads/
-Ruby Gems https://rubygems.org/pages/download
+**Requirements**
+*   [Ruby version 2.2.5 or above](https://www.ruby-lang.org/en/downloads/)
+*   [Ruby Gems](https://rubygems.org/pages/download)
 
 ## Installation
 
