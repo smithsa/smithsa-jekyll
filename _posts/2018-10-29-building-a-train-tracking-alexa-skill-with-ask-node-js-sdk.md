@@ -522,3 +522,9 @@ const TrainArrivalEstimatesRequestHandler = {
 ## Conclusion
 
 Voila! This concludes the walkthrough of the skill. It’s pretty simple and just requires one intent which makes an HTTP request. As mentioned previously, you can view the source code of the train tracker in the repository called [train-arrival-times](https://github.com/smithsa/train-arrival-times). The skill was a quick build just to help me get out on time in the morning, but it can be extended. Maybe in the future, I will have time to expand it so that others can use it but for now it’s on GitHub if anyone wants to use or modify it. So hopefully with this skill, there are fewer long waits in the cold for the train! 
+
+## Update: 10/15/2018
+
+I figured the application could use some pizzaz and give me some energy when I head off to work!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zx_2lXiQMuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
