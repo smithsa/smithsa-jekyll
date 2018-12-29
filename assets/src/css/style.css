@@ -1474,6 +1474,17 @@ html, body {
 .blog-body .blog-content p{
 	line-height: 26px;
 }
+.blog-body img{
+	width:100%;
+}
+.blog-body figure{
+	margin-bottom: 20px !important;
+}
+.blog-body figcaption{
+	font-size: 12px;
+	font-style: italic;
+	text-align: center;
+}
 .blog-body{
 	margin-bottom: 160px;
 	padding-top: 20px !important;

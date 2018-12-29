@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 //optimize image
 gulp.task('minify-images', () =>
-gulp.src('assets/src/images/*')
+gulp.src('assets/src/images/**/*')
     .pipe(imagemin())
     .pipe(gulp.dest('assets/dist/images/'))
 );
@@ -22,7 +22,7 @@ gulp.src('assets/src/images/*')
 
 //javascript scripts
 gulp.task('js-scripts', function() {
-    return gulp.src('assets/src/js/*.js')
+    return gulp.src('assets/src/js/**/*.js')
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
@@ -31,7 +31,7 @@ gulp.task('js-scripts', function() {
 });
 
 gulp.task('stylesheets', function () {
-    return gulp.src('assets/src/css/*.css')
+    return gulp.src('assets/src/css/**/*.css')
         // Minify the file
         .pipe(csso())
         .pipe(rename({
