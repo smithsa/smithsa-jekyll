@@ -33,20 +33,12 @@ $( window ).load(function() {
 
 var $container = $('.portfolio-container');
     $container.isotope({
-        filter: '*',
-        masonry: { //wont work on the portfolio page, need to add class to those items on the page
-            // set to the element
-            itemSelector: '.portfolio-item',
-            columnWidth: '.portfolio-item',
-            gutter: 5,
-            percentPosition: true
-        }
+        filter: '*'
     });
 
     $('.portfolio-filter a').on('click', function () {
         $('.portfolio-filter .active').removeClass('active');
         $(this).addClass('active');
-
         var selector = $(this).attr('data-filter');
         $container.isotope({
                 filter: selector,

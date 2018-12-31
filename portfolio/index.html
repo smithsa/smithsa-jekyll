@@ -1,0 +1,43 @@
+---
+layout: page
+title: Portfolio
+---
+<main class="main">
+    <section class="portfolio portfolio-page">
+        <div class="container">
+            <div class="portfolio-intro">
+                <h2 class="wow fadeInUp" data-wow-delay= ".1s">Latest Projects</h2>
+                <p class="wow fadeInUp" data-wow-delay= ".2s">
+                    Collection of my projects.
+                </p>
+                <ul class="portfolio-filter wow fadeInUp" data-wow-delay= ".3s">
+                    <li><a href="Javascript:void(0)" data-filter="*">All</a></li>
+                    <li><a href="Javascript:void(0)" data-filter=".web">Web</a></li>
+                    <li><a href="Javascript:void(0)" data-filter=".native">Native</a></li>
+                    <li><a href="Javascript:void(0)" data-filter=".alexa">Alexa</a></li>
+                </ul>
+            </div>
+            <div class="portfolio-grid">
+                <div class="col-md-12">
+                    <div class="row portfolio-container nopadding text-center">
+                        {% assign projects = site.portfolio | sort:'name' %}
+                        {% for project in projects %}
+                            <div class="col-md-4 col-sm-6 nopadding{% if project.categories %}{% for cat in project.categories %} {{ cat.name }}{% endfor %}{% endif %}">
+                                <a href="{{ project.url }}" aria-label="{{ project.name }}" class="portfolio_item  wow fadeInUp" data-wow-delay= ".3s">
+                                    <img src="{{site.url}}/assets/dist/images/thumbnails/{{ project.img_id }}.jpg" alt="image" class="img-responsive" />
+                                    <div class="portfolio-overlay">
+                                        <div class="overlay-items">
+                                            <h3>{{ project.name }}</h3>
+                                            <p>{{ project.type }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

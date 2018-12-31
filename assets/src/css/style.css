@@ -1152,7 +1152,7 @@ html, body {
 	line-height: 1.2;
 	margin: 0 0 50px 0;
 }
-@media(max-width:768px){
+@media(max-width:767px){
 	section{
 		max-width: 500px;
 		width:95%;
@@ -1295,6 +1295,9 @@ html, body {
 
 .blog-page {
 	padding: 100px 0 0 0;
+}
+.portfolio.portfolio-page{
+	padding: 100px 0 130px 100px;
 }
 
 .blog-intro {
@@ -1664,6 +1667,34 @@ a.meta-category:hover{
    padding-left: 0;
 }
 
+.portfolio-filter{
+	display: inline-block;
+	margin-top: 30px;
+}
+.portfolio-filter li{
+	display: inline-block;
+	text-align: center;
+	padding-right: 6px;
+}
+.portfolio-filter li:last-child{
+	padding-right: 0px;
+}
+.portfolio-filter li a{
+	color: #ffffff;
+	font-size: 12px;
+	background: #333333;
+	padding:5px 10px;
+	transition: all .3s ease-in-out;
+	border:1px solid #333333;
+	display: block;
+	margin-bottom: 10px;
+}
+.portfolio-filter li a:hover, .portfolio-filter li a:focus{
+	text-decoration: none;
+	background: none;
+	color: #333333;
+	border:1px solid #333333;
+}
 @media (max-width: 991px) {
    .portfolio span {
        margin-bottom: 0;
@@ -1708,6 +1739,10 @@ a.meta-category:hover{
 	position: relative;
 }
 
+.portfolio_item img{
+	filter: grayscale(100%);
+}
+
 .item-details {
 	text-align: left;
 	padding: 0 0 60px 0;
@@ -1729,7 +1764,7 @@ a.meta-category:hover{
 
 
 .portfolio-overlay {
- background: rgba(13, 13, 13, 1);
+ background: rgba(255, 255, 255, .8);
  opacity: 0;
  position:absolute;
  top: 0;
@@ -1757,8 +1792,8 @@ a.meta-category:hover{
 .overlay-items h3 {
  font-family: 'Poppins';
  display: block;
- color: #FFFFFF;
- font-size: 18px;
+ color: #000000;
+ font-size: 14px;
  -webkit-transform: translateY(50px);
  -moz-transform: translateY(50px);
  -o-transform: translateY(50px);
@@ -1768,15 +1803,17 @@ a.meta-category:hover{
  -o-transition: all 0.5s;
  transition: all .5s;
  opacity: 0;
+ text-transform: uppercase;
+ font-weight: bold;
 }
 
 .overlay-items p {
- margin-top: 20px;
+ margin-top: 13px;
  opacity: 0;
- font-size: 14px;
+ font-size: 12px;
  font-family: Poppins;
  letter-spacing: 0;
- color: #FFFFFF;
+ color: #000000;
  display: inline-block;
  -webkit-transform: translateY(100px);
  -moz-transform: translateY(100px);
@@ -2446,7 +2483,7 @@ footer.white .address p{
 		}
 
 		.overlay-items h3 {
-		 font-size: 21px;
+		 font-size: 14px;
 		}
 
 		.pitch .inner p {
@@ -2549,6 +2586,9 @@ footer.white .address p{
 }
 .blog-page{
 	padding: 110px 0 60px 0;
+}
+.portfolio.portfolio-page{
+	padding: 110px 0 160px 0;
 }
 pre{
 	font-size: 14px !important;
@@ -2673,7 +2713,7 @@ article.tag{
 		padding-right: 40px !important;
 	}
 }
-@media(max-width:768px){
+@media(max-width:767px){
 	.footer .social ul{
 		position: relative;
 	}
@@ -2839,7 +2879,7 @@ article.tag{
 		line-height: 24px;
 	}
 	.overlay-items h3{
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.overlay-items p{
 		margin-top: 10px;
@@ -2884,8 +2924,7 @@ article.tag{
 .portfolio-grid .portfolio-item .caption{
 	bottom:0px;
 	padding:15px 20px;
-	/*background: linear-gradient(to top, rgba(0,0,0,.8) 0%,rgba(255,255,255,0) 100%);*/
-	/*background: rgba(50,50,50,.8);*/
+	background: rgba(255,255,255,.8);
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -2906,17 +2945,22 @@ article.tag{
 	/*min-width: 200px;*/
 	/*text-align: center;*/
 	font-size: 12px;
-	margin-top: 5px;
-	display: inline-block;
-	padding:8px 10px;
-	background: #444444;
+	display: block;
+	padding:5px 10px;
 	font-family: 'Poppins';
 	position: absolute;
-	bottom:0px;
 	right:0;
+	left:0;
 	min-width: 200px;
 	text-align: center;
 	width:100%;
+	top:50%;
+	transform: translateY(-50%);
+    font-weight: bold;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+	color: #000000;
+	height: auto;
 }
 .portfolio-grid .portfolio-item .caption p{
 	display: none;
@@ -2947,13 +2991,19 @@ article.tag{
 	transition: all .3s ease-in-out;
 	background: #FFFFFF !important;
 	border: 1px solid #e8e8e8;
-	margin-bottom: 5px;
+	/*margin-bottom: 5px;*/
 	width: 32.33%;
 	overflow: hidden;
 }
+.grid-sizer{
+	width: 32.33%;
+}
 @media(max-width:900px){
 	.portfolio-grid .portfolio-item{
-		width: 49%;
+		width: 49.5%;
+	}
+	.grid-sizer{
+		width: 49.5%;
 	}
 	.portfolio-grid .portfolio-item .content img{
 		width:80%;
@@ -2963,6 +3013,9 @@ article.tag{
 	.portfolio-grid .portfolio-item{
 		width: 100%;
 		margin-bottom: 20px;
+	}
+	.grid-sizer{
+		width: 100%;
 	}
 	.portfolio-grid .portfolio-item .content img{
 		width:90%;
@@ -3092,7 +3145,7 @@ p.copyright{
 	border:1px solid rgba(255, 255, 255, .9);
 	color: rgba(0, 0, 0, .9);
 }
-@media(max-width: 768px){
+@media(max-width: 767px){
 	.alert.gdpr button.btn{
 		margin-top:15px;
 	}
