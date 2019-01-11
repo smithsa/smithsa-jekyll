@@ -1474,6 +1474,19 @@ html, body {
 .blog-reel .post a:focus{
 	border:1px solid #000000;
 }
+.image-container{
+	margin-bottom: 10px;
+}
+.image-container img{
+	margin-bottom: 10px;
+}
+.image-container img:last-child{
+	margin-bottom: 0px;
+}
+.blog-body .blog-content .no-pad{
+	padding-left:0px;
+	padding-right:0px;
+}
 .blog-body .blog-content p{
 	line-height: 26px;
 }
