@@ -9,6 +9,7 @@ excerpt: Not long ago, I was on StackOverflow and I ran across a question asking
 ---
 
 ## Introduction
+
 Not long ago, I was on StackOverflow and I ran across a question asking if anyone knew of a library or how to implement Youtube’s double tap to rewind and forward feature in a browser. It’s a feature on the Youtube mobile application app that allows the user to forward the video if the right side of the video is double tapped and rewind the video if the left side is double tapped. It’s a nifty feature that I didn’t know existed before I saw the question since I don’t use Youtube on my phone much but I thought it would be cool to build with JavaScript. In this post, I will demonstrate how to implement such a feature using HTML, CSS, and vanilla JavaScript. 
 
 ## The Objective
