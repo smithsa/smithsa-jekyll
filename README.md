@@ -2,8 +2,6 @@
 
 The personal website of Sade Smith built in Jekyll. 
 
-![sade smith personal website](https://sadesmith.com/assets/src/images/screenshot.png)
-
 ## Overview
 
 ### [sadesmith.com](https://sadesmith.com)
