@@ -5,7 +5,7 @@ title:  "Building An Activity Monitor with Circuit Playground Express"
 date: 2019-12-22
 categories: [electronics]
 tags: [hardware, circuitpython, circuit playground express]
-excerpt: The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself and I found it much easier to work with than the Arduino.
+excerpt: The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself ...
 
 ---
 
