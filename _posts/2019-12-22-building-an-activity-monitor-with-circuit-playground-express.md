@@ -13,7 +13,7 @@ excerpt: The Circuit Playground Express offers a number of built-in sensors, an 
 
 Earlier this year, the Chicago Python Meetup Group held a workshop on CircuitPython. I entered an idea to build an activity monitor for the workshop and was selected to participate and received a Circuit Playground Express.
 
-<img src="{{site.url}}/assets/src/images/blog/activity-monitor/tweet.jpg" alt="idea for activity monitor" />
+<img src="{{site.url}}/assets/dist/images/blog/activity-monitor/tweet.jpg" alt="idea for activity monitor" />
 
 The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself and I found it much easier to work with than the Arduino. There are also various ways to code it (MakeCode, CircuitPython, Arduino, Code.org’s CS Discoveries), for this project I used CircuitPython. I learned a lot about electronics and coding for electronics and wanted to briefly show the activity monitor.
 
@@ -21,10 +21,10 @@ The Circuit Playground Express offers a number of built-in sensors, an accelerom
 <iframe width="100%" height="270" src="https://www.youtube.com/embed/pb1g1a4TTLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Bill of Materials
-<img src="{{site.url}}/assets/src/images/blog/activity-monitor/bill of materials.jpg" alt="activity monitor bill of materials" />
+<img src="{{site.url}}/assets/dist/images/blog/activity-monitor/bill of materials.jpg" alt="activity monitor bill of materials" />
 
 ## Schematics
-<img src="{{site.url}}/assets/src/images/blog/activity-monitor/schematic.jpg" alt="schematic bill of materials" />
+<img src="{{site.url}}/assets/dist/images/blog/activity-monitor/schematic.jpg" alt="schematic bill of materials" />
 
 ## The Code
 The code is posted on Github. [https://github.com/smithsa/activity-monitor](https://github.com/smithsa/activity-monitor)
