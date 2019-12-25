@@ -1,0 +1,23 @@
+---
+layout: page
+title: Electronics
+---
+
+<main class="main">
+    <section class="blog blog-page category-page">
+        <div class="container">
+            <div class="blog-intro">
+                <h1 class="wow fadeInUp" data-wow-delay= ".1s">Category: <span class="category-name">{{page.title}}</span></h1>
+                <p class="wow fadeInUp" data-wow-delay= ".1s">All fantastic blog posts with the category <span class="category-name">"{{page.title}}."</span> </p>
+            </div>
+            <div class="container-fluid blog-reel">
+                <div class="row">
+                    {% assign posts = site.posts | where_exp: "post", "post.categories contains 'electronics'" %}
+                    {% for post in posts %}
+                        {% include article-full.html %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

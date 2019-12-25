@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence')
     del = require('del'),
     rename = require('gulp-rename'),
-    gutil = require('gulp-util'),
     gulp = require('gulp'),
     imagemin = require('gulp-imagemin');
 

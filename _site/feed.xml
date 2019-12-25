@@ -1,4 +1,383 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-11T17:11:31-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Maker Share: 3D CAD Models</title><link href="http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models" rel="alternate" type="text/html" title="Maker Share: 3D CAD Models" /><published>2018-12-28T00:00:00-06:00</published><updated>2018-12-28T00:00:00-06:00</updated><id>http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models</id><content type="html" xml:base="http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models">&lt;p&gt;This post is a break from my normal web and software development posts. I wanted to take a break and share some things not related to coding that I've been doing so I've created a new series called &quot;Maker Share.&quot; One things I've been doing is learning how to use CAD software with Fusion 360 to create 3D models. I figured it should come in handy for prototyping things I want to build. Thus far, I have created some really random things using the software. A wrench, pair of tweezers, vacuum nozzle, and a coat hook to be exact! Below, I have included some photos of these objects. They were really fun to make and I look forward to making more and printing eventually!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-24T19:18:00-06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Building An Activity Monitor with Circuit Playground Express</title><link href="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express" rel="alternate" type="text/html" title="Building An Activity Monitor with Circuit Playground Express" /><published>2019-12-22T00:00:00-06:00</published><updated>2019-12-22T00:00:00-06:00</updated><id>http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express</id><content type="html" xml:base="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Earlier this year, the Chicago Python Meetup Group held a workshop on CircuitPython. I entered an idea to build an activity monitor for the workshop and was selected to participate and received a Circuit Playground Express.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/activity-monitor/tweet.jpg&quot; alt=&quot;idea for activity monitor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself and I found it much easier to work with than the Arduino. There are also various ways to code it (MakeCode, CircuitPython, Arduino, Code.org’s CS Discoveries), for this project I used CircuitPython. I learned a lot about electronics and coding for electronics and wanted to briefly show the activity monitor.&lt;/p&gt;
+
+&lt;h2 id=&quot;demonstration&quot;&gt;Demonstration&lt;/h2&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;270&quot; src=&quot;https://www.youtube.com/embed/pb1g1a4TTLI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;bill-of-materials&quot;&gt;Bill of Materials&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/activity-monitor/bill of materials.jpg&quot; alt=&quot;activity monitor bill of materials&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;schematics&quot;&gt;Schematics&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/activity-monitor/schematic.jpg&quot; alt=&quot;schematic bill of materials&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The Code&lt;/h2&gt;
+&lt;p&gt;The code is posted on Github. &lt;a href=&quot;https://github.com/smithsa/activity-monitor&quot;&gt;https://github.com/smithsa/activity-monitor&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import time
+import adafruit_hcsr04
+import board
+from adafruit_circuitplayground.express import cpx
+
+BLACK = (0, 0, 0)
+ALERT_COLORS = [(180, 0, 0), (255, 0, 100), (180, 0, 255)]
+ALERT_CYCLE_DELAY = .05
+REPEAT_ALERT_AUDIO = False
+
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.A2, echo_pin=board.A1)
+alert_triggered = False
+alert_muted_status = False
+
+seconds_counter = 0
+sensor_reads = 5 # will get 5 readings from sonar and take the average
+sensor_read_interval = 30  # every 30 seconds I will get a reading on how far a user is away
+sensor_read_count = 0
+aggregated_sensor_data = []
+should_read_sensor = False
+seating_threshold = 50
+movement_check_interval = 3600 # every hour check to alert user to moves
+user_outside_seating_threshold_count = 0
+min_amount_of_times_away = 4
+times_to_play_alert = 10
+seconds_break_after_alert = 120
+
+def cycle_lights(color):
+    for i in range(len(cpx.pixels)):
+        cpx.pixels[i] = color
+        time.sleep(ALERT_CYCLE_DELAY)
+
+def dectect_distance(sonar):
+    try:
+        return sonar.distance
+    except RuntimeError:
+        print(&quot;Retrying!&quot;)
+
+    return 0
+
+def alert(is_muted = False):
+    global alert_triggered
+    if REPEAT_ALERT_AUDIO:
+        cpx.play_file(&quot;alert.wav&quot;)
+    elif is_muted == False and alert_triggered == False:
+        cpx.play_file(&quot;alert.wav&quot;)
+
+    for alertColor in ALERT_COLORS:
+        cycle_lights(alertColor)
+    cycle_lights(BLACK)
+
+    alert_triggered = True
+
+def reset_sensor_data():
+    global sensor_read_count
+    global should_read_sensor
+    global aggregated_sensor_data
+    sensor_read_count = 0
+    should_read_sensor =  False
+    aggregated_sensor_data = []
+
+def reset_movement_check_data():
+    global user_outside_seating_threshold_count
+    global seconds_counter
+    global alert_triggered
+    user_outside_seating_threshold_count = 0
+    seconds_counter = 0
+    alert_triggered = False
+
+while True:
+    time.sleep(1)
+    seconds_counter = seconds_counter + 1
+    if seconds_counter % sensor_read_interval == 0:
+        should_read_sensor = True
+
+    if should_read_sensor and sensor_read_count &amp;lt;= sensor_reads:
+        aggregated_sensor_data.append(dectect_distance(sonar))
+        sensor_read_count += 1
+
+    if sensor_read_count == sensor_reads:
+        average_distance = sum(aggregated_sensor_data)/sensor_reads
+        if average_distance &amp;gt; seating_threshold:
+            user_outside_seating_threshold_count = user_outside_seating_threshold_count + 1
+        reset_sensor_data()
+
+    if seconds_counter == movement_check_interval:
+        if user_outside_seating_threshold_count &amp;lt; min_amount_of_times_away:
+            for _ in range(times_to_play_alert):
+                alert(alert_muted_status)
+
+        reset_movement_check_data()
+        reset_sensor_data()
+        time.sleep(seconds_break_after_alert)
+
+    print(&quot;seconds_counter:&quot;, seconds_counter)
+    print(&quot;should_read_sensor:&quot;,should_read_sensor)
+    print(&quot;sensor_read_count:&quot;, sensor_read_count)
+    print(&quot;aggregated_sensor_data:&quot;, aggregated_sensor_data)
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="hardware" /><category term="circuitpython" /><category term="circuit playground express" /><summary type="html">The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself and I found it much easier to work with than the Arduino.</summary></entry><entry><title type="html">Replicating Youtube App’s Double Tap to Seek Feature</title><link href="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature" rel="alternate" type="text/html" title="Replicating Youtube App's Double Tap to Seek Feature" /><published>2019-01-12T00:00:00-06:00</published><updated>2019-01-12T00:00:00-06:00</updated><id>http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature</id><content type="html" xml:base="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Not long ago, I was on StackOverflow and I ran across a question asking if anyone knew of a library or how to implement Youtube’s double tap to rewind and forward feature in a browser. It’s a feature on the Youtube mobile application app that allows the user to forward the video if the right side of the video is double tapped and rewind the video if the left side is double tapped. It’s a nifty feature that I didn’t know existed before I saw the question since I don’t use Youtube on my phone much but I thought it would be cool to build with JavaScript. In this post, I will demonstrate how to implement such a feature using HTML, CSS, and vanilla JavaScript.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-objective&quot;&gt;The Objective&lt;/h2&gt;
+
+&lt;p&gt;I explained the basic functionality in the introduction, but I think it will be helpful to have a visual example of what we are building. I’ve posted two gifs below which demonstrate the double tap feature of the Youtube mobile application on an iPhone. In the visual aid, you will see that two taps on the left of the screen will rewind the video ten seconds and two taps to the right of the screen will fast-forward the video ten seconds. Additionally, for every consecutive double tap, the effect is cumulative and the amount of seconds to forward or rewind is multiplied. For example, three double taps to the right of the video will forward the video ahead thirty seconds. Our version of this feature will work similarly except it will seek on double click instead of a double tap since we will be developing this for the web.&lt;/p&gt;
+
+&lt;div class=&quot;image-container&quot;&gt;
+    &lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/youtube-double-tap-feature/rewind-double-tap.gif&quot; alt=&quot;rewind double tap feature&quot; /&gt;
+    &lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/youtube-double-tap-feature/forward-double-tap.gif&quot; alt=&quot;forward double tap feature&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;the-structure&quot;&gt;The Structure&lt;/h2&gt;
+
+&lt;p&gt;The structure will be fairly simple. Deconstructing the feature, we can break the elements down to the video player, (2) the rewind UI (user interface) indicator, and the forward UI indicator. I will nest all these elements inside a div with the class name of “video-player.” We’ll add an HTML5 video player, and have a few divs for the forward and rewind indicators. It’s important to note that the video player has it’s built-in controls disabled since double tapping a video element will cause the video to enter the fullscreen mode.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;div class=&quot;video-container&quot;&amp;gt;
+  &amp;lt;video class=&quot;player__video viewer&quot; src=&quot;http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4&quot;&amp;gt;&amp;lt;/video&amp;gt;
+  &amp;lt;div class=&quot;video-rewind-notify rewind notification&quot;&amp;gt;
+    &amp;lt;div class=&quot;rewind-icon icon&quot;&amp;gt;
+        &amp;lt;i class=&quot;left-triangle triangle&quot;&amp;gt;◀◀◀&amp;lt;/i&amp;gt;
+        &amp;lt;span class=&quot;rewind&quot;&amp;gt;10 seconds&amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;video-forward-notify forward notification&quot;&amp;gt;
+    &amp;lt;div class=&quot;forward-icon icon&quot;&amp;gt;
+        &amp;lt;i class=&quot;right-triangle triangle&quot;&amp;gt;▶▶▶&amp;lt;/i&amp;gt;
+        &amp;lt;span class=&quot;forward&quot;&amp;gt;10 seconds&amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;the-styles&quot;&gt;The Styles&lt;/h2&gt;
+
+&lt;p&gt;I’ll add some basic styles to the video player. The main thing that will be styled is the ripple effect when a user double taps the video and displays how much the video will be rewound or forwarded. Using CSS animations I can replicate the ripple effect that YouTube has. The rest of the styles will be to position the video for purposes of the demo. I’ve just created some quick and dirty styling that you can grab from the &lt;a href=&quot;https://codepen.io/smithsa/pen/ZmWMxy&quot; target=&quot;_blank&quot;&gt;Codepen&lt;/a&gt;.
+I’ll go more in detail in this post about the Javascript.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-javascript&quot;&gt;The JavaScript&lt;/h2&gt;
+
+&lt;p&gt;The fun part of implementing the YouTube double tap to rewind/forward will be the JavaScript. Everything has been set up, now we can get the feature working!&lt;/p&gt;
+
+&lt;p&gt;The first thing we will do is grab the DOM elements we will need to manipulate. For our purposes that will be (1) the HTML5 video element, (2) the forward and rewind ripple notifications which are the visual indicators of if a double click has occurred, and (3) the span elements which show the rate at which the video will be rewound and forwarded.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;//grab the video dom element
+const video = document.querySelector('video'); 
+const notifications = document.querySelectorAll('.notification');
+const forwardNotificationValue = document.querySelector('.video-forward-notify span');
+const rewindNotificationValue = document.querySelector('.video-rewind-notify span');
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;double-click&quot;&gt;Double Click&lt;/h3&gt;
+
+&lt;p&gt;Next, we want to detect if the user double-clicks the left and right side of the video element. An event handler for double click should be added to the video player DOM element. I found it hard to visually distinguish between a double click and a single click since a single click is required for the double click. So we’ll add an additional event handler to the video on click that will toggle the pause and play actions on the video.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function togglePlay(){
+  video.paused ? video.play() : video.pause();
+}
+
+//Event Listeners
+video.addEventListener('click', togglePlay);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that the toggle play has been added, we can move towards handling the double click event. First, we will create a function that will be the callback for the double click event handler that detects if the left side of the video was clicked or the right side. We’ll pass the function to the handler. From the event, we can use &lt;code&gt;offsetX&lt;/code&gt; to help determine what side of the video is clicked. It will give us the X coordinate of the mouse pointer at the time of the double click, relative to the video. We can take the value of the X coordinate and compare it to the width of the video halved (&lt;code&gt;video.offsetWidth/2&lt;/code&gt;). If the X coordinate is less than half of the video’s width then we know the left side of the video was clicked. However, if the X coordinate is greater than half the width of the video then we can assume the right side of the video was clicked. So I’ll create two more functions called &lt;code&gt;forwardVideo()&lt;/code&gt; and &lt;code&gt;rewindVideo()&lt;/code&gt; and call them accordingly, based on the logic I’ve defined above.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function forwardVideo(){
+}
+
+function rewindVideo(){
+}
+
+//Event Handlers
+function doubleClickHandler(e){
+    const videoWidth = video.offsetWidth;
+    (e.offsetX &amp;lt; videoWidth/2) ? rewindVideo() : forwardVideo();
+}
+
+video.addEventListener('dblclick', doubleClickHandler);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We will leave the &lt;code&gt;forwardVideo()&lt;/code&gt; and &lt;code&gt;rewindVideo()&lt;/code&gt; functions empty for now and work on a function to handle the forwarding and rewinding of the video element. It will be called &lt;code&gt;updateCurrentTime&lt;/code&gt;. It will take one parameter, which will be the number of seconds to rewind or forward the video. We will also want to define variables outside the function which will be accumulators that keeps track of how far the user wants to forward or rewind based on their clicks (&lt;code&gt;forwardSpeed&lt;/code&gt; and &lt;code&gt;rewindSpeed&lt;/code&gt;), and declare a variable named &lt;code&gt;timer&lt;/code&gt; to reference a setTimeout function we will use to track consecutive double clicks.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let timer;
+let rewindSpeed = 0;
+let forwardSpeed = 0;
+
+function updateCurrentTime(delta){
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;seeking&quot;&gt;Seeking&lt;/h3&gt;
+
+&lt;p&gt;Let’s get building within the function. Since the parameter is the number of seconds to forward or rewind we can detect what the user intends to do by seeing if the variable delta is less than or greater than zero. If it is less than zero then we know the user is rewinding, and if greater than zero then it is the case the user intends to forward the video. With this information, we can calculate the number of seconds to forward or rewind the video using our accumulator variables and the delta variable. We will simply increment the accumulator variables by the delta. If the video is rewinding we will set the &lt;code&gt;forwardSpeed&lt;/code&gt; variable which the amount to change the video to zero since the variable no longer needs to be incremented because the user is not consecutively clicking the left side of the video and vice versa.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let timer;
+let rewindSpeed = 0;
+let forwardSpeed = 0;
+
+function updateCurrentTime(delta){
+    let isRewinding = delta &amp;lt; 0;
+      
+    if(isRewinding){
+      rewindSpeed = rewindSpeed + delta;
+      forwardSpeed = 0;
+    }else{
+      forwardSpeed = forwardSpeed + delta;
+      rewindSpeed = 0;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Based on this information we will update the current time of the video by incrementing it by the forward or rewind speed. In addition, we will update the value on the UI indicator that tells the user how many seconds the video is being forwarded or rewound as well. Basically, we will update the innerHTML on the element and take the absolute value of the speed and add it’s value to a template literal.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let timer;
+let rewindSpeed = 0;
+let forwardSpeed = 0;
+
+function updateCurrentTime(delta){
+    let isRewinding = delta &amp;lt; 0;
+      
+    if(isRewinding){
+      rewindSpeed = rewindSpeed + delta;
+      forwardSpeed = 0;
+    }else{
+      forwardSpeed = forwardSpeed + delta;
+      rewindSpeed = 0;
+    }
+    
+    let speed = (isRewinding ? rewindSpeed : forwardSpeed);
+    video.currentTime = video.currentTime + speed;
+      
+    let NotificationValue =  isRewinding ? rewindNotificationValue : forwardNotificationValue ;
+    NotificationValue.innerHTML = `${Math.abs(speed)} seconds`;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To help us detect if there are consecutive double clicks we will use the &lt;code&gt;setTimeout&lt;/code&gt; function. Essentially whenever the &lt;code&gt;updateCurrentTime&lt;/code&gt; function is called on the double click we are incrementing the speed to forward or rewind the video by incrementing the &lt;code&gt;rewindSpeed&lt;/code&gt; and &lt;code&gt;forwardSpeed&lt;/code&gt; speeds by the &lt;code&gt;delta&lt;/code&gt; variable. We will make it so that within two seconds the &lt;code&gt;forwardSpeed&lt;/code&gt; and &lt;code&gt;rewindSpeed&lt;/code&gt; will be set to zero.  The variable &lt;code&gt;timer&lt;/code&gt; will be set to the &lt;code&gt;setTimeOut&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let timer;
+let rewindSpeed = 0;
+let forwardSpeed = 0;
+
+function updateCurrentTime(delta){
+    let isRewinding = delta &amp;lt; 0;
+      
+    if(isRewinding){
+      rewindSpeed = rewindSpeed + delta;
+      forwardSpeed = 0;
+    }else{
+      forwardSpeed = forwardSpeed + delta;
+      rewindSpeed = 0;
+    }
+    
+    let speed = (isRewinding ? rewindSpeed : forwardSpeed);
+    video.currentTime = video.currentTime + speed;
+      
+    let NotificationValue =  isRewinding ? rewindNotificationValue : forwardNotificationValue ;
+    NotificationValue.innerHTML = `${Math.abs(speed)} seconds`;
+    
+    //reset accumulator within 2 seconds of a double click
+    timer = setTimeout(function(){
+      rewindSpeed = 0;
+      forwardSpeed = 0;
+    }, 2000); // you can edit this delay value for the timeout, i have it set for 2 seconds
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last part of this step is to add a clearTimeOut right before we update the video. This way the variables &lt;code&gt;forwardSpeed&lt;/code&gt; and &lt;code&gt;rewindSpeed&lt;/code&gt; will not be reset to zero on consecutive double clicks and will instead be incremented by the &lt;code&gt;delta&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let timer;
+let rewindSpeed = 0;
+let forwardSpeed = 0;
+
+function updateCurrentTime(delta){
+    let isRewinding = delta &amp;lt; 0;
+      
+    if(isRewinding){
+      rewindSpeed = rewindSpeed + delta;
+      forwardSpeed = 0;
+    }else{
+      forwardSpeed = forwardSpeed + delta;
+      rewindSpeed = 0;
+    }
+    
+    //clear the timeout
+    clearTimeout(timer);
+    
+    let speed = (isRewinding ? rewindSpeed : forwardSpeed);
+    video.currentTime = video.currentTime + speed;
+      
+    let NotificationValue =  isRewinding ? rewindNotificationValue : forwardNotificationValue ;
+    NotificationValue.innerHTML = `${Math.abs(speed)} seconds`;
+    
+    //reset accumulator within 2 seconds of a double click
+    timer = setTimeout(function(){
+      rewindSpeed = 0;
+      forwardSpeed = 0;
+    }, 2000); // you can edit this delay value for the timeout, i have it set for 2 seconds
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;updateCurrentTime&lt;/code&gt; function is now fully built out. We will call it in the &lt;code&gt;forwardVideo&lt;/code&gt; and &lt;code&gt;rewindVideo&lt;/code&gt; functions. On the forward function, &lt;code&gt;updateCurrentTime&lt;/code&gt;  will take a parameter of 10 since we want to increment by 10 seconds and -10 on the rewind function since we want to decrement by 10 seconds.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function forwardVideo(){
+  updateCurrentTime(10);
+}
+
+function rewindVideo(){
+    updateCurrentTime(-10);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;adding-the-animations&quot;&gt;Adding the Animations&lt;/h3&gt;
+
+&lt;p&gt;The functionality of double-clicking to forward and rewind is working now! But we need to do one more thing, which is to animate an indicator in to show that the video’s current time is updating. Additionally, we need to animate the indicator out. We already have a CSS animations added to a class on the notification DOM elements called &lt;code&gt;animate-in&lt;/code&gt;. When added to a notification DOM element it will fade the notification in and when the class is removed it will fade it out.&lt;/p&gt;
+
+&lt;p&gt;So let’s create two functions, one to animate the notifications in and one to indicate the notifications out. We will name them &lt;code&gt;animateNotificationIn&lt;/code&gt; and &lt;code&gt;animateNotificationOut&lt;/code&gt;. The &lt;code&gt;animateNotificationIn&lt;/code&gt; will take one parameter which will be a boolean that tells the function if the video is being rewound. The &lt;code&gt;animateNotificationOut&lt;/code&gt; function will be put on an event listener and will be called when a notification DOM element’s CSS animation ends.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function animateNotificationIn(isRewinding){
+}
+
+function animateNotificationOut(){
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In &lt;code&gt;animateNotificationIn&lt;/code&gt;, if the user wants to rewind the video we will grab the rewind notification DOM element (which is at index 0 of &lt;code&gt;notifications&lt;/code&gt;) and add the class &lt;code&gt;animateIn&lt;/code&gt; to the element. Otherwise, we will grab the forward notification DOM element (which is at index 1 of &lt;code&gt;notifications&lt;/code&gt;) and add the class &lt;code&gt;animateIn&lt;/code&gt; to the element.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function animateNotificationIn(isRewinding){
+  isRewinding ? notifications[0].classList.add('animate-in') : notifications[1].classList.add('animate-in'); 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the &lt;code&gt;animateNotificationOut&lt;/code&gt; since we are adding it on an event listener we will just reference &lt;code&gt;this&lt;/code&gt; for the element within the function and remove the &lt;code&gt;animateIn&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function animateNotificationOut(){
+    this.classList.remove('animate-in');
+}
+
+notifications.forEach(function(notification){
+  notification.addEventListener('animationend', animateNotificationOut);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally we will call the &lt;code&gt;animateNotificationIn&lt;/code&gt; function in both the &lt;code&gt;forwardVideo&lt;/code&gt; and &lt;code&gt;rewindVideo&lt;/code&gt; functions. The call to &lt;code&gt;animateNotificationIn&lt;/code&gt; in &lt;code&gt;forwardVideo&lt;/code&gt; will have a parameter of false, denoting we want to forward the video. The call to &lt;code&gt;animateNotificationIn&lt;/code&gt; in &lt;code&gt;rewindVideo&lt;/code&gt; will have a parameter of true, denoting we want to forward the video. On the notification DOM elements that we grabbed earlier we will add the function to an &lt;code&gt;animationend&lt;/code&gt; event listener.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function forwardVideo(){
+  updateCurrentTime(10);
+  animateNotificationIn(false);
+}
+
+function rewindVideo(){
+    updateCurrentTime(-10);
+    animateNotificationIn(true);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;wrapping-it-up&quot;&gt;Wrapping it up&lt;/h2&gt;
+
+&lt;p&gt;Voila! We have replicated similar functionality to Youtube’s video play on its mobile application! A demo of the functionality can be seen below. When we double tap the left side of the screen the video is rewound and if the right side is double tap the video is forwarded. In addition, consecutive taps increment the amount the video will be forwarded or rewound. If you are interested in seeing the complete source code for this tutorial, you can find it on CodePen titled &lt;a href=&quot;https://codepen.io/smithsa/pen/ZmWMxy&quot;&gt;“HTML5 Video Double Click to Seek”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe height=&quot;265&quot; scrolling=&quot;no&quot; title=&quot;HTML5 Video Double Click to Seek&quot; src=&quot;//codepen.io/smithsa/embed/ZmWMxy/?height=265&amp;amp;theme-id=0&amp;amp;default-tab=css,result&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/smithsa/pen/ZmWMxy/&quot;&gt;HTML5 Video Double Click to Seek&lt;/a&gt; by Sade Smith (&lt;a href=&quot;https://codepen.io/smithsa&quot;&gt;@smithsa&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;</content><author><name></name></author><category term="javaScript" /><summary type="html">Not long ago, I was on StackOverflow and I ran across a question asking if anyone knew of a library or how to implement Youtube’s double tap to rewind and forward feature in a browser.</summary></entry><entry><title type="html">Maker Share: 3D CAD Models</title><link href="http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models" rel="alternate" type="text/html" title="Maker Share: 3D CAD Models" /><published>2018-12-28T00:00:00-06:00</published><updated>2018-12-28T00:00:00-06:00</updated><id>http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models</id><content type="html" xml:base="http://localhost:4000/2018/12/28/blog/maker-share-3d-cad-models">&lt;p&gt;This post is a break from my normal web and software development posts. I wanted to take a break and share some things not related to coding that I've been doing so I've created a new series called &quot;Maker Share.&quot; One things I've been doing is learning how to use CAD software with Fusion 360 to create 3D models. I figured it should come in handy for prototyping things I want to build. Thus far, I have created some really random things using the software. A wrench, pair of tweezers, vacuum nozzle, and a coat hook to be exact! Below, I have included some photos of these objects. They were really fun to make and I look forward to making more and printing eventually!&lt;/p&gt;
 &lt;figure&gt;
     &lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/maker-share/Coat Hook v1.jpg&quot; alt=&quot;Coat Hook&quot;&gt;
     &lt;figcaption&gt;Captivating Coat Hook&lt;/figcaption&gt;
