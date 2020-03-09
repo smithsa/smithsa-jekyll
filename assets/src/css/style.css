@@ -1490,6 +1490,9 @@ html, body {
 .blog-body .blog-content p{
 	line-height: 26px;
 }
+.blog-body strong{
+	font-weight: bold !important;
+}
 .blog-body img{
 	width:100%;
 }
@@ -1973,6 +1976,9 @@ a.meta-category:hover{
 	text-decoration: underline;
 	font-size: 14px;
 	letter-spacing:0px;
+}
+.project h2:first-child{
+	margin-top: 0px !important;
 }
 iframe{
 	width:100%;
