@@ -5,6 +5,8 @@ title:  "Arduino Powered Cybertruck"
 date: 2020-03-08
 categories: [electronics]
 tags: [hardware, arduino, robot, robot riot]
+feature_img: /assets/dist/images/blog/arduino-powered-cybertruck/bot.jpeg
+feature_img_alt: Revenge of the Cybertruck Ardunio Robot
 excerpt: One of my goals this year was to build a robot for a Robot Riot event, affectionately known as Chicago’s worst and only robot fighting league. Initially, going into building it, I had no clue what the theme ...
 ---
 ## Introduction

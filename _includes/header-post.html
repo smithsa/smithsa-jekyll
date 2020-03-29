@@ -2,7 +2,18 @@
 <html lang="en" class="no-focus-outline">
 <head lang="en">
     {% include header-content.html %}
-    <link rel="stylesheet" type="text/css" href="{{site.url}}/assets/dist/css/prism.min.css">
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:description" content="{{ page.excerpt }}" />
+    {% if page.feature_img %}
+        <meta name="twitter:image:alt" content="{{ page.feature_img_alt }}" />
+        <meta property="og:image" content="{{site.url}}{{ page.feature_img }}" />
+    {% endif %}
+    <meta property="og:url" content="{{site.url}}{{ page.url }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="Sade N. Smith" />
+    <meta name="twitter:site" content="@itsSadeSmith" />
+    <meta name="twitter:creator" content="@itsSadeSmith" />
+    <link rel="stylesheet" type="text/css" href="{{site.url}}/assets/dist/css/prism.min.css" />
 </head>
 <body>
 <div id="loading"></div>
