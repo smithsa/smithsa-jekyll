@@ -2,13 +2,17 @@
 <meta charset="UTF-8">
 <meta name="referrer" content="no-referrer" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+{% if page.feature_img == nil %}
+    <meta property="og:image" content="{{site.url}}/assets/src/images/og-image.jpg">
+{% endif %}
 {% if page.layout != "post" %}
     <meta property="og:description" content="{{site.description}}">
     <meta property="og:title" content="Sade N. Smith">
     <meta property="og:url" content="{{ site.url }}">
-{% endif %}
-{% if page.feature_img == nil %}
-    <meta property="og:image" content="{{site.url}}/assets/src/images/og-image.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="Sade N. Smith">
+    <meta name="twitter:site" content="@itsSadeSmith">
+    <meta name="twitter:creator" content="@itsSadeSmith">
 {% endif %}
 <meta name="msapplication-TileColor" content="#000000">
 <meta name="theme-color" content="#ffffff">
