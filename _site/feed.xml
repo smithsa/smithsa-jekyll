@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-29T21:19:46-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Arduino Powered Cybertruck</title><link href="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck" rel="alternate" type="text/html" title="Arduino Powered Cybertruck" /><published>2020-03-08T00:00:00-06:00</published><updated>2020-03-08T00:00:00-06:00</updated><id>http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck</id><content type="html" xml:base="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-25T17:49:47-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Metro Mini Soap Dispenser Timer</title><link href="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser" rel="alternate" type="text/html" title="Metro Mini Soap Dispenser Timer" /><published>2020-05-25T00:00:00-05:00</published><updated>2020-05-25T00:00:00-05:00</updated><id>http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser</id><content type="html" xml:base="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Since the outbreak of the 2019 Novel Coronavirus, it is now common knowledge that the Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer than you would imagine. The advice has been to sing the “Happy Birthday” or the ABC song twice, I’ve opted for the ABC, but after a while it’s become an annoying affair. Especially if I am in the process of talking to someone or thinking while I’m washing my hands. I figured that it would be a good small household problem to solve and an opportunity to learn more about electronics.&lt;/p&gt;
+
+&lt;h2 id=&quot;constraints&quot;&gt;Constraints&lt;/h2&gt;
+
+&lt;p&gt;There were two constraints I gave myself for this project. The first pertaining to the budget. After spending more than I wanted this year on electronic parts, I wanted to rely on components I already had and didn’t want to accumulate more parts. The other constraint was that I wanted the final product to be appealing to the eye. These types of projects tend to focus on function primarily and less on the visual design. My intent was to not have the solution negatively impact the environment it will live in, so I wanted to closely pay attention to its form.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-solution&quot;&gt;The Solution&lt;/h2&gt;
+
+&lt;p&gt;The final product ended up utilizing 3 main parts, a vibration sensor, RGB LED light, and an Adafruit Metro Mini for the microcontroller. I attached these components to a soap dispenser and used the cap of a container to elevate the dispenser and display the LED light. The cost of parts for the final solution ended up being approximately $15.20. The only thing I purchased was the Adafruit Metro Mini, which was $12.45, so I’m pleased with the final cost. The size of the Metro Mini is quite extraordinary and acts similarly to the Ardunio. I was even able to use the Arduino IDE for it. I thought it worked perfectly for this project and look forward to using it in other projects. In terms of design, I didn’t alter the form of the dispenser, all the electrical components are essentially hidden in some way. The only thing you really see is the light below the dispenser. I started building it on a Saturday and ended early the following day, so it was a quick build as well. Connecting everything took a while but after everything was connected, coding it was pretty straight forward. Overall, I’m happy with the final product. Essentially, it will display a blinking green light for 21 seconds (extra time build-in) which indicates a user should be scrubbing. Afterward, a still green light will appear for 21 seconds (additional 21 seconds never hurts), indicating a user should be rinsing. When the whole process is over, a red light will appear, indicating a user should stop rinsing and that they are done with the handwashing process. I’m excited to see it used inside my house!&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.youtube.com/embed/M8Oc9HoIEU8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;bill-of-materials&quot;&gt;Bill of Materials&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/soap-dispenser/bill-of-materials.jpg&quot; alt=&quot;Metro Mini soap dispenser timer bill of materials&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;schematics&quot;&gt;Schematics&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/soap-dispenser/soap_dispenser_timer_schematic.png&quot; alt=&quot;Metro Mini soap dispenser timer schematics&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The Code&lt;/h2&gt;
+&lt;p&gt;The code is posted on Github. &lt;a href=&quot;https://github.com/smithsa/metro-mini-soap-dispenser&quot;&gt;https://github.com/smithsa/metro-mini-soap-dispenser&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;#include &amp;lt;millisDelay.h&amp;gt;
+int redLightPin = 2;
+int greenLightPin = 4;
+int blueLightPin = 0;
+int virbationSensor;
+millisDelay scrubDelay;
+millisDelay washDelay;
+millisDelay finishedCycleDelay;
+int scrubDuration = 21000; // adding extra second for padding
+int washDuration = 21000; // adding extra second for padding
+int finishedCycleDuration = 6000; // adding extra second for padding
+
+void setup() {
+  pinMode(redLightPin, OUTPUT);
+  pinMode(greenLightPin, OUTPUT);
+  pinMode(blueLightPin, OUTPUT);
+  setDefaultColor();
+}
+
+void loop() {
+  virbationSensor = analogRead(A0);
+  
+  // started scrubbing, virbration sensor was triggered
+  if (virbationSensor &amp;lt; 1022){
+    scrubDelay.start(scrubDuration);
+    if(scrubDelay.isRunning()){
+      scrubDelay.restart();
+    }
+  }
+
+  // color to indicate should be scrubbing 
+  if(scrubDelay.isRunning()){
+    setColorByRGB(0,255,0);
+    delay(500);
+    setColorByRGB(0,0,0);
+    delay(500); 
+  }
+
+  // finished scrubbing and started washing
+  if (scrubDelay.justFinished()) {
+    setColorByRGB(0,255,0);
+    washDelay.start(washDuration);
+  }
+
+  // color to indicate should be washing 
+  if(washDelay.isRunning()){
+    setColorByRGB(0,255,0);
+  }
+
+  // finished washing
+  if (washDelay.justFinished()) {
+    finishedCycleDelay.start(finishedCycleDuration);
+  }
+
+  // color to indicate finish hand washing process cycle 
+  if(finishedCycleDelay.isRunning()){
+    setColorByRGB(255,0,0);
+  }
+  
+  // finish hand washing process cycle
+  if (finishedCycleDelay.justFinished()) {
+    setDefaultColor();
+  }
+}
+
+void setColorByRGB(int redLightValue, int greenLightValue, int blueLightValue) {
+  digitalWrite(redLightPin, redLightValue);
+  digitalWrite(greenLightPin, greenLightValue);
+  digitalWrite(blueLightPin, blueLightValue);
+}
+
+void setDefaultColor(){
+  setColorByRGB(0, 0, 0);
+}
+
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="hardware" /><category term="arduino" /><category term="metromini" /><category term="makershare" /><summary type="html">Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer ...</summary></entry><entry><title type="html">Arduino Powered Cybertruck</title><link href="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck" rel="alternate" type="text/html" title="Arduino Powered Cybertruck" /><published>2020-03-08T00:00:00-06:00</published><updated>2020-03-08T00:00:00-06:00</updated><id>http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck</id><content type="html" xml:base="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;One of my goals this year was to build a robot for a &lt;a href=&quot;https://www.facebook.com/RobotRiotCompetition/&quot; target=&quot;_blank&quot;&gt;Robot Riot&lt;/a&gt; event, affectionately known as Chicago’s worst and only robot fighting league. Initially, going into building it, I had no clue what the theme would be but after building the chassis, attaching the motors, and then deciding to use a PS3 controller as my control device for the robot, the idea eventually came to me. At first, I thought of making a Minecraft bot but then I saw a Minecraft built Tesla’s Cybertruck and thought why not the Cybertruck!&lt;/p&gt;
 
@@ -1166,113 +1266,4 @@ title:  &quot;Welcome to Jekyll!&quot;
 &lt;p&gt;There is good news in terms of browser support for service workers! Most of the major browsers support service workers, that includes Edge, Chrome, Safari, and Firefox. You can find more detailed information at &lt;a href=&quot;[https://jakearchibald.com/](https://jakearchibald.com/)&quot;&gt;Jake Archibald’s&lt;/a&gt; site named &lt;a href=&quot;[https://jakearchibald.github.io/isserviceworkerready/](https://jakearchibald.github.io/isserviceworkerready/)&quot;&gt;“Is Service Worker Ready”&lt;/a&gt; but it is definitely a good idea to start using the API now&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;With these new browser APIs, there has never been a better time to be developing for the web in my opinion. The list could continue: Web Bluetooth, WebVR, Shape Detection, WebAssembly, and Credential Management are APIs to keep your eye on as well. Without a doubt, the web as a platform remains a good bet and is progressively growing stronger. These APIs are worth everyone’s attention.&lt;/p&gt;</content><author><name></name></author><category term="javascript" /><category term="browser" /><category term="web share" /><category term="web bluetooth" /><category term="service workers" /><category term="payment requests" /><category term="pwas" /><category term="apis" /><summary type="html">The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.</summary></entry><entry><title type="html">Scraping Client Side Rendered Data with Python and Selenium</title><link href="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium" rel="alternate" type="text/html" title="Scraping Client Side Rendered Data with Python and Selenium" /><published>2018-06-15T00:00:00-05:00</published><updated>2018-06-15T00:00:00-05:00</updated><id>http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium</id><content type="html" xml:base="http://localhost:4000/2018/06/15/blog/scraping-client-side-rendered-data-with-python-and-selenium">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;Scraping data from websites often offers a way to automate tedious tasks and improve productivity. However, many people run into issues when the content of a website is generated on the client side as opposed to the server-side. For instance, content can not be retreived with just a HTTP request for websites that utilize AJAX to generate it’s content. A web scrapper using only server-side requests would be unable to scrape the data of such a site because the HTML of the page does not load until the javascript of the site can be executed. Since the Javascript can only be executed on the client side, a request from the page would not include it’s dynamic content.&lt;/p&gt;
-
-&lt;p&gt;To solve this problem, you can use a browser automation tool such as Selenium or PhantomJs in combination with your web scraper script. Using a browser automation tool, the HTML is able to be generated and thus read and parsed. In this tutorial, I will be showing you how to write a basic script to scrape client-side rendered content with Python and Selenium.&lt;/p&gt;
-
-&lt;p&gt;Remember before you scrape content or data from websites, ensure that you have legal rights to do so, read the site’s terms of service agreement to see if scraping is allowed, and ensure that an alternative method for to retrieve the data does not exist, for example an API. In addition, check the robots.txt file and follow the rules for how frequently you are allowed to request pages and what pages are allowed to be scraped.&lt;/p&gt;
-
-&lt;p&gt;The Python Selenium library includes a HTML tree parser but we will use Selenium to load the page’s content and BeautifulSoup to parse the HTML, since BeautifulSoup is Python’s most popular parser.&lt;/p&gt;
-
-&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Python 2.7 programming environment available here (&lt;a href=&quot;https://www.python.org/downloads/&quot;&gt;https://www.python.org/downloads/&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;MacOS or Linux Environment&lt;/li&gt;
-  &lt;li&gt;Virtualenv available here (&lt;a href=&quot;https://pypi.org/project/virtualenv/&quot;&gt;https://pypi.org/project/virtualenv/&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;pip, package manager for available here python (&lt;a href=&quot;https://pip.pypa.io/en/stable/installing/&quot;&gt;https://pip.pypa.io/en/stable/installing/&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;virtual-environment-setup&quot;&gt;Virtual Environment Setup&lt;/h2&gt;
-
-&lt;p&gt;Before we start writing the script, we will first set up a virtual environment. Let’s first create a directory for the project called simple-scrapper and navigate to the directory.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-terminal&quot;&gt;    mkdir simple-scrapper
-    cd simple-scrapper
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we can create the virtual environment and activate the environment with the following:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-terminal&quot;&gt;    virtualenv venv
-    source venv/bin/activate
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;installing-python-libraries&quot;&gt;Installing Python Libraries&lt;/h2&gt;
-
-&lt;p&gt;Next, we can install all the python modules and libraries we will need for the script with pip. We will need the selenium python bindings, BeatifulSoup4, and the requests library.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    pip install selenium
-    pip install BeautifulSoup4
-    pip install requests
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;downloading-selenium-driver&quot;&gt;Downloading Selenium Driver&lt;/h2&gt;
-
-&lt;p&gt;Now that we have all our libraries installed, we should download a driver for Selenium. The driver is required for Selenium to interface the browser you choose to use. For our purposes, we will use Chrome as our browser. You can download the latest release of the Chrome driver here: http://chromedriver.chromium.org/downloads. Download the appropriate zip file for your operating system, unzip the file, and you should find an executable file named “chromedriver.” Put this file at the root of the “simple-scrapper” folder we just created.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-web-scraping-script&quot;&gt;The Web Scraping Script&lt;/h2&gt;
-
-&lt;p&gt;We are now ready to start writing the scraper. Let’s create a python file in at the root of the folder “simple-scraper” called “scrapper.py.”&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-terminal&quot;&gt;    touch scrapper.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Open the file with your preferred text editor and let’s start writing the code to scrape a web page. For our purposes, I have created a basic page to scrape that has client-side rendered HTML. You can find the example file here: &lt;a href=&quot;http://sadesmith.com/examples/simple-scrapper/index.html&quot; target=&quot;_blank&quot;&gt;http://sadesmith.com/examples/simple-scrapper/index.html&lt;/a&gt;. Lets quickly examine the content of the page. The page simply lists the names of basketball players on the 2018 Golden State Warriors Roster — there is one header and an unordered list. Our goal will be simple, scrape all the names of the roster and print them out once collected.&lt;/p&gt;
-
-&lt;p&gt;The first task will be to load the webpage using the driver we just downloaded. We will need to tell the WebDriver where the driver is located by setting the executable path on the Chrome class. Then we can request the webpage by using the get method of the driver.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    import os
-    from selenium import webdriver
-
-    driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
-    url = &quot;http://www.sadesmith.com/examples/simple-scrapper/index.html&quot;
-    driver.get(url)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next, we will need to tell the WebDriver to wait a few seconds before parsing the page. We will import the time module and use the sleep method. We will give the method the value of 3, thus the wait time will be 3 seconds.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    import os
-    from selenium import webdriver
-    import time
-
-    driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
-    url = &quot;http://www.sadesmith.com/examples/simple-scrapper/index.html&quot;
-    driver.get(url)
-    time.sleep(3)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We are ready to parse but before we do that let’s import beautiful soup.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    from bs4 import BeautifulSoup
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now we can grab the content we need to parse. With the WebDriver loading the page, we can now view content loaded client-side. WebDriver’s page_source will return the source code of the DOM as a string. We can use BeautifulSoup to parse the HTML string, with its HTML parser.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    page_html = driver.page_source
-    bsoup = BeautifulSoup(page_html, 'html.parser')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With the BeautifulSoup object, we can then use the library to its full extent. If you are unfamiliar with BeautifulSoup you can find more documentation here about how to parse: https://www.crummy.com/software/BeautifulSoup/bs4/doc/. For our example, we know that all the names on the Warrior’s rosters are in an unordered list, in list item tag with the class name of “name”. So we can grab all list item elements with the class attribute name then loop through them print them out.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    player_names = bsoup.findAll('li', attrs={'class': 'name'});
-    for player_name in player_names:
-      print player_name.text
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;wrapping-it-all-up&quot;&gt;Wrapping it all up&lt;/h2&gt;
-
-&lt;p&gt;We are done with the simple scrapper and your file should now look this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;    import os
-    from selenium import webdriver
-    import time
-    from bs4 import BeautifulSoup
-
-    driver = webdriver.Chrome(executable_path= os.path.abspath('')+'/chromedriver')
-    driver.get(url)
-    time.sleep(3)
-
-    page_html = driver.page_source
-    bsoup = BeautifulSoup(page_html, 'html.parser')
-
-    player_names = bsoup.findAll('li', attrs={'class': 'name'});
-    for player_name in player_names:
-        print player_name.text
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now let’s run the project in the terminal! Make sure your current working directory is “simple-scrapper” and run the script.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-terminal&quot;&gt;    python scrapper.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If everything went well, you should see the names of the players on the 2018 Golden State Warriors printed in your terminal screen. We have accomplished our objective! Via our simple web scraper script, we were able to scrape HTML that was generated on the client-side using Selenium and Python.&lt;/p&gt;</content><author><name></name></author><category term="python" /><category term="selenium" /><category term="automation" /><category term="tutorial" /><category term="web scraping" /><summary type="html">Scraping data from websites often offers a way to automate tedious tasks and improve productivity. However, many people run into issues when the content of a website is generated on the client side as opposed to the server-side.</summary></entry></feed>
+&lt;p&gt;With these new browser APIs, there has never been a better time to be developing for the web in my opinion. The list could continue: Web Bluetooth, WebVR, Shape Detection, WebAssembly, and Credential Management are APIs to keep your eye on as well. Without a doubt, the web as a platform remains a good bet and is progressively growing stronger. These APIs are worth everyone’s attention.&lt;/p&gt;</content><author><name></name></author><category term="javascript" /><category term="browser" /><category term="web share" /><category term="web bluetooth" /><category term="service workers" /><category term="payment requests" /><category term="pwas" /><category term="apis" /><summary type="html">The gap between native and web applications steadily narrows as browsers introduce new web/browser application programming interfaces (APIs). Evidence of this is seen in the standardization of browser APIs like Geolocation and AmbientLightSensor. These APIs remove capability barriers by providing access to device hardware.</summary></entry></feed>
