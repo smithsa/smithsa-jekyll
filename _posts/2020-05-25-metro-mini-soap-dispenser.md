@@ -4,7 +4,7 @@ published: true
 title:  "Metro Mini Soap Dispenser Timer"
 date: 2020-05-25
 categories: [electronics]
-tags: [hardware, arduino, metromini, makershare]
+tags: [hardware, arduino, metromini, makershare, hardware]
 feature_img: /assets/dist/images/blog/soap-dispenser/thumbnail.jpg
 feature_img_alt: Metro Mini Soap Dispenser Timer
 excerpt: Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer ...

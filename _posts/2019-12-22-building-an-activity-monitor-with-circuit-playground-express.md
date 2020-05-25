@@ -4,7 +4,7 @@ published: true
 title:  "Building An Activity Monitor with Circuit Playground Express"
 date: 2019-12-22
 categories: [electronics]
-tags: [hardware, circuitpython, circuit playground express]
+tags: [hardware, circuitpython, circuit playground express, makershare]
 
 feature_img: /assets/dist/images/blog/activity-monitor/activity-monitor-thumbnail.jpg
 feature_img_alt: Circuit Python Activity Monitor
