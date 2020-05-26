@@ -527,7 +527,4 @@ Voila! This concludes the walkthrough of the skill. It’s pretty simple and jus
 
 ## Update: 10/15/2018
 
-I figured the application could use some pizzaz and give me some energy when I head off to work!
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" frameborder="0" src="https://www.youtube.com/embed/zx_2lXiQMuc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+I figured the application could use some pizzaz and give me some energy when I head off to work! Since there is Copyrighted music in the video, you'll have to [check it out on Youtube](https://www.youtube.com/watch?v=zx_2lXiQMuc){:target="_blank"}!
