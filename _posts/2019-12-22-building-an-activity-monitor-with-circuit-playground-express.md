@@ -21,8 +21,9 @@ Earlier this year, the Chicago Python Meetup Group held a workshop on CircuitPyt
 The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself and I found it much easier to work with than the Arduino. There are also various ways to code it (MakeCode, CircuitPython, Arduino, Code.org’s CS Discoveries), for this project I used CircuitPython. I learned a lot about electronics and coding for electronics and wanted to briefly show the activity monitor.
 
 ## Demonstration
-<iframe width="100%" height="270" src="https://www.youtube.com/embed/pb1g1a4TTLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pb1g1a4TTLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 ## Bill of Materials
 <img src="{{site.url}}/assets/dist/images/blog/activity-monitor/bill of materials.jpg" alt="activity monitor bill of materials" />
 

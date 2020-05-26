@@ -20,7 +20,9 @@ However, the one electronic device that I routinely use in the morning is my Ech
 
 Basically, the goal will be to build a skill that tells me the estimated time of arrival for the next two approaching trains. If you are curious about the final product a demo you can view it below.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SKBHk-v7yr8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" frameborder="0" src="https://www.youtube.com/embed/SKBHk-v7yr8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## The Requirements
 
