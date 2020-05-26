@@ -528,5 +528,6 @@ Voila! This concludes the walkthrough of the skill. It’s pretty simple and jus
 ## Update: 10/15/2018
 
 I figured the application could use some pizzaz and give me some energy when I head off to work!
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zx_2lXiQMuc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" frameborder="0" src="https://www.youtube.com/embed/zx_2lXiQMuc" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
