@@ -502,15 +502,6 @@ html, body {
   transition: all 100ms ease-in-out;
 }
 
-.hamburger::after{
-	height: 1px;
-	transition: none;
-}
-
-.is-active .hamburger::after{
-	height: 2px;
-}
-
 .hamburger::before {
   top: 5px;
 }
