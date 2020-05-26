@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-25T17:49:47-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Metro Mini Soap Dispenser Timer</title><link href="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser" rel="alternate" type="text/html" title="Metro Mini Soap Dispenser Timer" /><published>2020-05-25T00:00:00-05:00</published><updated>2020-05-25T00:00:00-05:00</updated><id>http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser</id><content type="html" xml:base="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-25T21:49:24-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sade Smith</title><subtitle>Software Developer, with 5 years of experience, currently working in the Chicagoland area, specializing in web technologies and skilled in both back-end and front-end development.</subtitle><entry><title type="html">Metro Mini Soap Dispenser Timer</title><link href="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser" rel="alternate" type="text/html" title="Metro Mini Soap Dispenser Timer" /><published>2020-05-25T00:00:00-05:00</published><updated>2020-05-25T00:00:00-05:00</updated><id>http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser</id><content type="html" xml:base="http://localhost:4000/2020/05/25/blog/metro-mini-soap-dispenser">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;Since the outbreak of the 2019 Novel Coronavirus, it is now common knowledge that the Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer than you would imagine. The advice has been to sing the “Happy Birthday” or the ABC song twice, I’ve opted for the ABC, but after a while it’s become an annoying affair. Especially if I am in the process of talking to someone or thinking while I’m washing my hands. I figured that it would be a good small household problem to solve and an opportunity to learn more about electronics.&lt;/p&gt;
+&lt;p&gt;Since the outbreak of the 2019 Novel Coronavirus, it is now common knowledge that the Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer than you would imagine. The advice has been to sing the “Happy Birthday” or the ABC song twice, I’ve opted for the ABC song, but after a while it becomes an annoying affair. Especially if I am in the process of talking to someone or thinking while I’m washing my hands. I figured that it would be a good small household problem to solve and an opportunity to build upon my electrical skills.&lt;/p&gt;
 
 &lt;h2 id=&quot;constraints&quot;&gt;Constraints&lt;/h2&gt;
 
@@ -10,7 +10,9 @@
 
 &lt;p&gt;The final product ended up utilizing 3 main parts, a vibration sensor, RGB LED light, and an Adafruit Metro Mini for the microcontroller. I attached these components to a soap dispenser and used the cap of a container to elevate the dispenser and display the LED light. The cost of parts for the final solution ended up being approximately $15.20. The only thing I purchased was the Adafruit Metro Mini, which was $12.45, so I’m pleased with the final cost. The size of the Metro Mini is quite extraordinary and acts similarly to the Ardunio. I was even able to use the Arduino IDE for it. I thought it worked perfectly for this project and look forward to using it in other projects. In terms of design, I didn’t alter the form of the dispenser, all the electrical components are essentially hidden in some way. The only thing you really see is the light below the dispenser. I started building it on a Saturday and ended early the following day, so it was a quick build as well. Connecting everything took a while but after everything was connected, coding it was pretty straight forward. Overall, I’m happy with the final product. Essentially, it will display a blinking green light for 21 seconds (extra time build-in) which indicates a user should be scrubbing. Afterward, a still green light will appear for 21 seconds (additional 21 seconds never hurts), indicating a user should be rinsing. When the whole process is over, a red light will appear, indicating a user should stop rinsing and that they are done with the handwashing process. I’m excited to see it used inside my house!&lt;/p&gt;
 
-&lt;iframe src=&quot;https://www.youtube.com/embed/M8Oc9HoIEU8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;div class=&quot;embed-responsive embed-responsive-4by3&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/M8Oc9HoIEU8&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;bill-of-materials&quot;&gt;Bill of Materials&lt;/h2&gt;
 
@@ -18,87 +20,7 @@
 
 &lt;h2 id=&quot;schematics&quot;&gt;Schematics&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/soap-dispenser/soap_dispenser_timer_schematic.png&quot; alt=&quot;Metro Mini soap dispenser timer schematics&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The Code&lt;/h2&gt;
-&lt;p&gt;The code is posted on Github. &lt;a href=&quot;https://github.com/smithsa/metro-mini-soap-dispenser&quot;&gt;https://github.com/smithsa/metro-mini-soap-dispenser&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-c&quot;&gt;#include &amp;lt;millisDelay.h&amp;gt;
-int redLightPin = 2;
-int greenLightPin = 4;
-int blueLightPin = 0;
-int virbationSensor;
-millisDelay scrubDelay;
-millisDelay washDelay;
-millisDelay finishedCycleDelay;
-int scrubDuration = 21000; // adding extra second for padding
-int washDuration = 21000; // adding extra second for padding
-int finishedCycleDuration = 6000; // adding extra second for padding
-
-void setup() {
-  pinMode(redLightPin, OUTPUT);
-  pinMode(greenLightPin, OUTPUT);
-  pinMode(blueLightPin, OUTPUT);
-  setDefaultColor();
-}
-
-void loop() {
-  virbationSensor = analogRead(A0);
-  
-  // started scrubbing, virbration sensor was triggered
-  if (virbationSensor &amp;lt; 1022){
-    scrubDelay.start(scrubDuration);
-    if(scrubDelay.isRunning()){
-      scrubDelay.restart();
-    }
-  }
-
-  // color to indicate should be scrubbing 
-  if(scrubDelay.isRunning()){
-    setColorByRGB(0,255,0);
-    delay(500);
-    setColorByRGB(0,0,0);
-    delay(500); 
-  }
-
-  // finished scrubbing and started washing
-  if (scrubDelay.justFinished()) {
-    setColorByRGB(0,255,0);
-    washDelay.start(washDuration);
-  }
-
-  // color to indicate should be washing 
-  if(washDelay.isRunning()){
-    setColorByRGB(0,255,0);
-  }
-
-  // finished washing
-  if (washDelay.justFinished()) {
-    finishedCycleDelay.start(finishedCycleDuration);
-  }
-
-  // color to indicate finish hand washing process cycle 
-  if(finishedCycleDelay.isRunning()){
-    setColorByRGB(255,0,0);
-  }
-  
-  // finish hand washing process cycle
-  if (finishedCycleDelay.justFinished()) {
-    setDefaultColor();
-  }
-}
-
-void setColorByRGB(int redLightValue, int greenLightValue, int blueLightValue) {
-  digitalWrite(redLightPin, redLightValue);
-  digitalWrite(greenLightPin, greenLightValue);
-  digitalWrite(blueLightPin, blueLightValue);
-}
-
-void setDefaultColor(){
-  setColorByRGB(0, 0, 0);
-}
-
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="hardware" /><category term="arduino" /><category term="metromini" /><category term="makershare" /><summary type="html">Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer ...</summary></entry><entry><title type="html">Arduino Powered Cybertruck</title><link href="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck" rel="alternate" type="text/html" title="Arduino Powered Cybertruck" /><published>2020-03-08T00:00:00-06:00</published><updated>2020-03-08T00:00:00-06:00</updated><id>http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck</id><content type="html" xml:base="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/soap-dispenser/soap_dispenser_timer_schematic.png&quot; alt=&quot;Metro Mini soap dispenser timer schematics&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="hardware" /><category term="arduino" /><category term="metromini" /><category term="makershare" /><category term="hardware" /><summary type="html">Centers for Disease Control recommends that individuals frequently wash their hands for at least 20 seconds to protect against the virus and other pathogens. I’ve come to learn that 20 seconds feels a lot longer ...</summary></entry><entry><title type="html">Arduino Powered Cybertruck</title><link href="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck" rel="alternate" type="text/html" title="Arduino Powered Cybertruck" /><published>2020-03-08T00:00:00-06:00</published><updated>2020-03-08T00:00:00-06:00</updated><id>http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck</id><content type="html" xml:base="http://localhost:4000/2020/03/08/blog/arduino-powered-cybertruck">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;One of my goals this year was to build a robot for a &lt;a href=&quot;https://www.facebook.com/RobotRiotCompetition/&quot; target=&quot;_blank&quot;&gt;Robot Riot&lt;/a&gt; event, affectionately known as Chicago’s worst and only robot fighting league. Initially, going into building it, I had no clue what the theme would be but after building the chassis, attaching the motors, and then deciding to use a PS3 controller as my control device for the robot, the idea eventually came to me. At first, I thought of making a Minecraft bot but then I saw a Minecraft built Tesla’s Cybertruck and thought why not the Cybertruck!&lt;/p&gt;
 
@@ -150,7 +72,7 @@ void setDefaultColor(){
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;schematics&quot;&gt;Schematics&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/arduino-powered-cybertruck/bot-schematic.jpg&quot; alt=&quot;Ardunio powered Cybertruck schematics&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="hardware" /><category term="arduino" /><category term="robot" /><category term="robot riot" /><summary type="html">One of my goals this year was to build a robot for a Robot Riot event, affectionately known as Chicago’s worst and only robot fighting league. Initially, going into building it, I had no clue what the theme ...</summary></entry><entry><title type="html">Building An Activity Monitor with Circuit Playground Express</title><link href="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express" rel="alternate" type="text/html" title="Building An Activity Monitor with Circuit Playground Express" /><published>2019-12-22T00:00:00-06:00</published><updated>2019-12-22T00:00:00-06:00</updated><id>http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express</id><content type="html" xml:base="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/dist/images/blog/arduino-powered-cybertruck/bot-schematic.jpg&quot; alt=&quot;Ardunio powered Cybertruck schematics&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="hardware" /><category term="arduino" /><category term="robot" /><category term="robot riot" /><category term="makershare" /><summary type="html">One of my goals this year was to build a robot for a Robot Riot event, affectionately known as Chicago’s worst and only robot fighting league. Initially, going into building it, I had no clue what the theme ...</summary></entry><entry><title type="html">Building An Activity Monitor with Circuit Playground Express</title><link href="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express" rel="alternate" type="text/html" title="Building An Activity Monitor with Circuit Playground Express" /><published>2019-12-22T00:00:00-06:00</published><updated>2019-12-22T00:00:00-06:00</updated><id>http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express</id><content type="html" xml:base="http://localhost:4000/2019/12/22/blog/building-an-activity-monitor-with-circuit-playground-express">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Earlier this year, the Chicago Python Meetup Group held a workshop on CircuitPython. I entered an idea to build an activity monitor for the workshop and was selected to participate and received a Circuit Playground Express.&lt;/p&gt;
 
@@ -268,7 +190,7 @@ while True:
     print(&quot;should_read_sensor:&quot;,should_read_sensor)
     print(&quot;sensor_read_count:&quot;, sensor_read_count)
     print(&quot;aggregated_sensor_data:&quot;, aggregated_sensor_data)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="hardware" /><category term="circuitpython" /><category term="circuit playground express" /><summary type="html">The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself ...</summary></entry><entry><title type="html">Replicating Youtube App’s Double Tap to Seek Feature</title><link href="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature" rel="alternate" type="text/html" title="Replicating Youtube App's Double Tap to Seek Feature" /><published>2019-01-12T00:00:00-06:00</published><updated>2019-01-12T00:00:00-06:00</updated><id>http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature</id><content type="html" xml:base="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="hardware" /><category term="circuitpython" /><category term="circuit playground express" /><category term="makershare" /><summary type="html">The Circuit Playground Express offers a number of built-in sensors, an accelerometer, LEDs, and buttons. You can do a lot with just the microcontroller itself ...</summary></entry><entry><title type="html">Replicating Youtube App’s Double Tap to Seek Feature</title><link href="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature" rel="alternate" type="text/html" title="Replicating Youtube App's Double Tap to Seek Feature" /><published>2019-01-12T00:00:00-06:00</published><updated>2019-01-12T00:00:00-06:00</updated><id>http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature</id><content type="html" xml:base="http://localhost:4000/2019/01/12/blog/replicating-youtube-apps-double-tap-to-seek-feature">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Not long ago, I was on StackOverflow and I ran across a question asking if anyone knew of a library or how to implement Youtube’s double tap to rewind and forward feature in a browser. It’s a feature on the Youtube mobile application app that allows the user to forward the video if the right side of the video is double tapped and rewind the video if the left side is double tapped. It’s a nifty feature that I didn’t know existed before I saw the question since I don’t use Youtube on my phone much but I thought it would be cool to build with JavaScript. In this post, I will demonstrate how to implement such a feature using HTML, CSS, and vanilla JavaScript.&lt;/p&gt;
 

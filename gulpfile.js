@@ -41,7 +41,7 @@ gulp.task('stylesheets', function () {
 
 gulp.task('fonts', function() {
     return gulp.src('assets/src/fonts/**/*')
-        .pipe(gulp.dest('assets/dist/fonts'))
+        .pipe(gulp.dest('assets/dist/fonts/'))
 });
 
 gulp.task('clean', () => del(['assets/dist/*']));
