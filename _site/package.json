@@ -21,7 +21,7 @@
     "gulp-uglify": "^3.0.0",
     "run-sequence": "^2.2.1",
     "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {}
 }
